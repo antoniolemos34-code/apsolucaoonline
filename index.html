@@ -1,1 +1,331 @@
-es
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AP Solução Online – Websites & Presença Digital Profissional</title>
+  <meta name="description"
+    content="AP Solução Online cria websites modernos, chatbots e presença digital completa para pequenos empresários e trabalhadores independentes. Simples, rápido e a preço justo.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --white: #ffffff;
+      --text-main: #1d1d1f;
+      --text-muted: #6e6e73;
+      --accent: #0071e3; /* Azul estilo Apple */
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --shadow: 0 18px 40px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    header {
+      background: var(--white);
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid #e2e2e7;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    nav a {
+      margin-left: 18px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+      max-width: 540px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    .hero-media {
+      background: #000;
+      border-radius: var(--radius-lg);
+      height: 320px;
+      box-shadow: var(--shadow);
+      background-size: cover;
+      background-position: center;
+      background-image: url('https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 0;
+    }
+
+    h2.section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    p.section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 26px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: var(--white);
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--text-main);
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* 3 PASSOS */
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    /* CONTACTO */
+    .contact-box {
+      background: var(--white);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      nav { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#">AP Solução Online</a>
+
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Processo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Presença digital profissional para o seu negócio.</h1>
+      <p>Websites modernos, chatbots, Google Business e toda a presença digital criada por profissionais — rápido, simples e com preço justo. A única coisa que precisa é dizer o que faz.</p>
+
+      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank">Falar com a equipa</a>
+    </div>
+
+    <div class="hero-media"></div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <h2 class="section-title">O que fazemos por si</h2>
+    <p class="section-sub">Tudo o que um pequeno negócio precisa para entrar online de forma profissional.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Websites Modernos</h3>
+        <p>Criação de websites rápidos, modernos e adaptados ao seu negócio — prontos em poucos dias.</p>
+      </div>
+
+      <div class="card">
+        <h3>Chatbots Automáticos</h3>
+        <p>Chatbots que respondem clientes 24/7 via WhatsApp ou Website. Sem complicações.</p>
+      </div>
+
+      <div class="card">
+        <h3>Google Business</h3>
+        <p>Configuramos tudo para que o seu negócio apareça no Google de forma correta e profissional.</p>
+      </div>
+
+      <div class="card">
+        <h3>Email Profissional</h3>
+        <p>Configuração de email empresarial com o nome do seu domínio (ex: info@seudominio.com).</p>
+      </div>
+
+      <div class="card">
+        <h3>Textos & Copywriting</h3>
+        <p>Escrevemos todos os textos do site com clareza, profissionalismo e foco no cliente.</p>
+      </div>
+
+      <div class="card">
+        <h3>Gestão de Marca Online</h3>
+        <p>Organizamos a sua presença digital e criamos a base online da sua empresa.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section id="processo">
+    <h2 class="section-title">Como funciona</h2>
+    <p class="section-sub">Um processo simples, criado para quem não tem tempo nem conhecimentos técnicos.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="step-number">1</div>
+        <h3>Envia informações básicas</h3>
+        <p>O cliente apenas diz o que faz e envia alguns detalhes. O resto fica connosco.</p>
+      </div>
+
+      <div class="card">
+        <div class="step-number">2</div>
+        <h3>Nós criamos tudo</h3>
+        <p>Website, textos, imagens, chatbot, Google Business e toda a presença digital.</p>
+      </div>
+
+      <div class="card">
+        <div class="step-number">3</div>
+        <h3>O seu site fica online</h3>
+        <p>Em poucos dias, entregamos tudo pronto, já online e otimizado.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2 class="section-title">Fale connosco</h2>
+    <p class="section-sub">Peça um website ou solução digital. Sem compromisso.</p>
+
+    <div class="contact-box">
+      <p style="margin-bottom: 18px; font-size:1.05rem;">Clique abaixo para falar diretamente com a equipa:</p>
+
+      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank">Contactar por WhatsApp</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> AP Solução Online — Websites & Presença Digital Profissional
+</footer>
+
+</body>
+</html>
