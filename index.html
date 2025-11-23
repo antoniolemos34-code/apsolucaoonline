@@ -33,6 +33,12 @@
       line-height: 1.55;
     }
 
+    /* SISTEMA DE LÍNGUAS */
+    .lang { display: none; }
+    body.lang-pt .lang.pt { display: inline; }
+    body.lang-en .lang.en { display: inline; }
+    body.lang-es .lang.es { display: inline; }
+
     header {
       background: var(--white);
       padding: 14px 20px;
@@ -48,6 +54,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .logo {
@@ -58,6 +65,7 @@
       color: var(--text-main);
       font-weight: 700;
       font-size: 1.2rem;
+      white-space: nowrap;
     }
 
     nav a {
@@ -71,6 +79,36 @@
     nav a:hover {
       opacity: 1;
       color: var(--accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+      background: #f0f0f3;
+      padding: 4px;
+      border-radius: 999px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
     }
 
     .container {
@@ -113,6 +151,8 @@
       font-weight: 600;
       text-decoration: none;
       transition: 0.2s;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-primary:hover {
@@ -197,6 +237,25 @@
       margin: 0 auto;
     }
 
+    .social-links {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -209,21 +268,42 @@
         grid-template-columns: 1fr;
       }
       nav { display: none; }
+      .nav-right { margin-left: auto; }
     }
   </style>
 </head>
 
-<body>
+<body class="lang-pt">
 
 <header>
   <div class="nav">
     <a class="logo" href="#">AP Solução Online</a>
 
     <nav>
-      <a href="#servicos">Serviços</a>
-      <a href="#processo">Processo</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#servicos">
+        <span class="lang pt">Serviços</span>
+        <span class="lang en">Services</span>
+        <span class="lang es">Servicios</span>
+      </a>
+      <a href="#processo">
+        <span class="lang pt">Processo</span>
+        <span class="lang en">Process</span>
+        <span class="lang es">Proceso</span>
+      </a>
+      <a href="#contacto">
+        <span class="lang pt">Contacto</span>
+        <span class="lang en">Contact</span>
+        <span class="lang es">Contacto</span>
+      </a>
     </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -232,10 +312,30 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <h1>Presença digital profissional para o seu negócio.</h1>
-      <p>Websites modernos, chatbots, Google Business e toda a presença digital criada por profissionais — rápido, simples e com preço justo. A única coisa que precisa é dizer o que faz.</p>
+      <h1>
+        <span class="lang pt">Presença digital profissional para o seu negócio.</span>
+        <span class="lang en">Professional digital presence for your business.</span>
+        <span class="lang es">Presencia digital profesional para tu negocio.</span>
+      </h1>
 
-      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank">Falar com a equipa</a>
+      <p>
+        <span class="lang pt">
+          Websites modernos, chatbots, Google Business e toda a presença digital criada por profissionais — rápido, simples e com preço justo. A única coisa que precisa é dizer o que faz.
+        </span>
+        <span class="lang en">
+          Modern websites, chatbots, Google Business and your whole online presence created by professionals — fast, simple and fairly priced. You only need to say what you do.
+        </span>
+        <span class="lang es">
+          Sitios web modernos, chatbots, Google Business y toda tu presencia digital creada por profesionales — rápido, sencillo y a un precio justo. Solo tienes que decir lo que haces.
+        </span>
+      </p>
+
+      <!-- WhatsApp direto sem mostrar o número -->
+      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank" rel="noopener">
+        <span class="lang pt">Falar com a equipa por WhatsApp</span>
+        <span class="lang en">Talk with the team on WhatsApp</span>
+        <span class="lang es">Hablar con el equipo por WhatsApp</span>
+      </a>
     </div>
 
     <div class="hero-media"></div>
@@ -243,39 +343,96 @@
 
   <!-- SERVIÇOS -->
   <section id="servicos">
-    <h2 class="section-title">O que fazemos por si</h2>
-    <p class="section-sub">Tudo o que um pequeno negócio precisa para entrar online de forma profissional.</p>
+    <h2 class="section-title">
+      <span class="lang pt">O que fazemos por si</span>
+      <span class="lang en">What we do for you</span>
+      <span class="lang es">Lo que hacemos por ti</span>
+    </h2>
+
+    <p class="section-sub">
+      <span class="lang pt">Tudo o que um pequeno negócio precisa para entrar online de forma profissional.</span>
+      <span class="lang en">Everything a small business needs to be online in a professional way.</span>
+      <span class="lang es">Todo lo que un pequeño negocio necesita para entrar online de forma profesional.</span>
+    </p>
 
     <div class="grid">
 
       <div class="card">
-        <h3>Websites Modernos</h3>
-        <p>Criação de websites rápidos, modernos e adaptados ao seu negócio — prontos em poucos dias.</p>
+        <h3>
+          <span class="lang pt">Websites Modernos</span>
+          <span class="lang en">Modern Websites</span>
+          <span class="lang es">Sitios web modernos</span>
+        </h3>
+        <p>
+          <span class="lang pt">Criação de websites rápidos, modernos e adaptados ao seu negócio — prontos em poucos dias.</span>
+          <span class="lang en">Fast, modern websites tailored to your business — ready in a few days.</span>
+          <span class="lang es">Creación de sitios web rápidos, modernos y adaptados a tu negocio — listos en pocos días.</span>
+        </p>
       </div>
 
       <div class="card">
-        <h3>Chatbots Automáticos</h3>
-        <p>Chatbots que respondem clientes 24/7 via WhatsApp ou Website. Sem complicações.</p>
+        <h3>
+          <span class="lang pt">Chatbots Automáticos</span>
+          <span class="lang en">Automated Chatbots</span>
+          <span class="lang es">Chatbots automáticos</span>
+        </h3>
+        <p>
+          <span class="lang pt">Chatbots que respondem clientes 24/7 via WhatsApp ou Website. Sem complicações.</span>
+          <span class="lang en">Chatbots that reply to customers 24/7 via WhatsApp or website. No complications.</span>
+          <span class="lang es">Chatbots que responden a los clientes 24/7 por WhatsApp o por la web. Sin complicaciones.</span>
+        </p>
       </div>
 
       <div class="card">
-        <h3>Google Business</h3>
-        <p>Configuramos tudo para que o seu negócio apareça no Google de forma correta e profissional.</p>
+        <h3>
+          <span class="lang pt">Google Business</span>
+          <span class="lang en">Google Business</span>
+          <span class="lang es">Google Business</span>
+        </h3>
+        <p>
+          <span class="lang pt">Configuramos tudo para que o seu negócio apareça no Google de forma correta e profissional.</span>
+          <span class="lang en">We set everything up so your business appears on Google in a correct, professional way.</span>
+          <span class="lang es">Configuramos todo para que tu negocio aparezca en Google de forma correcta y profesional.</span>
+        </p>
       </div>
 
       <div class="card">
-        <h3>Email Profissional</h3>
-        <p>Configuração de email empresarial com o nome do seu domínio (ex: info@seudominio.com).</p>
+        <h3>
+          <span class="lang pt">Email Profissional</span>
+          <span class="lang en">Professional Email</span>
+          <span class="lang es">Correo electrónico profesional</span>
+        </h3>
+        <p>
+          <span class="lang pt">Configuração de email empresarial com o nome do seu domínio (ex: info@seudominio.com).</span>
+          <span class="lang en">Business email set-up with your own domain name (e.g. info@yourdomain.com).</span>
+          <span class="lang es">Configuración de correo empresarial con tu propio dominio (ej: info@tudominio.com).</span>
+        </p>
       </div>
 
       <div class="card">
-        <h3>Textos & Copywriting</h3>
-        <p>Escrevemos todos os textos do site com clareza, profissionalismo e foco no cliente.</p>
+        <h3>
+          <span class="lang pt">Textos & Copywriting</span>
+          <span class="lang en">Texts & Copywriting</span>
+          <span class="lang es">Textos & copywriting</span>
+        </h3>
+        <p>
+          <span class="lang pt">Escrevemos todos os textos do site com clareza, profissionalismo e foco no cliente.</span>
+          <span class="lang en">We write all the website text with clarity, professionalism and focus on your client.</span>
+          <span class="lang es">Escribimos todos los textos de la web con claridad, profesionalidad y foco en el cliente.</span>
+        </p>
       </div>
 
       <div class="card">
-        <h3>Gestão de Marca Online</h3>
-        <p>Organizamos a sua presença digital e criamos a base online da sua empresa.</p>
+        <h3>
+          <span class="lang pt">Gestão de Marca Online</span>
+          <span class="lang en">Online Brand Management</span>
+          <span class="lang es">Gestión de marca online</span>
+        </h3>
+        <p>
+          <span class="lang pt">Organizamos a sua presença digital e criamos a base online da sua empresa.</span>
+          <span class="lang en">We organise your digital presence and create a solid online base for your business.</span>
+          <span class="lang es">Organizamos tu presencia digital y creamos la base online de tu empresa.</span>
+        </p>
       </div>
 
     </div>
@@ -283,27 +440,60 @@
 
   <!-- PROCESSO -->
   <section id="processo">
-    <h2 class="section-title">Como funciona</h2>
-    <p class="section-sub">Um processo simples, criado para quem não tem tempo nem conhecimentos técnicos.</p>
+    <h2 class="section-title">
+      <span class="lang pt">Como funciona</span>
+      <span class="lang en">How it works</span>
+      <span class="lang es">Cómo funciona</span>
+    </h2>
+
+    <p class="section-sub">
+      <span class="lang pt">Um processo simples, criado para quem não tem tempo nem conhecimentos técnicos.</span>
+      <span class="lang en">A simple process, designed for people with no time and no technical knowledge.</span>
+      <span class="lang es">Un proceso sencillo, pensado para quien no tiene tiempo ni conocimientos técnicos.</span>
+    </p>
 
     <div class="grid">
 
       <div class="card">
         <div class="step-number">1</div>
-        <h3>Envia informações básicas</h3>
-        <p>O cliente apenas diz o que faz e envia alguns detalhes. O resto fica connosco.</p>
+        <h3>
+          <span class="lang pt">Envia informações básicas</span>
+          <span class="lang en">Send basic information</span>
+          <span class="lang es">Envíanos la información básica</span>
+        </h3>
+        <p>
+          <span class="lang pt">O cliente apenas diz o que faz e envia alguns detalhes. O resto fica connosco.</span>
+          <span class="lang en">You just tell us what you do and a few details. We handle the rest.</span>
+          <span class="lang es">Solo nos dices lo que haces y algunos detalles. Nosotros hacemos el resto.</span>
+        </p>
       </div>
 
       <div class="card">
         <div class="step-number">2</div>
-        <h3>Nós criamos tudo</h3>
-        <p>Website, textos, imagens, chatbot, Google Business e toda a presença digital.</p>
+        <h3>
+          <span class="lang pt">Nós criamos tudo</span>
+          <span class="lang en">We create everything</span>
+          <span class="lang es">Creamos todo por ti</span>
+        </h3>
+        <p>
+          <span class="lang pt">Website, textos, imagens, chatbot, Google Business e toda a presença digital.</span>
+          <span class="lang en">Website, texts, images, chatbot, Google Business and your full digital presence.</span>
+          <span class="lang es">Web, textos, imágenes, chatbot, Google Business y toda tu presencia digital.</span>
+        </p>
       </div>
 
       <div class="card">
         <div class="step-number">3</div>
-        <h3>O seu site fica online</h3>
-        <p>Em poucos dias, entregamos tudo pronto, já online e otimizado.</p>
+        <h3>
+          <span class="lang pt">O seu site fica online</span>
+          <span class="lang en">Your website goes online</span>
+          <span class="lang es">Tu sitio sale online</span>
+        </h3>
+        <p>
+          <span class="lang pt">Em poucos dias, entregamos tudo pronto, já online e otimizado.</span>
+          <span class="lang en">In a few days, we deliver everything ready, online and optimised.</span>
+          <span class="lang es">En pocos días entregamos todo listo, ya online y optimizado.</span>
+        </p>
       </div>
 
     </div>
@@ -311,21 +501,77 @@
 
   <!-- CONTACTO -->
   <section id="contacto">
-    <h2 class="section-title">Fale connosco</h2>
-    <p class="section-sub">Peça um website ou solução digital. Sem compromisso.</p>
+    <h2 class="section-title">
+      <span class="lang pt">Fale connosco</span>
+      <span class="lang en">Talk to us</span>
+      <span class="lang es">Habla con nosotros</span>
+    </h2>
+
+    <p class="section-sub">
+      <span class="lang pt">Peça um website ou solução digital. Sem compromisso.</span>
+      <span class="lang en">Ask for a website or digital solution. No obligation.</span>
+      <span class="lang es">Pide una web o solución digital. Sin compromiso.</span>
+    </p>
 
     <div class="contact-box">
-      <p style="margin-bottom: 18px; font-size:1.05rem;">Clique abaixo para falar diretamente com a equipa:</p>
+      <p style="margin-bottom: 18px; font-size:1.05rem;">
+        <span class="lang pt">Clique abaixo para falar diretamente com a equipa:</span>
+        <span class="lang en">Click below to speak directly with the team:</span>
+        <span class="lang es">Haz clic abajo para hablar directamente con el equipo:</span>
+      </p>
 
-      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank">Contactar por WhatsApp</a>
+      <!-- WhatsApp direto sem mostrar número -->
+      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank" rel="noopener">
+        <span class="lang pt">Contactar por WhatsApp</span>
+        <span class="lang en">Contact via WhatsApp</span>
+        <span class="lang es">Contactar por WhatsApp</span>
+      </a>
+
+      <!-- Ligações diretas Social Media -->
+      <div class="social-links">
+        <span class="lang pt">Ou visite-nos nas redes sociais:</span>
+        <span class="lang en">Or visit us on social media:</span>
+        <span class="lang es">O visítanos en las redes sociales:</span>
+
+        <!-- Podes trocar estes links pelos teus reais se forem diferentes -->
+        <a href="https://www.instagram.com/ap_the_solution" target="_blank" rel="noopener">
+          Instagram – AP Digital Solutions
+        </a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener">
+          Facebook – AP Digital Solutions
+        </a>
+      </div>
     </div>
   </section>
 
 </main>
 
 <footer>
-  © <script>document.write(new Date().getFullYear())</script> AP Solução Online — Websites & Presença Digital Profissional
+  © <script>document.write(new Date().getFullYear())</script>
+  AP Solução Online — Websites &amp; Presença Digital Profissional
 </footer>
+
+<script>
+  // controlo de línguas
+  const body = document.body;
+  const langButtons = document.querySelectorAll('.lang-btn');
+
+  function setLang(lang) {
+    body.classList.remove('lang-pt','lang-en','lang-es');
+    body.classList.add('lang-' + lang);
+
+    langButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+  }
+
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // idioma inicial
+  setLang('pt');
+</script>
 
 </body>
 </html>
