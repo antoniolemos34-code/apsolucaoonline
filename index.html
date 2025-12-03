@@ -1,576 +1,770 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AP Solução Online | Presença Digital Premium</title>
+    <meta name="description" content="Websites profissionais, Chatbots e Gestão Google Business. A solução completa para o seu negócio crescer online.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <title>AP Solução Online – Websites & Presença Digital Profissional</title>
-  <meta name="description"
-    content="AP Solução Online cria websites modernos, chatbots e presença digital completa para pequenos empresários e trabalhadores independentes. Simples, rápido e a preço justo.">
+    <style>
+        /* --- VARIÁVEIS & RESET --- */
+        :root {
+            --primary: #0066FF; /* Azul Vibrante */
+            --primary-dark: #004ecc;
+            --secondary: #111827; /* Quase Preto */
+            --text-body: #4B5563;
+            --text-light: #9CA3AF;
+            --bg-body: #F9FAFB;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --blur: 12px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --radius-xl: 24px;
+            --radius-md: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-body);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Fundo subtil com gradiente */
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.03) 0%, transparent 20%);
+        }
 
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --white: #ffffff;
-      --text-main: #1d1d1f;
-      --text-muted: #6e6e73;
-      --accent: #0071e3; /* Azul estilo Apple */
-      --radius-lg: 22px;
-      --radius-md: 14px;
-      --shadow: 0 18px 40px rgba(0,0,0,0.08);
-    }
+        /* --- UTILITÁRIOS --- */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .lang { display: none; }
+        body.lang-pt .lang.pt, body.lang-en .lang.en, body.lang-es .lang.es { display: block; }
+        span.lang { display: inline; } /* Para spans inline */
+        
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+        }
 
-    body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      line-height: 1.55;
-    }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+        }
 
-    /* SISTEMA DE LÍNGUAS */
-    .lang { display: none; }
-    body.lang-pt .lang.pt { display: inline; }
-    body.lang-en .lang.en { display: inline; }
-    body.lang-es .lang.es { display: inline; }
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover { background: #1ebc57; transform: translateY(-2px); }
 
-    header {
-      background: var(--white);
-      padding: 14px 20px;
-      position: sticky;
-      top: 0;
-      border-bottom: 1px solid #e2e2e7;
-      z-index: 100;
-    }
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
 
-    .nav {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 1.2rem;
-      white-space: nowrap;
-    }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo span { color: var(--primary); }
 
-    nav a {
-      margin-left: 18px;
-      text-decoration: none;
-      color: var(--text-main);
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
 
-    nav a:hover {
-      opacity: 1;
-      color: var(--accent);
-    }
+        .desktop-nav a {
+            text-decoration: none;
+            color: var(--text-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+        .desktop-nav a:hover { color: var(--primary); }
 
-    .lang-switch {
-      display: flex;
-      gap: 6px;
-      background: #f0f0f3;
-      padding: 4px;
-      border-radius: 999px;
-    }
+        /* Language Switcher */
+        .lang-switch {
+            background: #F3F4F6;
+            padding: 4px;
+            border-radius: 50px;
+            display: flex;
+            gap: 2px;
+        }
 
-    .lang-btn {
-      border: none;
-      background: transparent;
-      font-size: 0.8rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
 
-    .lang-btn.active {
-      background: var(--accent);
-      color: #fff;
-    }
+        .lang-btn.active {
+            background: white;
+            color: var(--secondary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+        /* Mobile Menu Button */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
 
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
-      align-items: center;
-      padding: 80px 0;
-    }
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 160px 0 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-    .hero h1 {
-      font-size: clamp(32px, 6vw, 48px);
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
 
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      margin-bottom: 26px;
-      max-width: 540px;
-    }
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-body);
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      background: var(--accent);
-      color: white;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-      border: none;
-      cursor: pointer;
-    }
+        .hero-image-wrapper {
+            position: relative;
+        }
 
-    .btn-primary:hover {
-      opacity: 0.85;
-    }
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 4px solid white;
+            animation: float 6s ease-in-out infinite;
+        }
 
-    .hero-media {
-      background: #000;
-      border-radius: var(--radius-lg);
-      height: 320px;
-      box-shadow: var(--shadow);
-      background-size: cover;
-      background-position: center;
-      background-image: url('https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
-    }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
 
-    /* SECTIONS */
-    section {
-      padding: 80px 0;
-    }
+        /* --- SEÇÕES PADRÃO --- */
+        section { padding: 100px 0; }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
 
-    h2.section-title {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-    p.section-sub {
-      text-align: center;
-      color: var(--text-muted);
-      margin-bottom: 40px;
-      font-size: 1.05rem;
-    }
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+        }
 
-    .grid {
-      display: grid;
-      gap: 26px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
+        p.subtext {
+            font-size: 1.05rem;
+            color: var(--text-body);
+        }
 
-    .card {
-      background: var(--white);
-      padding: 26px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-    }
+        /* --- CARDS GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: var(--text-main);
-      font-size: 1.15rem;
-    }
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255, 0.5);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 102, 255, 0.1);
+        }
 
-    /* 3 PASSOS */
-    .step-number {
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 102, 255, 0.08);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon svg { width: 24px; height: 24px; }
 
-    /* CONTACTO */
-    .contact-box {
-      background: var(--white);
-      padding: 40px;
-      border-radius: var(--radius-lg);
-      text-align: center;
-      box-shadow: var(--shadow);
-      max-width: 600px;
-      margin: 0 auto;
-    }
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
 
-    .social-links {
-      margin-top: 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-      font-size: 0.95rem;
-    }
+        .card p {
+            color: var(--text-body);
+            font-size: 0.95rem;
+        }
 
-    .social-links a {
-      text-decoration: none;
-      color: var(--accent);
-      font-weight: 500;
-    }
+        /* --- STEPS (Processo) --- */
+        .step-card {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(0, 102, 255, 0.15);
+            line-height: 1;
+        }
 
-    .social-links a:hover {
-      text-decoration: underline;
-    }
+        /* --- CONTACTO --- */
+        .cta-box {
+            background: var(--secondary);
+            color: white;
+            border-radius: var(--radius-xl);
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
+        .cta-box h2 { color: white; }
+        .cta-box p { color: #9CA3AF; margin-bottom: 32px; }
+        
+        /* Círculos decorativos no fundo do CTA */
+        .cta-bg-circle {
+            position: absolute;
+            background: var(--primary);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      nav { display: none; }
-      .nav-right { margin-left: auto; }
-    }
-  </style>
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE MENU OVERLAY --- */
+        .mobile-menu {
+            position: fixed;
+            top: 0; right: 0; bottom: 0;
+            width: 80%;
+            max-width: 300px;
+            background: white;
+            z-index: 200;
+            padding: 24px;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .mobile-menu.open { transform: translateX(0); }
+        .overlay-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 150;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+        .overlay-bg.open { display: block; }
+
+        .mobile-nav-link {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 12px;
+        }
+
+        .close-menu {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-body);
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 120px; }
+            .hero-content p { margin: 0 auto 32px; }
+            .desktop-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .cta-box { padding: 40px 24px; }
+        }
+
+        /* Animação Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body class="lang-pt">
 
-<header>
-  <div class="nav">
-    <a class="logo" href="#">AP Solução Online</a>
-
-    <nav>
-      <a href="#servicos">
+<div class="overlay-bg" id="overlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenu">&times;</button>
+    <a href="#servicos" class="mobile-nav-link" onclick="toggleMenu()">
         <span class="lang pt">Serviços</span>
         <span class="lang en">Services</span>
         <span class="lang es">Servicios</span>
-      </a>
-      <a href="#processo">
+    </a>
+    <a href="#processo" class="mobile-nav-link" onclick="toggleMenu()">
         <span class="lang pt">Processo</span>
         <span class="lang en">Process</span>
         <span class="lang es">Proceso</span>
-      </a>
-      <a href="#contacto">
+    </a>
+    <a href="#contacto" class="mobile-nav-link" onclick="toggleMenu()">
         <span class="lang pt">Contacto</span>
         <span class="lang en">Contact</span>
         <span class="lang es">Contacto</span>
-      </a>
-    </nav>
-
-    <div class="nav-right">
-      <div class="lang-switch">
+    </a>
+    <div class="lang-switch" style="align-self: flex-start; margin-top: 10px;">
         <button class="lang-btn active" data-lang="pt">PT</button>
         <button class="lang-btn" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="es">ES</button>
-      </div>
     </div>
-  </div>
+</div>
+
+<header>
+    <div class="container nav-wrapper">
+        <a class="logo" href="#">
+            AP <span>Solução</span>
+        </a>
+
+        <nav class="desktop-nav">
+            <a href="#servicos">
+                <span class="lang pt">Serviços</span>
+                <span class="lang en">Services</span>
+                <span class="lang es">Servicios</span>
+            </a>
+            <a href="#processo">
+                <span class="lang pt">Processo</span>
+                <span class="lang en">Process</span>
+                <span class="lang es">Proceso</span>
+            </a>
+            <a href="#contacto">
+                <span class="lang pt">Contacto</span>
+                <span class="lang en">Contact</span>
+                <span class="lang es">Contacto</span>
+            </a>
+            
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="pt">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </nav>
+
+        <button class="mobile-toggle" id="openMenu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </div>
 </header>
 
-<main class="container">
+<main>
+    <section class="container hero">
+        <div class="hero-content reveal">
+            <h1>
+                <span class="lang pt">Digitalize o seu negócio. <span style="color:var(--primary)">Sem stress.</span></span>
+                <span class="lang en">Digitize your business. <span style="color:var(--primary)">Stress free.</span></span>
+                <span class="lang es">Digitaliza tu negocio. <span style="color:var(--primary)">Sin estrés.</span></span>
+            </h1>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>
-        <span class="lang pt">Presença digital profissional para o seu negócio.</span>
-        <span class="lang en">Professional digital presence for your business.</span>
-        <span class="lang es">Presencia digital profesional para tu negocio.</span>
-      </h1>
+            <p>
+                <span class="lang pt">Websites premium, chatbots inteligentes e gestão Google Business. A solução completa para quem quer crescer, criada por quem percebe do assunto.</span>
+                <span class="lang en">Premium websites, smart chatbots and Google Business management. The complete solution for growth, built by experts.</span>
+                <span class="lang es">Sitios web premium, chatbots inteligentes y gestión de Google Business. La solución completa para crecer, creada por expertos.</span>
+            </p>
 
-      <p>
-        <span class="lang pt">
-          Websites modernos, chatbots, Google Business e toda a presença digital criada por profissionais — rápido, simples e com preço justo. A única coisa que precisa é dizer o que faz.
-        </span>
-        <span class="lang en">
-          Modern websites, chatbots, Google Business and your whole online presence created by professionals — fast, simple and fairly priced. You only need to say what you do.
-        </span>
-        <span class="lang es">
-          Sitios web modernos, chatbots, Google Business y toda tu presencia digital creada por profesionales — rápido, sencillo y a un precio justo. Solo tienes que decir lo que haces.
-        </span>
-      </p>
+            <a class="btn btn-whatsapp" href="https://wa.me/447700704591" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.355-5.032c0-5.42 4.409-9.85 9.85-9.85 2.617 0 5.08 1.021 6.946 2.884 1.865 1.865 2.889 4.323 2.889 6.953 0 5.42-4.441 9.86-9.897 9.86"/></svg>
+                <span class="lang pt">Conversar no WhatsApp</span>
+                <span class="lang en">Chat on WhatsApp</span>
+                <span class="lang es">Chatear en WhatsApp</span>
+            </a>
+        </div>
 
-      <!-- WhatsApp direto sem mostrar o número -->
-      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank" rel="noopener">
-        <span class="lang pt">Falar com a equipa por WhatsApp</span>
-        <span class="lang en">Talk with the team on WhatsApp</span>
-        <span class="lang es">Hablar con el equipo por WhatsApp</span>
-      </a>
-    </div>
+        <div class="hero-image-wrapper reveal">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Digital Business" class="hero-img">
+        </div>
+    </section>
 
-    <div class="hero-media"></div>
-  </section>
+    <section id="servicos" class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">
+                <span class="lang pt">Expertise</span>
+                <span class="lang en">Expertise</span>
+                <span class="lang es">Experiencia</span>
+            </span>
+            <h2>
+                <span class="lang pt">Tudo o que precisa</span>
+                <span class="lang en">Everything you need</span>
+                <span class="lang es">Todo lo que necesitas</span>
+            </h2>
+            <p class="subtext">
+                <span class="lang pt">Ferramentas essenciais para modernizar o seu negócio.</span>
+                <span class="lang en">Essential tools to modernize your business.</span>
+                <span class="lang es">Herramientas esenciales para modernizar tu negocio.</span>
+            </p>
+        </div>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <h2 class="section-title">
-      <span class="lang pt">O que fazemos por si</span>
-      <span class="lang en">What we do for you</span>
-      <span class="lang es">Lo que hacemos por ti</span>
-    </h2>
+        <div class="grid">
+            <div class="card reveal">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </div>
+                <h3>Website Premium</h3>
+                <p>
+                    <span class="lang pt">Sites ultra-rápidos e adaptados a telemóveis. Design moderno que converte visitantes em clientes.</span>
+                    <span class="lang en">Ultra-fast, mobile-adapted websites. Modern design that converts visitors into customers.</span>
+                    <span class="lang es">Sitios ultra rápidos y adaptados a móviles. Diseño moderno que convierte visitantes en clientes.</span>
+                </p>
+            </div>
 
-    <p class="section-sub">
-      <span class="lang pt">Tudo o que um pequeno negócio precisa para entrar online de forma profissional.</span>
-      <span class="lang en">Everything a small business needs to be online in a professional way.</span>
-      <span class="lang es">Todo lo que un pequeño negocio necesita para entrar online de forma profesional.</span>
-    </p>
+            <div class="card reveal">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <h3>Smart Chatbots</h3>
+                <p>
+                    <span class="lang pt">Atendimento automático 24/7. Responda a dúvidas e capte leads enquanto dorme.</span>
+                    <span class="lang en">24/7 automated support. Answer questions and capture leads while you sleep.</span>
+                    <span class="lang es">Atención automática 24/7. Responde dudas y capta leads mientras duermes.</span>
+                </p>
+            </div>
 
-    <div class="grid">
+            <div class="card reveal">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <h3>Google Business</h3>
+                <p>
+                    <span class="lang pt">Otimização completa para aparecer no topo das pesquisas locais e no Google Maps.</span>
+                    <span class="lang en">Full optimization to appear at the top of local searches and Google Maps.</span>
+                    <span class="lang es">Optimización completa para aparecer en la cima de las búsquedas locales y Google Maps.</span>
+                </p>
+            </div>
 
-      <div class="card">
-        <h3>
-          <span class="lang pt">Websites Modernos</span>
-          <span class="lang en">Modern Websites</span>
-          <span class="lang es">Sitios web modernos</span>
-        </h3>
-        <p>
-          <span class="lang pt">Criação de websites rápidos, modernos e adaptados ao seu negócio — prontos em poucos dias.</span>
-          <span class="lang en">Fast, modern websites tailored to your business — ready in a few days.</span>
-          <span class="lang es">Creación de sitios web rápidos, modernos y adaptados a tu negocio — listos en pocos días.</span>
-        </p>
-      </div>
+            <div class="card reveal">
+                <div class="card-icon">
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <h3>Email Pro</h3>
+                <p>
+                    <span class="lang pt">Credibilidade instantânea com emails personalizados (ex: info@suaempresa.com).</span>
+                    <span class="lang en">Instant credibility with custom emails (e.g., info@yourcompany.com).</span>
+                    <span class="lang es">Credibilidad instantánea con correos personalizados (ej: info@tuempresa.com).</span>
+                </p>
+            </div>
+            
+            <div class="card reveal">
+                <div class="card-icon">
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                </div>
+                <h3>Copywriting</h3>
+                <p>
+                    <span class="lang pt">Textos persuasivos escritos por profissionais para vender os seus serviços.</span>
+                    <span class="lang en">Persuasive texts written by professionals to sell your services.</span>
+                    <span class="lang es">Textos persuasivos escritos por profesionales para vender tus servicios.</span>
+                </p>
+            </div>
 
-      <div class="card">
-        <h3>
-          <span class="lang pt">Chatbots Automáticos</span>
-          <span class="lang en">Automated Chatbots</span>
-          <span class="lang es">Chatbots automáticos</span>
-        </h3>
-        <p>
-          <span class="lang pt">Chatbots que respondem clientes 24/7 via WhatsApp ou Website. Sem complicações.</span>
-          <span class="lang en">Chatbots that reply to customers 24/7 via WhatsApp or website. No complications.</span>
-          <span class="lang es">Chatbots que responden a los clientes 24/7 por WhatsApp o por la web. Sin complicaciones.</span>
-        </p>
-      </div>
+            <div class="card reveal">
+                <div class="card-icon">
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                </div>
+                <h3>Branding Digital</h3>
+                <p>
+                    <span class="lang pt">Construção da identidade visual e base digital sólida para a sua marca.</span>
+                    <span class="lang en">Visual identity construction and a solid digital foundation for your brand.</span>
+                    <span class="lang es">Construcción de la identidad visual y base digital sólida para tu marca.</span>
+                </p>
+            </div>
+        </div>
+    </section>
 
-      <div class="card">
-        <h3>
-          <span class="lang pt">Google Business</span>
-          <span class="lang en">Google Business</span>
-          <span class="lang es">Google Business</span>
-        </h3>
-        <p>
-          <span class="lang pt">Configuramos tudo para que o seu negócio apareça no Google de forma correta e profissional.</span>
-          <span class="lang en">We set everything up so your business appears on Google in a correct, professional way.</span>
-          <span class="lang es">Configuramos todo para que tu negocio aparezca en Google de forma correcta y profesional.</span>
-        </p>
-      </div>
+    <section id="processo" class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">
+                <span class="lang pt">Workflow</span>
+                <span class="lang en">Workflow</span>
+                <span class="lang es">Workflow</span>
+            </span>
+            <h2>
+                <span class="lang pt">Como trabalhamos</span>
+                <span class="lang en">How we work</span>
+                <span class="lang es">Cómo trabajamos</span>
+            </h2>
+        </div>
 
-      <div class="card">
-        <h3>
-          <span class="lang pt">Email Profissional</span>
-          <span class="lang en">Professional Email</span>
-          <span class="lang es">Correo electrónico profesional</span>
-        </h3>
-        <p>
-          <span class="lang pt">Configuração de email empresarial com o nome do seu domínio (ex: info@seudominio.com).</span>
-          <span class="lang en">Business email set-up with your own domain name (e.g. info@yourdomain.com).</span>
-          <span class="lang es">Configuración de correo empresarial con tu propio dominio (ej: info@tudominio.com).</span>
-        </p>
-      </div>
+        <div class="grid">
+            <div class="step-card reveal">
+                <div class="step-number">01</div>
+                <h3>
+                    <span class="lang pt">Briefing Rápido</span>
+                    <span class="lang en">Quick Briefing</span>
+                    <span class="lang es">Breve información</span>
+                </h3>
+                <p>
+                    <span class="lang pt">Envie-nos o básico sobre o seu negócio. Nós tratamos da estrutura, textos e design.</span>
+                    <span class="lang en">Send us the basics about your business. We handle structure, text, and design.</span>
+                    <span class="lang es">Envíanos lo básico sobre tu negocio. Nosotros nos encargamos de la estructura y diseño.</span>
+                </p>
+            </div>
 
-      <div class="card">
-        <h3>
-          <span class="lang pt">Textos & Copywriting</span>
-          <span class="lang en">Texts & Copywriting</span>
-          <span class="lang es">Textos & copywriting</span>
-        </h3>
-        <p>
-          <span class="lang pt">Escrevemos todos os textos do site com clareza, profissionalismo e foco no cliente.</span>
-          <span class="lang en">We write all the website text with clarity, professionalism and focus on your client.</span>
-          <span class="lang es">Escribimos todos los textos de la web con claridad, profesionalidad y foco en el cliente.</span>
-        </p>
-      </div>
+            <div class="step-card reveal">
+                <div class="step-number">02</div>
+                <h3>
+                    <span class="lang pt">Desenvolvimento</span>
+                    <span class="lang en">Development</span>
+                    <span class="lang es">Desarrollo</span>
+                </h3>
+                <p>
+                    <span class="lang pt">Construímos tudo com as melhores tecnologias do mercado para garantir velocidade.</span>
+                    <span class="lang en">We build everything with the best market technologies to ensure speed.</span>
+                    <span class="lang es">Construimos todo con las mejores tecnologías del mercado para garantizar velocidad.</span>
+                </p>
+            </div>
 
-      <div class="card">
-        <h3>
-          <span class="lang pt">Gestão de Marca Online</span>
-          <span class="lang en">Online Brand Management</span>
-          <span class="lang es">Gestión de marca online</span>
-        </h3>
-        <p>
-          <span class="lang pt">Organizamos a sua presença digital e criamos a base online da sua empresa.</span>
-          <span class="lang en">We organise your digital presence and create a solid online base for your business.</span>
-          <span class="lang es">Organizamos tu presencia digital y creamos la base online de tu empresa.</span>
-        </p>
-      </div>
+            <div class="step-card reveal">
+                <div class="step-number">03</div>
+                <h3>
+                    <span class="lang pt">Lançamento</span>
+                    <span class="lang en">Launch</span>
+                    <span class="lang es">Lanzamiento</span>
+                </h3>
+                <p>
+                    <span class="lang pt">O seu site vai para o ar, otimizado e pronto para receber clientes.</span>
+                    <span class="lang en">Your site goes live, optimized and ready to welcome customers.</span>
+                    <span class="lang es">Tu sitio sale al aire, optimizado y listo para recibir clientes.</span>
+                </p>
+            </div>
+        </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- PROCESSO -->
-  <section id="processo">
-    <h2 class="section-title">
-      <span class="lang pt">Como funciona</span>
-      <span class="lang en">How it works</span>
-      <span class="lang es">Cómo funciona</span>
-    </h2>
-
-    <p class="section-sub">
-      <span class="lang pt">Um processo simples, criado para quem não tem tempo nem conhecimentos técnicos.</span>
-      <span class="lang en">A simple process, designed for people with no time and no technical knowledge.</span>
-      <span class="lang es">Un proceso sencillo, pensado para quien no tiene tiempo ni conocimientos técnicos.</span>
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="step-number">1</div>
-        <h3>
-          <span class="lang pt">Envia informações básicas</span>
-          <span class="lang en">Send basic information</span>
-          <span class="lang es">Envíanos la información básica</span>
-        </h3>
-        <p>
-          <span class="lang pt">O cliente apenas diz o que faz e envia alguns detalhes. O resto fica connosco.</span>
-          <span class="lang en">You just tell us what you do and a few details. We handle the rest.</span>
-          <span class="lang es">Solo nos dices lo que haces y algunos detalles. Nosotros hacemos el resto.</span>
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="step-number">2</div>
-        <h3>
-          <span class="lang pt">Nós criamos tudo</span>
-          <span class="lang en">We create everything</span>
-          <span class="lang es">Creamos todo por ti</span>
-        </h3>
-        <p>
-          <span class="lang pt">Website, textos, imagens, chatbot, Google Business e toda a presença digital.</span>
-          <span class="lang en">Website, texts, images, chatbot, Google Business and your full digital presence.</span>
-          <span class="lang es">Web, textos, imágenes, chatbot, Google Business y toda tu presencia digital.</span>
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="step-number">3</div>
-        <h3>
-          <span class="lang pt">O seu site fica online</span>
-          <span class="lang en">Your website goes online</span>
-          <span class="lang es">Tu sitio sale online</span>
-        </h3>
-        <p>
-          <span class="lang pt">Em poucos dias, entregamos tudo pronto, já online e otimizado.</span>
-          <span class="lang en">In a few days, we deliver everything ready, online and optimised.</span>
-          <span class="lang es">En pocos días entregamos todo listo, ya online y optimizado.</span>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <h2 class="section-title">
-      <span class="lang pt">Fale connosco</span>
-      <span class="lang en">Talk to us</span>
-      <span class="lang es">Habla con nosotros</span>
-    </h2>
-
-    <p class="section-sub">
-      <span class="lang pt">Peça um website ou solução digital. Sem compromisso.</span>
-      <span class="lang en">Ask for a website or digital solution. No obligation.</span>
-      <span class="lang es">Pide una web o solución digital. Sin compromiso.</span>
-    </p>
-
-    <div class="contact-box">
-      <p style="margin-bottom: 18px; font-size:1.05rem;">
-        <span class="lang pt">Clique abaixo para falar diretamente com a equipa:</span>
-        <span class="lang en">Click below to speak directly with the team:</span>
-        <span class="lang es">Haz clic abajo para hablar directamente con el equipo:</span>
-      </p>
-
-      <!-- WhatsApp direto sem mostrar número -->
-      <a class="btn-primary" href="https://wa.me/447700704591" target="_blank" rel="noopener">
-        <span class="lang pt">Contactar por WhatsApp</span>
-        <span class="lang en">Contact via WhatsApp</span>
-        <span class="lang es">Contactar por WhatsApp</span>
-      </a>
-
-      <!-- Ligações diretas Social Media -->
-      <div class="social-links">
-        <span class="lang pt">Ou visite-nos nas redes sociais:</span>
-        <span class="lang en">Or visit us on social media:</span>
-        <span class="lang es">O visítanos en las redes sociales:</span>
-
-        <!-- Podes trocar estes links pelos teus reais se forem diferentes -->
-        <a href="https://www.instagram.com/ap_the_solution" target="_blank" rel="noopener">
-          Instagram – AP Digital Solutions
-        </a>
-        <a href="https://www.facebook.com" target="_blank" rel="noopener">
-          Facebook – AP Digital Solutions
-        </a>
-      </div>
-    </div>
-  </section>
+    <section id="contacto" class="container">
+        <div class="cta-box reveal">
+            <div class="cta-bg-circle" style="width: 300px; height: 300px; top: -100px; left: -100px;"></div>
+            <div class="cta-bg-circle" style="width: 200px; height: 200px; bottom: -50px; right: -50px;"></div>
+            
+            <h2 style="position:relative; z-index:2;">
+                <span class="lang pt">Pronto para começar?</span>
+                <span class="lang en">Ready to start?</span>
+                <span class="lang es">¿Listo para empezar?</span>
+            </h2>
+            <p style="position:relative; z-index:2;">
+                <span class="lang pt">Fale diretamente com a nossa equipa. Orçamento sem compromisso.</span>
+                <span class="lang en">Speak directly with our team. No obligation quote.</span>
+                <span class="lang es">Habla directamente con nuestro equipo. Presupuesto sin compromiso.</span>
+            </p>
+            
+            <div style="position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:16px;">
+                <a class="btn btn-whatsapp" href="https://wa.me/447700704591" target="_blank">
+                    <span class="lang pt">Enviar Mensagem WhatsApp</span>
+                    <span class="lang en">Send WhatsApp Message</span>
+                    <span class="lang es">Enviar Mensaje WhatsApp</span>
+                </a>
+                
+                <div style="margin-top:20px; font-size:0.9rem; color: rgba(255,255,255,0.7);">
+                     <a href="https://www.instagram.com/ap_the_solution" target="_blank" style="color:white; text-decoration:none; margin: 0 10px;">Instagram</a> |
+                     <a href="#" target="_blank" style="color:white; text-decoration:none; margin: 0 10px;">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </main>
 
 <footer>
-  © <script>document.write(new Date().getFullYear())</script>
-  AP Solução Online — Websites &amp; Presença Digital Profissional
+    <div class="container">
+        <p>© <span id="year"></span> AP Solução Online. 
+            <span class="lang pt">Todos os direitos reservados.</span>
+            <span class="lang en">All rights reserved.</span>
+            <span class="lang es">Todos los derechos reservados.</span>
+        </p>
+    </div>
 </footer>
 
 <script>
-  // controlo de línguas
-  const body = document.body;
-  const langButtons = document.querySelectorAll('.lang-btn');
+    // --- LANG SWITCHER ---
+    const body = document.body;
+    const langButtons = document.querySelectorAll('.lang-btn');
 
-  function setLang(lang) {
-    body.classList.remove('lang-pt','lang-en','lang-es');
-    body.classList.add('lang-' + lang);
+    function setLang(lang) {
+        body.classList.remove('lang-pt','lang-en','lang-es');
+        body.classList.add('lang-' + lang);
+        
+        // Atualiza todos os botões (desktop e mobile)
+        langButtons.forEach(btn => {
+            if(btn.dataset.lang === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        localStorage.setItem('ap_lang', lang);
+    }
 
     langButtons.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
+        btn.addEventListener('click', () => setLang(btn.dataset.lang));
     });
-  }
 
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang));
-  });
+    // Carregar idioma salvo ou default
+    const savedLang = localStorage.getItem('ap_lang') || 'pt';
+    setLang(savedLang);
 
-  // idioma inicial
-  setLang('pt');
+    // --- MOBILE MENU ---
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('open');
+        overlay.classList.toggle('open');
+    }
+
+    openBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // --- SCROLL ANIMATION ---
+    const revealElements = document.querySelectorAll('.reveal');
+
+    function checkScroll() {
+        const triggerBottom = window.innerHeight * 0.85;
+        revealElements.forEach(box => {
+            const boxTop = box.getBoundingClientRect().top;
+            if(boxTop < triggerBottom) {
+                box.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // Trigger inicial
+
+    // --- YEAR ---
+    document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
