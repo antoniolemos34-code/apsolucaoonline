@@ -10,11 +10,596 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- External CSS Link -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Icons (Feather Icons) -->
+    <!-- Icons (Feather Icons ) -->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* --- VARIÁVEIS & RESET --- */
+        :root {
+            --primary: #0066FF; /* Azul Vibrante */
+            --primary-dark: #004ecc;
+            --secondary: #111827; /* Quase Preto */
+            --text-body: #4B5563;
+            --text-light: #9CA3AF;
+            --bg-body: #F9FAFB;
+            --bg-card: rgba(255, 255, 255, 0.8 );
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --blur: 12px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --radius-xl: 24px;
+            --radius-md: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-body);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Fundo subtil com gradiente */
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.03) 0%, transparent 20%);
+        }
+
+        /* --- UTILITÁRIOS --- */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* CORREÇÃO CRUCIAL PARA A LÍNGUA */
+        .lang { 
+            display: none !important; /* 1. Esconde todos os idiomas por padrão */
+        }
+
+        /* 2. Mostra apenas o idioma ativo (ex: .lang.pt quando body tem .lang-pt) */
+        body.lang-pt .lang.pt, 
+        body.lang-en .lang.en, 
+        body.lang-es .lang.es { 
+            display: block !important; /* Para blocos como H1, P, Div */
+        }
+
+        /* 3. Ajuste para textos inline (como dentro de um parágrafo) */
+        span.lang { 
+            display: inline !important; /* Padrão inline */
+        }
+        body.lang-pt span.lang.pt,
+        body.lang-en span.lang.en,
+        body.lang-es span.lang.es {
+            display: inline !important; /* Garante que o texto ativo inline apareça */
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover { background: #1ebc57; transform: translateY(-2px); }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .desktop-nav a {
+            text-decoration: none;
+            color: var(--text-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover { color: var(--primary); }
+
+        /* Language Switcher */
+        .lang-switch {
+            background: #F3F4F6;
+            padding: 4px;
+            border-radius: 50px;
+            display: flex;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--secondary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 160px 0 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-body);
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 4px solid white;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- SEÇÕES PADRÃO --- */
+        section { padding: 100px 0; }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+        }
+
+        p.subtext {
+            font-size: 1.05rem;
+            color: var(--text-body);
+        }
+
+        /* --- CARDS GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255, 0.5);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 102, 255, 0.1);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 102, 255, 0.08);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon svg { width: 24px; height: 24px; }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-body);
+            font-size: 0.95rem;
+        }
+
+        /* --- STEPS (Processo) --- */
+        .step-card {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(0, 102, 255, 0.15);
+            line-height: 1;
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        .step-card p {
+            font-size: 1rem;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 60px;
+            border-radius: var(--radius-xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-box p {
+            font-size: 1.125rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-bg-circle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 1;
+        }
+
+        /* --- CTA Background Circles (Moved from inline styles) --- */
+        .cta-bg-circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+        }
+
+        .cta-bg-circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        /* Ensure CTA content is above the circles */
+        .cta-box h2, .cta-box p, .cta-box .btn {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* --- MOBILE MENU STYLES --- */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: white;
+            z-index: 200;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            padding: 30px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--bg-body);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--bg-body);
+        }
+
+        .mobile-menu-header .logo {
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 150;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- SCROLL REVEAL STYLES --- */
+        .reveal {
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 1024px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-content {
+                order: 2;
+            }
+            .hero-image-wrapper {
+                order: 1;
+                margin-bottom: 40px;
+            }
+            .hero-content p {
+                max-width: 100%;
+            }
+            .hero-content .btn {
+                margin: 0 auto;
+            }
+            .cta-box {
+                padding: 40px 20px;
+            }
+            .cta-box h2 {
+                font-size: 2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 100px 0 60px;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .section-header {
+                margin-bottom: 40px;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            .cta-box {
+                padding: 30px 15px;
+            }
+        }
+
+        /* --- LANGUAGE SWITCHER IN MOBILE MENU --- */
+        .mobile-lang-switch {
+            margin-top: auto; /* Push to the bottom */
+            padding-top: 20px;
+            border-top: 1px solid var(--bg-body);
+        }
+
+        .mobile-lang-switch .lang-switch {
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .mobile-lang-switch .lang-btn {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Fix for mobile menu links */
+        .mobile-nav a.btn {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        /* --- REFACTORING: Utility Classes --- */
+        .text-primary {
+            color: var(--primary);
+        }
+
+        /* --- CTA Social Links --- */
+        .cta-social-links {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-social-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: opacity 0.3s;
+        }
+
+        .cta-social-link:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 
 <body class="lang-pt">
@@ -124,7 +709,8 @@
             </div>
 
             <div class="hero-image-wrapper reveal">
-                <img src="assets/hero-image.jpg" alt="Digital Business" class="hero-img">
+                <!-- A imagem agora é um link direto para a URL, como no original, para evitar a necessidade de baixar um arquivo. -->
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Digital Business" class="hero-img">
             </div>
         </section>
 
@@ -191,7 +777,7 @@
                     </div>
                     <h3>Email Pro</h3>
                     <p>
-                        <span class="lang pt">Credibilidade instantânea com emails personalizados (ex: info@suaempresa.com).</span>
+                        <span class="lang pt">Credibilidade instantânea com emails personalizados (ex: info@suaempresa.com ).</span>
                         <span class="lang en">Instant credibility with custom emails (e.g., info@yourcompany.com).</span>
                         <span class="lang es">Credibilidad instantánea con correos personalizados (ej: info@tuempresa.com).</span>
                     </p>
@@ -286,7 +872,6 @@
         <!-- CTA SECTION -->
         <section id="contacto" class="container">
             <div class="cta-box reveal">
-                <!-- Cleaned up inline styles with classes -->
                 <div class="cta-bg-circle cta-bg-circle-1"></div>
                 <div class="cta-bg-circle cta-bg-circle-2"></div>
                 
@@ -326,11 +911,97 @@
         </div>
     </footer>
 
-    <!-- External JavaScript Link -->
-    <script src="js/script.js" defer></script>
-    
-    <!-- Feather Icons initialization -->
     <script>
+        // --- CONFIGURATION VARIABLES ---
+        const WHATSAPP_NUMBER = '447700704591'; 
+        const WHATSAPP_MESSAGES = {
+            pt: 'Olá! Gostaria de um orçamento para presença digital.',
+            en: 'Hello! I would like a quote for digital presence services.',
+            es: '¡Hola! Me gustaría un presupuesto para servicios de presencia digital.'
+        };
+
+        // --- FUNCTION TO UPDATE WHATSAPP LINKS ---
+        function updateWhatsappLink(lang ) {
+            // 1. Generate the message and the encoded link for the current language
+            const message = encodeURIComponent(WHATSAPP_MESSAGES[lang]);
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            
+            // 2. Apply the dynamic link to all buttons with the class 'whatsapp-link'
+            document.querySelectorAll('.whatsapp-link' ).forEach(link => {
+                link.href = url;
+            });
+        }
+
+        // --- LANGUAGE FUNCTIONALITY ---
+        const body = document.body;
+        const langButtons = document.querySelectorAll('.lang-btn');
+
+        function setLang(lang) {
+            // Remove and add the language class to the <body> (controls what is visible in CSS)
+            body.classList.remove('lang-pt','lang-en','lang-es');
+            body.classList.add('lang-' + lang);
+            
+            // Update the state of the language buttons
+            langButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // CALL THE WHATSAPP UPDATE FUNCTION
+            updateWhatsappLink(lang); 
+
+            localStorage.setItem('ap_lang', lang);
+        }
+
+        // Language Initialization on Load
+        const savedLang = localStorage.getItem('ap_lang') || 'pt';
+        setLang(savedLang); 
+
+        // Language Button Event Listeners
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => setLang(btn.dataset.lang));
+        });
+
+        // --- MOBILE MENU ---
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+        const openBtn = document.getElementById('openMenu');
+        const closeBtn = document.getElementById('closeMenu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        // Close mobile menu when an internal link is clicked
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // --- DYNAMIC YEAR (Footer) ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- SCROLL REVEAL ANIMATION ---
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150; 
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal(); // Call on initialization to show the hero section
+
+        // --- FEATHER ICONS INITIALIZATION ---
         feather.replace();
     </script>
 </body>
