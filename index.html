@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AP Solução Online | Presença Digital Premium</title>
+    <title>AP Solução Online</title>
     <meta name="description" content="Websites profissionais, Chatbots e Gestão Google Business. A solução completa para o seu negócio crescer online.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,28 +49,34 @@
         /* --- UTILITÁRIOS --- */
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-        /* CORREÇÃO CRUCIAL PARA A LÍNGUA */
+        /* --- CORREÇÃO CRUCIAL PARA A LÍNGUA --- */
+        /* 1. Esconde todos os idiomas por padrão */
         .lang { 
-            display: none !important; /* 1. Esconde todos os idiomas por padrão */
+            display: none !important;
         }
 
-        /* 2. Mostra apenas o idioma ativo (ex: .lang.pt quando body tem .lang-pt) */
+        /* 2. Mostra apenas o idioma ativo (regra mais específica) */
         body.lang-pt .lang.pt, 
         body.lang-en .lang.en, 
         body.lang-es .lang.es { 
-            display: block !important; /* Para blocos como H1, P, Div */
+            /* Usa display: initial para respeitar se o elemento é block ou inline por natureza */
+            display: initial !important; 
         }
 
-        /* 3. Ajuste para textos inline (como dentro de um parágrafo) */
-        span.lang { 
-            display: inline !important; /* Padrão inline */
+        /* 3. Garante que elementos de bloco (como em H1, P, Div) sejam exibidos corretamente */
+        body.lang-pt .lang.pt:not(span),
+        body.lang-en .lang.en:not(span),
+        body.lang-es .lang.es:not(span) {
+            display: block !important;
         }
+
+        /* 4. Garante que elementos inline (como SPAN) sejam exibidos corretamente */
         body.lang-pt span.lang.pt,
         body.lang-en span.lang.en,
         body.lang-es span.lang.es {
-            display: inline !important; /* Garante que o texto ativo inline apareça */
+            display: inline !important;
         }
-
+        
         /* Botões */
         .btn {
             display: inline-flex;
@@ -173,12 +179,22 @@
             border-radius: 50px;
             cursor: pointer;
             transition: var(--transition);
+            /* Ajuste para o ícone de bandeira */
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .lang-btn.active {
             background: white;
             color: var(--secondary);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Estilo para o emoji da bandeira */
+        .flag-icon {
+            font-size: 1.1em; /* Torna o emoji um pouco maior */
+            line-height: 1;
         }
 
         /* Mobile Menu Button */
@@ -404,6 +420,13 @@
             text-align: center;
             font-size: 0.9rem;
             color: var(--text-light);
+        }
+        
+        /* Novo estilo para o seletor de idioma no rodapé */
+        .footer-lang-switch {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
         }
 
         /* --- MOBILE MENU STYLES --- */
@@ -642,9 +665,9 @@
 
         <div class="mobile-lang-switch">
             <div class="lang-switch">
-                <button class="lang-btn" data-lang="pt">PT</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="pt"><span class="flag-icon">🇵🇹</span> PT</button>
+                <button class="lang-btn" data-lang="en"><span class="flag-icon">🇬🇧</span> EN</button>
+                <button class="lang-btn" data-lang="es"><span class="flag-icon">🇪🇸</span> ES</button>
             </div>
         </div>
     </div>
@@ -672,9 +695,9 @@
                 </a>
                 
                 <div class="lang-switch">
-                    <button class="lang-btn" data-lang="pt">PT</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="pt"><span class="flag-icon">🇵🇹</span> PT</button>
+                    <button class="lang-btn" data-lang="en"><span class="flag-icon">🇬🇧</span> EN</button>
+                    <button class="lang-btn" data-lang="es"><span class="flag-icon">🇪🇸</span> ES</button>
                 </div>
             </nav>
 
@@ -702,202 +725,201 @@
 
                 <a class="btn btn-whatsapp whatsapp-link" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.355-5.032c0-5.42 4.409-9.85 9.85-9.85 2.617 0 5.08 1.021 6.946 2.884 1.865 1.865 2.889 4.323 2.889 6.953 0 5.42-4.441 9.86-9.897 9.86"/></svg>
-                    <span class="lang pt">Conversar no WhatsApp</span>
-                    <span class="lang en">Chat on WhatsApp</span>
-                    <span class="lang es">Chatear en WhatsApp</span>
-                </a>
-            </div>
+                <span class="lang pt">Conversar no WhatsApp</span>
+                <span class="lang en">Chat on WhatsApp</span>
+                <span class="lang es">Chatear en WhatsApp</span>
+            </a>
+        </div>
 
-            <div class="hero-image-wrapper reveal">
-                <!-- A imagem agora é um link direto para a URL, como no original, para evitar a necessidade de baixar um arquivo. -->
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Digital Business" class="hero-img">
-            </div>
-        </section>
+        <div class="hero-image-wrapper reveal">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Digital Business" class="hero-img">
+        </div>
+    </section>
 
-        <!-- SERVICES SECTION -->
-        <section id="servicos" class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">
-                    <span class="lang pt">Expertise</span>
-                    <span class="lang en">Expertise</span>
-                    <span class="lang es">Experiencia</span>
-                </span>
-                <h2>
-                    <span class="lang pt">Tudo o que precisa</span>
-                    <span class="lang en">Everything you need</span>
-                    <span class="lang es">Todo lo que necesitas</span>
-                </h2>
-                <p class="subtext">
-                    <span class="lang pt">Ferramentas essenciais para modernizar o seu negócio.</span>
-                    <span class="lang en">Essential tools to modernize your business.</span>
-                    <span class="lang es">Herramientas esenciales para modernizar tu negocio.</span>
-                </p>
-            </div>
+    <!-- SERVICES SECTION -->
+    <section id="servicos" class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">
+                <span class="lang pt">Expertise</span>
+                <span class="lang en">Expertise</span>
+                <span class="lang es">Experiencia</span>
+            </span>
+            <h2>
+                <span class="lang pt">Tudo o que precisa</span>
+                <span class="lang en">Everything you need</span>
+                <span class="lang es">Todo lo que necesitas</span>
+            </h2>
+            <p class="subtext">
+                <span class="lang pt">Ferramentas essenciais para modernizar o seu negócio.</span>
+                <span class="lang en">Essential tools to modernize your business.</span>
+                <span class="lang es">Herramientas esenciales para modernizar tu negocio.</span>
+            </p>
+        </div>
 
-            <div class="grid">
-                <div class="card reveal">
-                    <div class="card-icon">
-                        <i data-feather="monitor"></i>
-                    </div>
-                    <h3>Website Premium</h3>
-                    <p>
-                        <span class="lang pt">Sites ultra-rápidos e adaptados a telemóveis. Design moderno que converte visitantes em clientes.</span>
-                        <span class="lang en">Ultra-fast, mobile-adapted websites. Modern design that converts visitors into customers.</span>
-                        <span class="lang es">Sitios ultra rápidos y adaptados a móviles. Diseño moderno que convierte visitantes en clientes.</span>
-                    </p>
+        <div class="grid">
+            <div class="card reveal">
+                <div class="card-icon">
+                    <i data-feather="monitor"></i>
                 </div>
-
-                <div class="card reveal">
-                    <div class="card-icon">
-                        <i data-feather="message-circle"></i>
-                    </div>
-                    <h3>Smart Chatbots</h3>
-                    <p>
-                        <span class="lang pt">Atendimento automático 24/7. Responda a dúvidas e capte leads enquanto dorme.</span>
-                        <span class="lang en">24/7 automated support. Answer questions and capture leads while you sleep.</span>
-                        <span class="lang es">Atención automática 24/7. Responde dudas y capta leads mientras duermes.</span>
-                    </p>
-                </div>
-
-                <div class="card reveal">
-                    <div class="card-icon">
-                        <i data-feather="globe"></i>
-                    </div>
-                    <h3>Google Business</h3>
-                    <p>
-                        <span class="lang pt">Otimização completa para aparecer no topo das pesquisas locais e no Google Maps.</span>
-                        <span class="lang en">Full optimization to appear at the top of local searches and Google Maps.</span>
-                        <span class="lang es">Optimización completa para aparecer en la cima de las búsquedas locales y Google Maps.</span>
-                    </p>
-                </div>
-
-                <div class="card reveal">
-                    <div class="card-icon">
-                       <i data-feather="mail"></i>
-                    </div>
-                    <h3>Email Pro</h3>
-                    <p>
-                        <span class="lang pt">Credibilidade instantânea com emails personalizados (ex: info@suaempresa.com ).</span>
-                        <span class="lang en">Instant credibility with custom emails (e.g., info@yourcompany.com).</span>
-                        <span class="lang es">Credibilidad instantánea con correos personalizados (ej: info@tuempresa.com).</span>
-                    </p>
-                </div>
-                
-                <div class="card reveal">
-                    <div class="card-icon">
-                       <i data-feather="edit-3"></i>
-                    </div>
-                    <h3>Copywriting</h3>
-                    <p>
-                        <span class="lang pt">Textos persuasivos escritos por profissionais para vender os seus serviços.</span>
-                        <span class="lang en">Persuasive texts written by professionals to sell your services.</span>
-                        <span class="lang es">Textos persuasivos escritos por profesionales para vender tus servicios.</span>
-                    </p>
-                </div>
-
-                <div class="card reveal">
-                    <div class="card-icon">
-                       <i data-feather="layers"></i>
-                    </div>
-                    <h3>Branding Digital</h3>
-                    <p>
-                        <span class="lang pt">Construção da identidade visual e base digital sólida para a sua marca.</span>
-                        <span class="lang en">Visual identity construction and a solid digital foundation for your brand.</span>
-                        <span class="lang es">Construcción de la identidad visual y base digital sólida para tu marca.</span>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROCESS SECTION -->
-        <section id="processo" class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">
-                    <span class="lang pt">Workflow</span>
-                    <span class="lang en">Workflow</span>
-                    <span class="lang es">Workflow</span>
-                </span>
-                <h2>
-                    <span class="lang pt">Como trabalhamos</span>
-                    <span class="lang en">How we work</span>
-                    <span class="lang es">Cómo trabajamos</span>
-                </h2>
-            </div>
-
-            <div class="grid">
-                <div class="step-card reveal">
-                    <div class="step-number">01</div>
-                    <h3>
-                        <span class="lang pt">Briefing Rápido</span>
-                        <span class="lang en">Quick Briefing</span>
-                        <span class="lang es">Breve información</span>
-                    </h3>
-                    <p>
-                        <span class="lang pt">Envie-nos o básico sobre o seu negócio. Nós tratamos da estrutura, textos e design.</span>
-                        <span class="lang en">Send us the basics about your business. We handle structure, text, and design.</span>
-                        <span class="lang es">Envíanos lo básico sobre tu negocio. Nosotros nos encargamos de la estructura y diseño.</span>
-                    </p>
-                </div>
-
-                <div class="step-card reveal">
-                    <div class="step-number">02</div>
-                    <h3>
-                        <span class="lang pt">Desenvolvimento</span>
-                        <span class="lang en">Development</span>
-                        <span class="lang es">Desarrollo</span>
-                    </h3>
-                    <p>
-                        <span class="lang pt">Construímos tudo com as melhores tecnologias do mercado para garantir velocidade.</span>
-                        <span class="lang en">We build everything with the best market technologies to ensure speed.</span>
-                        <span class="lang es">Construimos todo con las mejores tecnologías del mercado para garantizar velocidad.</span>
-                    </p>
-                </div>
-
-                <div class="step-card reveal">
-                    <div class="step-number">03</div>
-                    <h3>
-                        <span class="lang pt">Lançamento</span>
-                        <span class="lang en">Launch</span>
-                        <span class="lang es">Lanzamiento</span>
-                    </h3>
-                    <p>
-                        <span class="lang pt">O seu site vai para o ar, otimizado e pronto para receber clientes.</span>
-                        <span class="lang en">Your site goes live, optimized and ready to welcome customers.</span>
-                        <span class="lang es">Tu sitio sale al aire, optimizado y listo para recibir clientes.</span>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA SECTION -->
-        <section id="contacto" class="container">
-            <div class="cta-box reveal">
-                <div class="cta-bg-circle cta-bg-circle-1"></div>
-                <div class="cta-bg-circle cta-bg-circle-2"></div>
-                
-                <h2>
-                    <span class="lang pt">Pronto para começar?</span>
-                    <span class="lang en">Ready to start?</span>
-                    <span class="lang es">¿Listo para empezar?</span>
-                </h2>
+                <h3>Website Premium</h3>
                 <p>
-                    <span class="lang pt">Fale diretamente com a nossa equipa. Orçamento sem compromisso.</span>
-                    <span class="lang en">Speak directly with our team. No obligation quote.</span>
-                    <span class="lang es">Habla directamente con nuestro equipo. Presupuesto sin compromiso.</span>
+                    <span class="lang pt">Sites ultra-rápidos e adaptados a telemóveis. Design moderno que converte visitantes em clientes.</span>
+                    <span class="lang en">Ultra-fast, mobile-adapted websites. Modern design that converts visitors into customers.</span>
+                    <span class="lang es">Sitios ultra rápidos y adaptados a móviles. Diseño moderno que convierte visitantes en clientes.</span>
                 </p>
-                
-                <a class="btn btn-primary btn-whatsapp whatsapp-link" target="_blank">
-                    <span class="lang pt">Enviar Mensagem WhatsApp</span>
-                    <span class="lang en">Send WhatsApp Message</span>
-                    <span class="lang es">Enviar Mensaje WhatsApp</span>
-                </a>
-                
-                <div class="cta-social-links">
-                     <a href="https://www.instagram.com/ap_the_solution" target="_blank" class="cta-social-link">Instagram</a> |
-                     <a href="#" target="_blank" class="cta-social-link">Facebook</a>
-                </div>
             </div>
-        </section>
+
+            <div class="card reveal">
+                <div class="card-icon">
+                    <i data-feather="message-circle"></i>
+                </div>
+                <h3>Smart Chatbots</h3>
+                <p>
+                    <span class="lang pt">Atendimento automático 24/7. Responda a dúvidas e capte leads enquanto dorme.</span>
+                    <span class="lang en">24/7 automated support. Answer questions and capture leads while you sleep.</span>
+                    <span class="lang es">Atención automática 24/7. Responde dudas y capta leads mientras duermes.</span>
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="card-icon">
+                    <i data-feather="globe"></i>
+                </div>
+                <h3>Google Business</h3>
+                <p>
+                    <span class="lang pt">Otimização completa para aparecer no topo das pesquisas locais e no Google Maps.</span>
+                    <span class="lang en">Full optimization to appear at the top of local searches and Google Maps.</span>
+                    <span class="lang es">Optimización completa para aparecer en la cima de las búsquedas locales y Google Maps.</span>
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="card-icon">
+                   <i data-feather="mail"></i>
+                </div>
+                <h3>Email Pro</h3>
+                <p>
+                    <span class="lang pt">Credibilidade instantânea com emails personalizados (ex: info@suaempresa.com ).</span>
+                    <span class="lang en">Instant credibility with custom emails (e.g., info@yourcompany.com).</span>
+                    <span class="lang es">Credibilidad instantánea con correos personalizados (ej: info@tuempresa.com).</span>
+                </p>
+            </div>
+            
+            <div class="card reveal">
+                <div class="card-icon">
+                   <i data-feather="edit-3"></i>
+                </div>
+                <h3>Copywriting</h3>
+                <p>
+                    <span class="lang pt">Textos persuasivos escritos por profissionais para vender os seus serviços.</span>
+                    <span class="lang en">Persuasive texts written by professionals to sell your services.</span>
+                    <span class="lang es">Textos persuasivos escritos por profesionales para vender tus servicios.</span>
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="card-icon">
+                   <i data-feather="layers"></i>
+                </div>
+                <h3>Branding Digital</h3>
+                <p>
+                    <span class="lang pt">Construção da identidade visual e base digital sólida para a sua marca.</span>
+                    <span class="lang en">Visual identity construction and a solid digital foundation for your brand.</span>
+                    <span class="lang es">Construcción de la identidad visual y base digital sólida para tu marca.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="processo" class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">
+                <span class="lang pt">Workflow</span>
+                <span class="lang en">Workflow</span>
+                <span class="lang es">Workflow</span>
+            </span>
+            <h2>
+                <span class="lang pt">Como trabalhamos</span>
+                <span class="lang en">How we work</span>
+                <span class="lang es">Cómo trabajamos</span>
+            </h2>
+        </div>
+
+        <div class="grid">
+            <div class="step-card reveal">
+                <div class="step-number">01</div>
+                <h3>
+                    <span class="lang pt">Briefing Rápido</span>
+                    <span class="lang en">Quick Briefing</span>
+                    <span class="lang es">Breve información</span>
+                </h3>
+                <p>
+                    <span class="lang pt">Envie-nos o básico sobre o seu negócio. Nós tratamos da estrutura, textos e design.</span>
+                    <span class="lang en">Send us the basics about your business. We handle structure, text, and design.</span>
+                    <span class="lang es">Envíanos lo básico sobre tu negocio. Nosotros nos encargamos de la estructura y diseño.</span>
+                </p>
+            </div>
+
+            <div class="step-card reveal">
+                <div class="step-number">02</div>
+                <h3>
+                    <span class="lang pt">Desenvolvimento</span>
+                    <span class="lang en">Development</span>
+                    <span class="lang es">Desarrollo</span>
+                </h3>
+                <p>
+                    <span class="lang pt">Construímos tudo com as melhores tecnologias do mercado para garantir velocidade.</span>
+                    <span class="lang en">We build everything with the best market technologies to ensure speed.</span>
+                    <span class="lang es">Construimos todo con las mejores tecnologías del mercado para garantizar velocidad.</span>
+                </p>
+            </div>
+
+            <div class="step-card reveal">
+                <div class="step-number">03</div>
+                <h3>
+                    <span class="lang pt">Lançamento</span>
+                    <span class="lang en">Launch</span>
+                    <span class="lang es">Lanzamiento</span>
+                </h3>
+                <p>
+                    <span class="lang pt">O seu site vai para o ar, otimizado e pronto para receber clientes.</span>
+                    <span class="lang en">Your site goes live, optimized and ready to welcome customers.</span>
+                    <span class="lang es">Tu sitio sale al aire, optimizado y listo para recibir clientes.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="contacto" class="container">
+        <div class="cta-box reveal">
+            <div class="cta-bg-circle cta-bg-circle-1"></div>
+            <div class="cta-bg-circle cta-bg-circle-2"></div>
+            
+            <h2>
+                <span class="lang pt">Pronto para começar?</span>
+                <span class="lang en">Ready to start?</span>
+                <span class="lang es">¿Listo para empezar?</span>
+            </h2>
+            <p>
+                <span class="lang pt">Fale diretamente com a nossa equipa. Orçamento sem compromisso.</span>
+                <span class="lang en">Speak directly with our team. No obligation quote.</span>
+                <span class="lang es">Habla directamente con nuestro equipo. Presupuesto sin compromiso.</span>
+            </p>
+            
+            <a class="btn btn-primary btn-whatsapp whatsapp-link" target="_blank">
+                <span class="lang pt">Enviar Mensagem WhatsApp</span>
+                <span class="lang en">Send WhatsApp Message</span>
+                <span class="lang es">Enviar Mensaje WhatsApp</span>
+            </a>
+            
+            <div class="cta-social-links">
+                 <a href="https://www.instagram.com/ap_the_solution" target="_blank" class="cta-social-link">Instagram</a> |
+                 <a href="#" target="_blank" class="cta-social-link">Facebook</a>
+            </div>
+        </div>
+    </section>
 
     </main>
 
@@ -908,6 +930,14 @@
                 <span class="lang en">All rights reserved.</span>
                 <span class="lang es">Todos los derechos reservados.</span>
             </p>
+            <!-- NOVO SELETOR DE IDIOMA NO RODAPÉ -->
+            <div class="footer-lang-switch">
+                <div class="lang-switch">
+                    <button class="lang-btn" data-lang="pt"><span class="flag-icon">🇵🇹</span> PT</button>
+                    <button class="lang-btn" data-lang="en"><span class="flag-icon">🇬🇧</span> EN</button>
+                    <button class="lang-btn" data-lang="es"><span class="flag-icon">🇪🇸</span> ES</button>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -934,6 +964,7 @@
 
         // --- LANGUAGE FUNCTIONALITY ---
         const body = document.body;
+        // Seleciona todos os botões de idioma, incluindo os do cabeçalho e do rodapé
         const langButtons = document.querySelectorAll('.lang-btn');
 
         function setLang(lang) {
