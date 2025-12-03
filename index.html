@@ -45,9 +45,28 @@
 
         /* --- UTILITÁRIOS --- */
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .lang { display: none; }
-        body.lang-pt .lang.pt, body.lang-en .lang.en, body.lang-es .lang.es { display: block; }
-        span.lang { display: inline; } /* Para spans inline */
+        
+        /* CORREÇÃO CRUCIAL PARA A LÍNGUA */
+        .lang { 
+            display: none !important; /* 1. Esconde todos os idiomas por padrão */
+        }
+        
+        /* 2. Mostra apenas o idioma ativo (ex: .lang.pt quando body tem .lang-pt) */
+        body.lang-pt .lang.pt, 
+        body.lang-en .lang.en, 
+        body.lang-es .lang.es { 
+            display: block !important; /* Para blocos como H1, P, Div */
+        }
+        
+        /* 3. Ajuste para textos inline (como dentro de um parágrafo) */
+        span.lang { 
+            display: inline !important; /* Padrão inline */
+        }
+        body.lang-pt span.lang.pt,
+        body.lang-en span.lang.en,
+        body.lang-es span.lang.es {
+            display: inline !important; /* Garante que o texto ativo inline apareça */
+        }
         
         /* Botões */
         .btn {
@@ -704,7 +723,7 @@
 </footer>
 
 <script>
-    // --- VARIÁVEIS DE CONFIGURAÇÃO (O número de telefone é armazenado aqui) ---
+    // --- VARIÁVEIS DE CONFIGURAÇÃO (O número de telefone é armazenado aqui, invisível no HTML) ---
     const WHATSAPP_NUMBER = '447700704591'; 
     const WHATSAPP_MESSAGES = {
         pt: 'Olá! Gostaria de um orçamento para presença digital.',
@@ -729,7 +748,7 @@
     const langButtons = document.querySelectorAll('.lang-btn');
 
     function setLang(lang) {
-        // Remove e adiciona a classe de idioma no <body>
+        // Remove e adiciona a classe de idioma no <body> (controla o que é visível no CSS)
         body.classList.remove('lang-pt','lang-en','lang-es');
         body.classList.add('lang-' + lang);
         
@@ -746,7 +765,7 @@
 
     // Inicialização da Linguagem ao Carregar
     const savedLang = localStorage.getItem('ap_lang') || 'pt';
-    setLang(savedLang); // Isso chama 'updateWhatsappLink' na inicialização
+    setLang(savedLang); 
 
     // Event Listeners dos Botões de Idioma
     langButtons.forEach(btn => {
@@ -767,6 +786,10 @@
     openBtn.addEventListener('click', toggleMenu);
     closeBtn.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
+    // Fecha o menu mobile quando um link interno é clicado
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
 
     // --- DYNAMIC YEAR (Footer) ---
     document.getElementById('year').textContent = new Date().getFullYear();
