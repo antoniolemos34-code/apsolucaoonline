@@ -60,11 +60,25 @@
     .nav-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 14px 18px;
+      padding: 10px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #000;
     }
 
     .logo {
@@ -76,7 +90,7 @@
 
     .logo-main {
       font-weight: 700;
-      font-size: 16px;
+      font-size: 15px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       background: linear-gradient(to right, #facc15, #eab308, #f97316);
@@ -89,12 +103,18 @@
       color: var(--text-muted);
     }
 
-    .nav-links {
+    .nav-center {
       display: flex;
       align-items: center;
       gap: 18px;
       font-size: 13px;
       color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
     }
 
     .nav-links a {
@@ -106,6 +126,28 @@
     .nav-links a:hover {
       color: var(--text-main);
       background: rgba(15, 23, 42, 0.6);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      overflow: hidden;
+      font-size: 11px;
+    }
+
+    .lang-btn {
+      padding: 4px 10px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .lang-btn.lang-active {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
     }
 
     .nav-cta {
@@ -122,6 +164,7 @@
       border: none;
       cursor: pointer;
       transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+      white-space: nowrap;
     }
 
     .nav-cta:hover {
@@ -130,12 +173,13 @@
       filter: brightness(1.03);
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 880px) {
       .nav-inner {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
       }
+      .nav-center { gap: 10px; }
       .nav-links { display: none; }
     }
 
@@ -241,6 +285,7 @@
       font-weight: 600;
       box-shadow: 0 22px 55px rgba(8, 145, 178, 0.65);
       transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+      text-decoration: none;
     }
 
     .btn-primary:hover {
@@ -263,6 +308,7 @@
       font-weight: 500;
       cursor: pointer;
       transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+      text-decoration: none;
     }
 
     .btn-ghost:hover {
@@ -357,6 +403,26 @@
       color: var(--text-muted);
     }
 
+    .hero-image-strip {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .hero-thumb {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      height: 58px;
+    }
+
+    .hero-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* SECTION GENERIC */
 
     .section { margin-bottom: 70px; }
@@ -390,11 +456,11 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
@@ -404,20 +470,34 @@
     .service-card {
       background: rgba(15, 23, 42, 0.9);
       border-radius: var(--radius-md);
-      padding: 16px 16px 14px;
+      padding: 14px 14px 14px;
       border: 1px solid rgba(30, 64, 175, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-image {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      height: 96px;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .service-title {
       font-size: 14px;
       font-weight: 600;
-      margin-bottom: 6px;
     }
 
     .service-text {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 10px;
     }
 
     .service-tag-row {
@@ -523,6 +603,7 @@
       font-size: 12px;
       color: var(--text-muted);
       margin-left: 10px;
+      text-decoration: none;
     }
 
     .aps-services-grid {
@@ -658,6 +739,7 @@
       cursor: pointer;
       box-shadow: 0 18px 45px rgba(22, 163, 74, 0.6);
       transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+      text-decoration: none;
     }
 
     .btn-wa:hover {
@@ -673,6 +755,7 @@
       border: 1px solid rgba(148, 163, 184, 0.7);
       background: rgba(15, 23, 42, 0.9);
       color: var(--text-muted);
+      text-decoration: none;
     }
 
     /* FOOTER */
@@ -693,25 +776,38 @@
   <!-- NAVBAR -->
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">
-        <span class="logo-main">AP SOLUÇÃO ONLINE</span>
-        <span class="logo-sub">Websites • Lojas Online • Automação</span>
+      <div class="logo-wrap">
+        <!-- Coloca o ficheiro logo-ap-digital.png na raiz do repositório -->
+        <img src="logo-ap-digital.png" alt="AP Digital Solutions logo" class="logo-img">
+        <div class="logo">
+          <span class="logo-main">AP SOLUÇÃO ONLINE</span>
+          <span class="logo-sub" data-i18n="logo-sub">
+            Websites • Lojas Online • Automação
+          </span>
+        </div>
       </div>
 
-      <nav class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#produtos-digitais">Produtos Digitais</a>
-      </nav>
+      <div class="nav-center">
+        <nav class="nav-links">
+          <a href="#sobre" data-i18n="nav-about">Sobre</a>
+          <a href="#servicos" data-i18n="nav-services">Serviços</a>
+          <a href="#produtos-digitais" data-i18n="nav-products">Produtos digitais</a>
+        </nav>
+
+        <div class="lang-toggle">
+          <button class="lang-btn lang-active" data-lang-btn="pt">PT</button>
+          <button class="lang-btn" data-lang-btn="en">EN</button>
+        </div>
+      </div>
 
       <a
         class="nav-cta"
         href="https://wa.me/447700704591?text=Olá%2C%20encontrei%20a%20AP%20Solução%20Online%20e%20preciso%20de%20ajuda%20com%20um%20projeto%20digital."
         target="_blank"
         rel="noopener"
+        data-i18n="nav-cta"
       >
-        Falar pelo WhatsApp
-        <span>↗</span>
+        Falar pelo WhatsApp ↗
       </a>
     </div>
   </header>
@@ -724,30 +820,31 @@
         <div>
           <div class="hero-kicker">
             <span class="hero-kicker-dot"></span>
-            <span>Digital para pequenos negócios</span>
+            <span data-i18n="hero-kicker">
+              Digital para pequenos negócios
+            </span>
           </div>
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-i18n="hero-title">
             Websites, lojas online e automações para
             <span>quem só quer a solução pronta.</span>
           </h1>
-          <p class="hero-text">
+          <p class="hero-text" data-i18n="hero-text">
             A AP Solução Online ajuda pequenos negócios, freelancers e pessoas a trabalhar pelo mundo
             a ter presença digital, vendas online e automações simples – em Português e Inglês,
             sem complicações técnicas.
           </p>
 
           <div class="hero-actions">
-            <a href="#produtos-digitais" class="btn-primary">
-              Ver produtos e serviços
-              <span>↗</span>
+            <a href="#produtos-digitais" class="btn-primary" data-i18n="hero-primary-cta">
+              Ver produtos e serviços ↗
             </a>
 
-            <a href="#servicos" class="btn-ghost">
+            <a href="#servicos" class="btn-ghost" data-i18n="hero-secondary-cta">
               Ver tudo o que podemos fazer
             </a>
           </div>
 
-          <p class="hero-footnote">
+          <p class="hero-footnote" data-i18n="hero-footnote">
             Trabalhamos 100% online • Clientes em qualquer país • Explicações claras em PT/EN.
           </p>
         </div>
@@ -758,33 +855,54 @@
               <div class="hero-card-header">
                 <span class="hero-chip">
                   <span class="hero-chip-dot"></span>
-                  Plano feito à medida
+                  <span data-i18n="hero-chip">
+                    Plano feito à medida
+                  </span>
                 </span>
-                <span style="font-size:11px; color:var(--text-muted);">
+                <span style="font-size:11px; color:var(--text-muted);" data-i18n="hero-chip-right">
                   Websites • Lojas • Automação
                 </span>
               </div>
 
-              <div class="hero-card-title">
+              <div class="hero-card-title" data-i18n="hero-card-title">
                 “Diz-me o que precisas, eu trato do resto.”
               </div>
-              <div class="hero-card-copy">
+              <div class="hero-card-copy" data-i18n="hero-card-copy">
                 Tu explicas em poucas frases o que fazes e o que gostavas de ter online.
                 Nós tratamos de montar o site, a loja ou a automação – e entregamos já pronto
                 a usar com um vídeo ou notas simples a explicar.
               </div>
 
               <div class="hero-pill-row">
-                <span class="hero-pill">Landing pages e sites simples</span>
-                <span class="hero-pill">Lojas Shopify / e-commerce</span>
-                <span class="hero-pill">Automação no WhatsApp</span>
-                <span class="hero-pill">Designs para print-on-demand</span>
+                <span class="hero-pill" data-i18n="hero-pill-1">Landing pages e sites simples</span>
+                <span class="hero-pill" data-i18n="hero-pill-2">Lojas Shopify / e-commerce</span>
+                <span class="hero-pill" data-i18n="hero-pill-3">Automação no WhatsApp</span>
+                <span class="hero-pill" data-i18n="hero-pill-4">Designs para print-on-demand</span>
+              </div>
+
+              <div class="hero-image-strip">
+                <div class="hero-thumb">
+                  <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800"
+                       alt="Pessoa a trabalhar num portátil">
+                </div>
+                <div class="hero-thumb">
+                  <img src="https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&w=800"
+                       alt="Loja online em ecrã de computador">
+                </div>
+                <div class="hero-thumb">
+                  <img src="https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=800"
+                       alt="Telemóvel com mensagens digitais">
+                </div>
               </div>
             </div>
 
             <div class="hero-card-footer">
-              <span>Focado em resultados, não em jargão técnico</span>
-              <span>Do pedido → online em poucos dias</span>
+              <span data-i18n="hero-footer-left">
+                Focado em resultados, não em jargão técnico
+              </span>
+              <span data-i18n="hero-footer-right">
+                Do pedido → online em poucos dias
+              </span>
             </div>
           </div>
         </div>
@@ -793,9 +911,11 @@
       <!-- SERVIÇOS -->
       <section class="section" id="servicos">
         <div class="section-heading">
-          <span class="section-kicker">Serviços</span>
-          <h2 class="section-title">O que a AP Solução Online faz por ti</h2>
-          <p class="section-subtitle">
+          <span class="section-kicker" data-i18n="services-kicker">Serviços</span>
+          <h2 class="section-title" data-i18n="services-title">
+            O que a AP Solução Online faz por ti
+          </h2>
+          <p class="section-subtitle" data-i18n="services-subtitle">
             Pensado para pequenos negócios, side hustles e pessoas que trabalham fora do país
             e precisam de algo profissional sem gastar milhares.
           </p>
@@ -803,74 +923,74 @@
 
         <div class="services-grid">
           <article class="service-card">
-            <h3 class="service-title">Websites e páginas de apresentação</h3>
-            <p class="service-text">
+            <div class="service-image">
+              <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="Website em ecrã de computador">
+            </div>
+            <h3 class="service-title" data-i18n="service1-title">
+              Websites e páginas de apresentação
+            </h3>
+            <p class="service-text" data-i18n="service1-text">
               Sites modernos, estilo “Apple”, em uma ou poucas páginas, focados em explicar
               de forma clara o que fazes e como te podem contactar.
             </p>
             <div class="service-tag-row">
-              <span class="service-tag">Responsivo</span>
-              <span class="service-tag">Carrega rápido</span>
+              <span class="service-tag" data-i18n="service1-tag1">Responsivo</span>
+              <span class="service-tag" data-i18n="service1-tag2">Carrega rápido</span>
             </div>
           </article>
 
           <article class="service-card">
-            <h3 class="service-title">Lojas online &amp; Shopify</h3>
-            <p class="service-text">
+            <div class="service-image">
+              <img src="https://images.pexels.com/photos/5632382/pexels-photo-5632382.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="Concepto de loja online e compras">
+            </div>
+            <h3 class="service-title" data-i18n="service2-title">
+              Lojas online &amp; Shopify
+            </h3>
+            <p class="service-text" data-i18n="service2-text">
               Configuração de loja, métodos de pagamento, integração com print-on-demand
               (ex.: Printful) e organização básica de produtos.
             </p>
             <div class="service-tag-row">
-              <span class="service-tag">Sem stock físico</span>
-              <span class="service-tag">Envios automáticos</span>
+              <span class="service-tag" data-i18n="service2-tag1">Sem stock físico</span>
+              <span class="service-tag" data-i18n="service2-tag2">Envios automáticos</span>
             </div>
           </article>
 
           <article class="service-card">
-            <h3 class="service-title">Chatbots &amp; automação WhatsApp</h3>
-            <p class="service-text">
+            <div class="service-image">
+              <img src="https://images.pexels.com/photos/4049992/pexels-photo-4049992.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="Telemóvel com conversas de chat">
+            </div>
+            <h3 class="service-title" data-i18n="service3-title">
+              Chatbots &amp; automação WhatsApp
+            </h3>
+            <p class="service-text" data-i18n="service3-text">
               Bots que respondem automaticamente, recolhem dados de clientes e encaminham
               pedidos, usando ferramentas como TimelineAI e integrações simples.
             </p>
             <div class="service-tag-row">
-              <span class="service-tag">Respostas 24/7</span>
-              <span class="service-tag">Geração de contactos</span>
+              <span class="service-tag" data-i18n="service3-tag1">Respostas 24/7</span>
+              <span class="service-tag" data-i18n="service3-tag2">Geração de contactos</span>
             </div>
           </article>
 
           <article class="service-card">
-            <h3 class="service-title">Designs para roupa &amp; produtos</h3>
-            <p class="service-text">
+            <div class="service-image">
+              <img src="https://images.pexels.com/photos/3965545/pexels-photo-3965545.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="T-shirts e produtos personalizados">
+            </div>
+            <h3 class="service-title" data-i18n="service4-title">
+              Design para roupa &amp; produtos
+            </h3>
+            <p class="service-text" data-i18n="service4-text">
               Artes prontas para hoodies, t-shirts, canecas, garrafas térmicas e outros
               produtos – em formato PNG compatível com Printful e afins.
             </p>
             <div class="service-tag-row">
-              <span class="service-tag">Pronto para impressão</span>
-              <span class="service-tag">Estilos modernos</span>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <h3 class="service-title">Apoio digital &amp; “arranja isto para mim”</h3>
-            <p class="service-text">
-              Ajuda com domínios, ligações básicas, ligações com redes sociais, QR codes
-              e pequenos ajustes que normalmente dão dor de cabeça.
-            </p>
-            <div class="service-tag-row">
-              <span class="service-tag">Domínios &amp; DNS</span>
-              <span class="service-tag">Integrações simples</span>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <h3 class="service-title">Focado em quem fala Português</h3>
-            <p class="service-text">
-              Especial para portugueses a viver no estrangeiro que querem vender serviços
-              ou produtos online, com explicações e documentos em PT e EN.
-            </p>
-            <div class="service-tag-row">
-              <span class="service-tag">Português &amp; Inglês</span>
-              <span class="service-tag">Worldwide</span>
+              <span class="service-tag" data-i18n="service4-tag1">Pronto para impressão</span>
+              <span class="service-tag" data-i18n="service4-tag2">Estilos modernos</span>
             </div>
           </article>
         </div>
@@ -881,13 +1001,14 @@
         <div class="aps-section-inner">
           <!-- ESQUERDA: LOJA / PRODUTOS -->
           <div>
-            <div class="aps-tag">
-              <span>Digital</span>
-              <span>Produtos &amp; Lançamentos</span>
+            <div class="aps-tag" data-i18n="aps-tag">
+              Digital · Produtos &amp; Lançamentos
             </div>
 
-            <h2 class="aps-title">Designs, merch &amp; recursos digitais</h2>
-            <p class="aps-subtitle">
+            <h2 class="aps-title" data-i18n="aps-title">
+              Designs, merch &amp; recursos digitais
+            </h2>
+            <p class="aps-subtitle" data-i18n="aps-subtitle">
               Para além do serviço feito à medida, também criamos designs e recursos prontos a usar
               em hoodies, t-shirts e outros produtos através de print-on-demand.
             </p>
@@ -898,42 +1019,43 @@
                 target="_blank"
                 rel="noopener"
                 class="aps-button-primary"
+                data-i18n="aps-primary-cta"
               >
-                Ver coleção de designs
-                <span>↗</span>
+                Ver coleção de designs ↗
               </a>
 
-              <a href="#contacto" class="aps-button-secondary">
+              <a href="#contacto" class="aps-button-secondary" data-i18n="aps-secondary-cta">
                 Quero um design só para mim
               </a>
             </div>
 
             <div class="aps-right-card">
-              <div class="aps-right-heading">O que podes encontrar</div>
-              <p class="aps-right-text">
+              <div class="aps-right-heading" data-i18n="aps-right-heading">
+                O que podes encontrar
+              </div>
+              <p class="aps-right-text" data-i18n="aps-right-text">
                 Artes ligadas a ilhas, países, frases motivadoras, profissões e comunidade
                 portuguesa espalhada pelo mundo – sempre prontas para aplicar em produtos
                 físicos via print-on-demand.
               </p>
               <ul class="aps-right-list">
-                <li>Designs para roupa e acessórios</li>
-                <li>Frases criativas em Português e Inglês</li>
-                <li>Ficheiros digitais e futuros bundles</li>
+                <li data-i18n="aps-right-li1">Designs para roupa e acessórios</li>
+                <li data-i18n="aps-right-li2">Frases criativas em Português e Inglês</li>
+                <li data-i18n="aps-right-li3">Ficheiros digitais e futuros bundles</li>
               </ul>
             </div>
           </div>
 
           <!-- DIREITA: RESUMO SERVIÇOS DIGITAIS -->
           <div>
-            <div class="aps-tag">
-              <span>Planos</span>
-              <span>Feitos para a tua realidade</span>
+            <div class="aps-tag" data-i18n="aps-process-tag">
+              Planos · Feitos para a tua realidade
             </div>
 
-            <h3 class="aps-title" style="font-size:22px; margin-bottom:6px;">
+            <h3 class="aps-title" style="font-size:22px; margin-bottom:6px;" data-i18n="aps-process-title">
               Como funciona na prática?
             </h3>
-            <p class="aps-subtitle" style="margin-bottom:18px;">
+            <p class="aps-subtitle" style="margin-bottom:18px;" data-i18n="aps-process-text">
               Normalmente começamos com uma conversa simples por WhatsApp. Tu explicas o que fazes,
               o que já tens e o que gostavas de ter. Depois sugerimos 1–2 opções claras com preço
               fechado e prazo estimado.
@@ -941,38 +1063,46 @@
 
             <div class="aps-services-grid">
               <div class="aps-service-card">
-                <div class="aps-service-title">1. Entender o teu negócio</div>
-                <div class="aps-service-text">
+                <div class="aps-service-title" data-i18n="aps-step1-title">
+                  1. Entender o teu negócio
+                </div>
+                <div class="aps-service-text" data-i18n="aps-step1-text">
                   Conversa rápida por mensagem ou áudio, sem formulários chatos.
                 </div>
               </div>
 
               <div class="aps-service-card">
-                <div class="aps-service-title">2. Definir a solução</div>
-                <div class="aps-service-text">
+                <div class="aps-service-title" data-i18n="aps-step2-title">
+                  2. Definir a solução
+                </div>
+                <div class="aps-service-text" data-i18n="aps-step2-text">
                   Dizemos o que faz mais sentido neste momento: site, loja, automação ou tudo junto.
                 </div>
               </div>
 
               <div class="aps-service-card">
-                <div class="aps-service-title">3. Montagem &amp; testes</div>
-                <div class="aps-service-text">
+                <div class="aps-service-title" data-i18n="aps-step3-title">
+                  3. Montagem &amp; testes
+                </div>
+                <div class="aps-service-text" data-i18n="aps-step3-text">
                   Construímos, testamos e enviamos para aprovação com vídeo ou prints.
                 </div>
               </div>
 
               <div class="aps-service-card">
-                <div class="aps-service-title">4. Entrega &amp; pequenas alterações</div>
-                <div class="aps-service-text">
+                <div class="aps-service-title" data-i18n="aps-step4-title">
+                  4. Entrega &amp; pequenas alterações
+                </div>
+                <div class="aps-service-text" data-i18n="aps-step4-text">
                   Ajustamos detalhes, ligamos o domínio (se tiveres) e deixamos tudo pronto.
                 </div>
               </div>
             </div>
 
             <div class="aps-pill-row">
-              <span class="aps-pill">Pagamentos faseados possíveis</span>
-              <span class="aps-pill">Trabalho 100% online</span>
-              <span class="aps-pill">Suporte rápido por WhatsApp</span>
+              <span class="aps-pill" data-i18n="aps-pill1">Pagamentos faseados possíveis</span>
+              <span class="aps-pill" data-i18n="aps-pill2">Trabalho 100% online</span>
+              <span class="aps-pill" data-i18n="aps-pill3">Suporte rápido por WhatsApp</span>
             </div>
           </div>
         </div>
@@ -981,10 +1111,10 @@
       <!-- CONTACTO -->
       <section id="contacto" class="contact-section">
         <div>
-          <div class="contact-text-main">
+          <div class="contact-text-main" data-i18n="contact-main">
             Queres ajuda com um site, loja ou automação?
           </div>
-          <div class="contact-text-sub">
+          <div class="contact-text-sub" data-i18n="contact-sub">
             Envia uma mensagem a dizer o que fazes e o que estás a procurar.  
             Respondemos com opções simples e preços claros – sem compromisso.
           </div>
@@ -996,6 +1126,7 @@
             href="https://wa.me/447700704591?text=Olá%2C%20quero%20ajuda%20da%20AP%20Solução%20Online%20com%20um%20projeto%20digital."
             target="_blank"
             rel="noopener"
+            data-i18n="contact-wa"
           >
             💬 Falar pelo WhatsApp
           </a>
@@ -1003,6 +1134,7 @@
           <a
             class="btn-email"
             href="mailto:apdigitalsolutions.je@outlook.com"
+            data-i18n="contact-email"
           >
             Ou email: apdigitalsolutions.je@outlook.com
           </a>
@@ -1012,12 +1144,201 @@
   </main>
 
   <footer>
-    © <span id="year"></span> AP Solução Online · Worldwide · Português &amp; Inglês
+    <span data-i18n="footer">
+      © <span id="year"></span> AP Solução Online · Worldwide · Português &amp; Inglês
+    </span>
   </footer>
 </div>
 
 <script>
+  const translations = {
+    pt: {
+      "logo-sub": "Websites • Lojas Online • Automação",
+      "nav-about": "Sobre",
+      "nav-services": "Serviços",
+      "nav-products": "Produtos digitais",
+      "nav-cta": "Falar pelo WhatsApp ↗",
+
+      "hero-kicker": "Digital para pequenos negócios",
+      "hero-title": "Websites, lojas online e automações para <span>quem só quer a solução pronta.</span>",
+      "hero-text": "A AP Solução Online ajuda pequenos negócios, freelancers e pessoas a trabalhar pelo mundo a ter presença digital, vendas online e automações simples – em Português e Inglês, sem complicações técnicas.",
+      "hero-primary-cta": "Ver produtos e serviços ↗",
+      "hero-secondary-cta": "Ver tudo o que podemos fazer",
+      "hero-footnote": "Trabalhamos 100% online • Clientes em qualquer país • Explicações claras em PT/EN.",
+      "hero-chip": "Plano feito à medida",
+      "hero-chip-right": "Websites • Lojas • Automação",
+      "hero-card-title": "“Diz-me o que precisas, eu trato do resto.”",
+      "hero-card-copy": "Tu explicas em poucas frases o que fazes e o que gostavas de ter online. Nós tratamos de montar o site, a loja ou a automação – e entregamos já pronto a usar com um vídeo ou notas simples a explicar.",
+      "hero-pill-1": "Landing pages e sites simples",
+      "hero-pill-2": "Lojas Shopify / e-commerce",
+      "hero-pill-3": "Automação no WhatsApp",
+      "hero-pill-4": "Designs para print-on-demand",
+      "hero-footer-left": "Focado em resultados, não em jargão técnico",
+      "hero-footer-right": "Do pedido → online em poucos dias",
+
+      "services-kicker": "Serviços",
+      "services-title": "O que a AP Solução Online faz por ti",
+      "services-subtitle": "Pensado para pequenos negócios, side hustles e pessoas que trabalham fora do país e precisam de algo profissional sem gastar milhares.",
+
+      "service1-title": "Websites e páginas de apresentação",
+      "service1-text": "Sites modernos, estilo “Apple”, em uma ou poucas páginas, focados em explicar de forma clara o que fazes e como te podem contactar.",
+      "service1-tag1": "Responsivo",
+      "service1-tag2": "Carrega rápido",
+
+      "service2-title": "Lojas online &amp; Shopify",
+      "service2-text": "Configuração de loja, métodos de pagamento, integração com print-on-demand (ex.: Printful) e organização básica de produtos.",
+      "service2-tag1": "Sem stock físico",
+      "service2-tag2": "Envios automáticos",
+
+      "service3-title": "Chatbots &amp; automação WhatsApp",
+      "service3-text": "Bots que respondem automaticamente, recolhem dados de clientes e encaminham pedidos, usando ferramentas como TimelineAI e integrações simples.",
+      "service3-tag1": "Respostas 24/7",
+      "service3-tag2": "Geração de contactos",
+
+      "service4-title": "Design para roupa &amp; produtos",
+      "service4-text": "Artes prontas para hoodies, t-shirts, canecas, garrafas térmicas e outros produtos – em formato PNG compatível com Printful e afins.",
+      "service4-tag1": "Pronto para impressão",
+      "service4-tag2": "Estilos modernos",
+
+      "aps-tag": "Digital · Produtos &amp; Lançamentos",
+      "aps-title": "Designs, merch &amp; recursos digitais",
+      "aps-subtitle": "Para além do serviço feito à medida, também criamos designs e recursos prontos a usar em hoodies, t-shirts e outros produtos através de print-on-demand.",
+      "aps-primary-cta": "Ver coleção de designs ↗",
+      "aps-secondary-cta": "Quero um design só para mim",
+      "aps-right-heading": "O que podes encontrar",
+      "aps-right-text": "Artes ligadas a ilhas, países, frases motivadoras, profissões e comunidade portuguesa espalhada pelo mundo – sempre prontas para aplicar em produtos físicos via print-on-demand.",
+      "aps-right-li1": "Designs para roupa e acessórios",
+      "aps-right-li2": "Frases criativas em Português e Inglês",
+      "aps-right-li3": "Ficheiros digitais e futuros bundles",
+
+      "aps-process-tag": "Planos · Feitos para a tua realidade",
+      "aps-process-title": "Como funciona na prática?",
+      "aps-process-text": "Normalmente começamos com uma conversa simples por WhatsApp. Tu explicas o que fazes, o que já tens e o que gostavas de ter. Depois sugerimos 1–2 opções claras com preço fechado e prazo estimado.",
+      "aps-step1-title": "1. Entender o teu negócio",
+      "aps-step1-text": "Conversa rápida por mensagem ou áudio, sem formulários chatos.",
+      "aps-step2-title": "2. Definir a solução",
+      "aps-step2-text": "Dizemos o que faz mais sentido neste momento: site, loja, automação ou tudo junto.",
+      "aps-step3-title": "3. Montagem &amp; testes",
+      "aps-step3-text": "Construímos, testamos e enviamos para aprovação com vídeo ou prints.",
+      "aps-step4-title": "4. Entrega &amp; pequenas alterações",
+      "aps-step4-text": "Ajustamos detalhes, ligamos o domínio (se tiveres) e deixamos tudo pronto.",
+      "aps-pill1": "Pagamentos faseados possíveis",
+      "aps-pill2": "Trabalho 100% online",
+      "aps-pill3": "Suporte rápido por WhatsApp",
+
+      "contact-main": "Queres ajuda com um site, loja ou automação?",
+      "contact-sub": "Envia uma mensagem a dizer o que fazes e o que estás a procurar.  Respondemos com opções simples e preços claros – sem compromisso.",
+      "contact-wa": "💬 Falar pelo WhatsApp",
+      "contact-email": "Ou email: apdigitalsolutions.je@outlook.com",
+
+      "footer": "© <span id=\"year\"></span> AP Solução Online · Worldwide · Português &amp; Inglês"
+    },
+
+    en: {
+      "logo-sub": "Websites • Online Stores • Automation",
+      "nav-about": "About",
+      "nav-services": "Services",
+      "nav-products": "Digital products",
+      "nav-cta": "Chat on WhatsApp ↗",
+
+      "hero-kicker": "Digital for small businesses",
+      "hero-title": "Websites, online stores and automations for <span>people who just want it done.</span>",
+      "hero-text": "AP Solução Online helps small businesses, freelancers and people working abroad to get a clean online presence, online sales and simple automations – in Portuguese and English, without tech headaches.",
+      "hero-primary-cta": "See products & services ↗",
+      "hero-secondary-cta": "See everything we can do",
+      "hero-footnote": "100% online work • Clients in any country • Clear explanations in PT/EN.",
+      "hero-chip": "Made-to-measure plan",
+      "hero-chip-right": "Websites • Stores • Automation",
+      "hero-card-title": "“Tell me what you need, I’ll handle the rest.”",
+      "hero-card-copy": "You explain in a few sentences what you do and what you’d like online. We build the site, store or automation and deliver it ready to use, with a short video or notes explaining how it works.",
+      "hero-pill-1": "Landing pages & simple sites",
+      "hero-pill-2": "Shopify / e-commerce stores",
+      "hero-pill-3": "WhatsApp automation",
+      "hero-pill-4": "Print-on-demand designs",
+      "hero-footer-left": "Focused on results, not tech jargon",
+      "hero-footer-right": "From request → live in a few days",
+
+      "services-kicker": "Services",
+      "services-title": "What AP Solução Online can do for you",
+      "services-subtitle": "Designed for small businesses, side hustles and people working abroad who need something professional without spending thousands.",
+
+      "service1-title": "Websites & landing pages",
+      "service1-text": "Modern, Apple-style sites with one or a few sections, focused on clearly explaining what you do and how people can contact you.",
+      "service1-tag1": "Responsive",
+      "service1-tag2": "Fast loading",
+
+      "service2-title": "Online stores & Shopify",
+      "service2-text": "Store setup, payment methods, print-on-demand integration (e.g. Printful) and basic product organisation.",
+      "service2-tag1": "No physical stock",
+      "service2-tag2": "Automatic fulfilment",
+
+      "service3-title": "Chatbots & WhatsApp automation",
+      "service3-text": "Bots that reply automatically, collect client details and route requests, using tools like TimelineAI and simple integrations.",
+      "service3-tag1": "24/7 replies",
+      "service3-tag2": "Lead capture",
+
+      "service4-title": "Designs for apparel & products",
+      "service4-text": "Ready-to-print artwork for hoodies, t-shirts, mugs, tumblers and more – in PNG format compatible with Printful and others.",
+      "service4-tag1": "Print-ready",
+      "service4-tag2": "Modern styles",
+
+      "aps-tag": "Digital · Products & launches",
+      "aps-title": "Designs, merch & digital assets",
+      "aps-subtitle": "Besides custom work, we create ready-to-use designs and resources for hoodies, t-shirts and other products via print-on-demand.",
+      "aps-primary-cta": "Visit the design collection ↗",
+      "aps-secondary-cta": "I want a custom design",
+      "aps-right-heading": "What you’ll find",
+      "aps-right-text": "Artwork inspired by islands, countries, motivational quotes, professions and the Portuguese community worldwide – ready to apply to physical products via print-on-demand.",
+      "aps-right-li1": "Designs for clothing & accessories",
+      "aps-right-li2": "Creative phrases in Portuguese & English",
+      "aps-right-li3": "Digital files & future bundles",
+
+      "aps-process-tag": "Plans · Built around your reality",
+      "aps-process-title": "How it works in practice",
+      "aps-process-text": "We usually start with a quick WhatsApp chat. You explain what you do, what you already have and what you’d like. Then we suggest 1–2 clear options with fixed price and estimated deadline.",
+      "aps-step1-title": "1. Understand your business",
+      "aps-step1-text": "Quick chat via message or audio – no long forms.",
+      "aps-step2-title": "2. Choose the right solution",
+      "aps-step2-text": "We suggest what makes most sense now: site, store, automation or a mix.",
+      "aps-step3-title": "3. Build & test",
+      "aps-step3-text": "We build, test and send previews for approval with screenshots or video.",
+      "aps-step4-title": "4. Launch & fine-tune",
+      "aps-step4-text": "We tweak details, connect your domain (if you have one) and leave everything ready.",
+      "aps-pill1": "Payment in stages available",
+      "aps-pill2": "100% remote work",
+      "aps-pill3": "Fast support via WhatsApp",
+
+      "contact-main": "Need help with a site, store or automation?",
+      "contact-sub": "Send a message explaining what you do and what you’re looking for. We’ll reply with simple options and transparent prices – no obligation.",
+      "contact-wa": "💬 Chat on WhatsApp",
+      "contact-email": "Or email: apdigitalsolutions.je@outlook.com",
+
+      "footer": "© <span id=\"year\"></span> AP Solução Online · Worldwide · Portuguese &amp; English"
+    }
+  };
+
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const txt = translations[lang][key];
+      if (txt) el.innerHTML = txt;
+    });
+
+    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+      btn.classList.toggle('lang-active', btn.dataset.langBtn === lang);
+    });
+  }
+
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.langBtn;
+      setLanguage(lang);
+    });
+  });
+
   document.getElementById('year').textContent = new Date().getFullYear();
+  setLanguage('pt');
 </script>
 </body>
-    </html>
+                </html>
