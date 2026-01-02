@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0B0F19" />
 
-  <title>AP Solução Online — Sites Profissionais que Geram Clientes</title>
-  <meta name="description" content="Criamos sites profissionais (mobile-first) e presença online premium para negócios em português. SEO básico e contacto direto por WhatsApp. Peça uma análise gratuita." />
+  <title>AP Solução Online — Sites Profissionais & Email de Negócio</title>
+  <meta name="description" content="Criamos sites profissionais (mobile-first) e configuramos email profissional com o seu domínio. Presença online premium, SEO básico e contacto direto por WhatsApp. Peça uma análise gratuita." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="AP Solução Online — Sites Profissionais" />
-  <meta property="og:description" content="Presença online premium + WhatsApp + SEO básico. Para negócios em português." />
+  <meta property="og:title" content="AP Solução Online — Sites Profissionais & Email de Negócio" />
+  <meta property="og:description" content="Presença online premium + WhatsApp + SEO básico + email profissional com domínio (powered by Zoho Mail)." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_PT" />
 
@@ -121,7 +121,7 @@
     .btn.primary:hover{filter:brightness(1.03)}
     .btn.ghost{background:transparent}
 
-    /* HERO (legibilidade) */
+    /* HERO */
     .hero{
       position:relative;
       padding:54px 0 10px;
@@ -214,7 +214,7 @@
     .form{display:grid;gap:10px;margin-top:8px}
     label{font-size:12px;color:var(--muted)}
     .field{display:grid;gap:6px}
-    input,textarea{
+    input,textarea,select{
       width:100%;
       padding:12px 12px;
       border-radius:14px;
@@ -223,8 +223,9 @@
       color:var(--text);
       outline:none;
     }
+    select{appearance:none}
     textarea{min-height:92px;resize:vertical}
-    input:focus,textarea:focus{
+    input:focus,textarea:focus,select:focus{
       border-color:rgba(34,211,238,.45);
       box-shadow:0 0 0 3px rgba(34,211,238,.12);
     }
@@ -268,6 +269,35 @@
       font-size:12px;
     }
     .proof b{color:var(--text);display:block;margin-bottom:3px}
+
+    /* Email highlight */
+    .highlight{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .highlight .panel{padding:18px}
+    .pill2{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);font-size:12px;
+      margin-bottom:10px;
+    }
+    .list{display:grid;gap:10px;margin-top:10px}
+    .li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px}
+    .li .check{flex:0 0 auto;margin-top:1px}
+    .note{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;
+    }
 
     /* Portfolio */
     .portfolio .card{grid-column:span 6;padding:0;overflow:hidden}
@@ -352,6 +382,7 @@
       .steps .card{grid-column:span 6}
       .portfolio .card{grid-column:span 12}
       .proof{grid-template-columns:1fr}
+      .highlight{grid-template-columns:1fr}
     }
     @media (max-width: 560px){
       .wrap{padding:18px}
@@ -371,14 +402,12 @@
   <!-- NAV -->
   <header class="nav">
     <div class="wrap">
-      <!-- Logo only -->
       <a href="#top" aria-label="AP Solução Online">
         <div class="brand-logo">
           <img src="logo-premium.png" alt="AP Solução Online logo">
         </div>
       </a>
 
-      <!-- Social + WhatsApp -->
       <div class="nav-actions">
         <a class="icon-btn" href="https://www.instagram.com/apdigitalsolutions.digital?igsh=MXhucHVqNTNiMTBuOA==" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -407,11 +436,11 @@
           <div class="hero-left">
             <span class="kicker"><span class="dot ok"></span>Presença online premium para negócios em português</span>
 
-            <h1>Um site moderno que aumenta confiança e gera pedidos no WhatsApp.</h1>
+            <h1>Um site moderno — e email profissional — que aumenta confiança e gera pedidos.</h1>
 
             <p class="lead">
               Fazemos sites rápidos (mobile-first), com estrutura clara, SEO básico e botões pensados para converter visitantes em clientes.
-              Tu explicas o teu negócio — nós tratamos do resto.
+              Também configuramos <b>email profissional com o seu domínio</b> para o seu negócio parecer credível desde o primeiro dia.
             </p>
 
             <div class="actions">
@@ -424,10 +453,9 @@
               <span role="listitem"><span class="check">✓</span>Design premium</span>
               <span role="listitem"><span class="check">✓</span>Perfeito no telemóvel</span>
               <span role="listitem"><span class="check">✓</span>Foco em conversão</span>
-              <span role="listitem"><span class="check">✓</span>Entrega limpa e rápida</span>
+              <span role="listitem"><span class="check">✓</span>Email profissional</span>
             </div>
 
-            <!-- Prova social sem inventar números -->
             <div class="proof" aria-label="Prova social">
               <div class="pill"><b>Portfólio real</b>Sites publicados e ativos (vê abaixo).</div>
               <div class="pill"><b>Contacto direto</b>Botões WhatsApp + formulário direto.</div>
@@ -446,11 +474,8 @@
 
               <!-- ✅ FORMSPREE CONNECTADO -->
               <form class="form" id="leadForm" action="https://formspree.io/f/mbdldbrq" method="POST">
-                <!-- Assunto do email -->
-                <input type="hidden" name="_subject" value="AP Solução Online — Pedido de análise gratuita">
-                <!-- Anti-spam (honeypot) -->
+                <input type="hidden" name="_subject" value="AP Solução Online — Novo pedido">
                 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-                <!-- Se criares um /obrigado.html, muda para essa página -->
                 <input type="hidden" name="_redirect" value="#contacto">
 
                 <div class="field">
@@ -469,8 +494,18 @@
                 </div>
 
                 <div class="field">
+                  <label for="interesse">Tenho interesse em</label>
+                  <select id="interesse" name="interesse" required>
+                    <option value="" selected disabled>Selecione uma opção</option>
+                    <option value="Site">Site</option>
+                    <option value="Email Profissional">Email profissional (com domínio)</option>
+                    <option value="Site + Email Profissional">Site + Email profissional</option>
+                  </select>
+                </div>
+
+                <div class="field">
                   <label for="objetivo">O que precisa?</label>
-                  <textarea id="objetivo" name="objetivo" placeholder="Ex: Site com serviços, galeria, botão WhatsApp e formulário."></textarea>
+                  <textarea id="objetivo" name="objetivo" placeholder="Ex: Site com serviços, galeria, botão WhatsApp e formulário. Ou email profissional para o meu domínio."></textarea>
                 </div>
 
                 <button class="btn primary" type="submit">Enviar pedido</button>
@@ -498,40 +533,70 @@
       </div>
 
       <div class="cards">
-        <div class="card">
-          <div class="ic">🌐</div>
-          <h3>Sites profissionais</h3>
-          <p>Landing page ou site completo com estrutura moderna e clara.</p>
+        <div class="card"><div class="ic">🌐</div><h3>Sites profissionais</h3><p>Landing page ou site completo com estrutura moderna e clara.</p></div>
+        <div class="card"><div class="ic">📱</div><h3>Mobile-first</h3><p>Perfeito no telemóvel — rápido, limpo e fácil de navegar.</p></div>
+        <div class="card"><div class="ic">📈</div><h3>SEO básico</h3><p>Base certa para indexar no Google e aparecer com credibilidade.</p></div>
+        <div class="card"><div class="ic">💬</div><h3>WhatsApp direto</h3><p>Botões que abrem o WhatsApp com mensagem pronta (sem mostrar número).</p></div>
+
+        <!-- ✅ NOVO SERVIÇO -->
+        <div class="card"><div class="ic">✉️</div><h3>Email profissional (domínio)</h3><p>Email do tipo <b>info@oseunegocio.com</b>, configurado com segurança. Powered by Zoho Mail.</p></div>
+
+        <div class="card"><div class="ic">⚙️</div><h3>AI & automação</h3><p>Opções para automatizar respostas e leads (quando fizer sentido).</p></div>
+      </div>
+    </section>
+
+    <!-- ✅ EMAIL PROFISSIONAL -->
+    <section id="email">
+      <div class="section-title">
+        <div>
+          <h2>Email profissional para o seu negócio</h2>
+          <p>Pareça mais credível com email do seu domínio — seguro, fiável e pronto no telemóvel e computador.</p>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <div class="panel">
+          <span class="pill2">✉️ Email de domínio • Profissional</span>
+          <h3 style="margin:0 0 8px;font-size:16px;">Chega de emails genéricos. Use o nome do seu negócio.</h3>
+          <p style="margin:0;color:var(--muted);font-size:13px;max-width:75ch;">
+            Um email com domínio aumenta confiança. Nós configuramos corretamente — registos DNS, segurança e as apps que usa — para funcionar sem stress.
+          </p>
+
+          <div class="list" aria-label="O que inclui">
+            <div class="li"><span class="check">✓</span><span>Verificação do domínio + DNS (MX, SPF, DKIM)</span></div>
+            <div class="li"><span class="check">✓</span><span>Criação das caixas de email (ex: info@, bookings@)</span></div>
+            <div class="li"><span class="check">✓</span><span>Configuração segura (2FA recomendado)</span></div>
+            <div class="li"><span class="check">✓</span><span>Funcionamento no Zoho Mail (web + app móvel)</span></div>
+            <div class="li"><span class="check">✓</span><span>Opcional: Outlook / Gmail (IMAP/SMTP)</span></div>
+          </div>
+
+          <div class="note">
+            <b style="color:var(--text)">Nota:</b> Nós fazemos a configuração e suporte. Serviço de email powered by Zoho Mail.
+          </div>
         </div>
 
-        <div class="card">
-          <div class="ic">📱</div>
-          <h3>Mobile-first</h3>
-          <p>Perfeito no telemóvel — rápido, limpo e fácil de navegar.</p>
-        </div>
+        <div class="panel">
+          <span class="pill2">✅ Ideal para pequenos negócios</span>
+          <h3 style="margin:0 0 8px;font-size:16px;">O que precisamos para começar</h3>
+          <p style="margin:0;color:var(--muted);font-size:13px;">
+            Para avançar rapidamente, envie:
+          </p>
 
-        <div class="card">
-          <div class="ic">📈</div>
-          <h3>SEO básico</h3>
-          <p>Base certa para indexar no Google e aparecer com credibilidade.</p>
-        </div>
+          <div class="list">
+            <div class="li"><span class="check">✓</span><span>O seu domínio (ex: oseunegocio.com)</span></div>
+            <div class="li"><span class="check">✓</span><span>Onde gere o domínio (Namecheap, GoDaddy, etc.)</span></div>
+            <div class="li"><span class="check">✓</span><span>Os emails que quer criar (info@, apoio@, etc.)</span></div>
+            <div class="li"><span class="check">✓</span><span>Onde quer usar (Zoho web / Outlook / Gmail)</span></div>
+          </div>
 
-        <div class="card">
-          <div class="ic">💬</div>
-          <h3>WhatsApp direto</h3>
-          <p>Botões que abrem o WhatsApp com mensagem pronta (sem mostrar número).</p>
-        </div>
+          <div class="actions" style="margin-top:14px;">
+            <a class="btn primary" href="#contacto">Pedir configuração</a>
+            <a class="btn" id="ctaWAEmail" href="#">Perguntar no WhatsApp</a>
+          </div>
 
-        <div class="card">
-          <div class="ic">🧩</div>
-          <h3>Texto & estrutura</h3>
-          <p>Organização e copy para converter visitas em pedidos.</p>
-        </div>
-
-        <div class="card">
-          <div class="ic">⚙️</div>
-          <h3>AI & automação</h3>
-          <p>Opções para automatizar respostas e leads (quando fizer sentido).</p>
+          <div class="tiny" style="margin-top:12px;">
+            Se já tem emails noutro serviço, ajudamos a migrar sem confusão.
+          </div>
         </div>
       </div>
     </section>
@@ -553,16 +618,8 @@
             <div class="ph">Imagem: assets/portfolio/pethaven.jpg</div>
           </div>
           <div class="p-body">
-            <div class="p-top">
-              <div>
-                <h3>Pet Haven</h3>
-                <p class="muted">Website / presença online</p>
-              </div>
-              <span class="tag">🔗 Live</span>
-            </div>
-            <div class="p-actions">
-              <a class="btn primary" href="https://pethavenjersey.com/" target="_blank" rel="noopener">Ver site</a>
-            </div>
+            <div class="p-top"><div><h3>Pet Haven</h3><p class="muted">Website / presença online</p></div><span class="tag">🔗 Live</span></div>
+            <div class="p-actions"><a class="btn primary" href="https://pethavenjersey.com/" target="_blank" rel="noopener">Ver site</a></div>
           </div>
         </article>
 
@@ -573,16 +630,8 @@
             <div class="ph">Imagem: assets/portfolio/ajudatotal.jpg</div>
           </div>
           <div class="p-body">
-            <div class="p-top">
-              <div>
-                <h3>AjudaTotal</h3>
-                <p class="muted">Website / comunidade</p>
-              </div>
-              <span class="tag">🔗 Live</span>
-            </div>
-            <div class="p-actions">
-              <a class="btn primary" href="https://ajudatotal.com/" target="_blank" rel="noopener">Ver site</a>
-            </div>
+            <div class="p-top"><div><h3>AjudaTotal</h3><p class="muted">Website / comunidade</p></div><span class="tag">🔗 Live</span></div>
+            <div class="p-actions"><a class="btn primary" href="https://ajudatotal.com/" target="_blank" rel="noopener">Ver site</a></div>
           </div>
         </article>
 
@@ -593,16 +642,8 @@
             <div class="ph">Imagem: assets/portfolio/harbourandhome.jpg</div>
           </div>
           <div class="p-body">
-            <div class="p-top">
-              <div>
-                <h3>Harbour &amp; Home</h3>
-                <p class="muted">Website / serviços</p>
-              </div>
-              <span class="tag">🔗 Live</span>
-            </div>
-            <div class="p-actions">
-              <a class="btn primary" href="https://harbourandhome.co/" target="_blank" rel="noopener">Ver site</a>
-            </div>
+            <div class="p-top"><div><h3>Harbour &amp; Home</h3><p class="muted">Website / serviços</p></div><span class="tag">🔗 Live</span></div>
+            <div class="p-actions"><a class="btn primary" href="https://harbourandhome.co/" target="_blank" rel="noopener">Ver site</a></div>
           </div>
         </article>
 
@@ -613,16 +654,8 @@
             <div class="ph">Imagem: assets/portfolio/apdigital.jpg</div>
           </div>
           <div class="p-body">
-            <div class="p-top">
-              <div>
-                <h3>AP Digital Solutions</h3>
-                <p class="muted">Agência / websites &amp; AI</p>
-              </div>
-              <span class="tag">🔗 Live</span>
-            </div>
-            <div class="p-actions">
-              <a class="btn primary" href="https://apdigitalsolutions.digital/" target="_blank" rel="noopener">Ver site</a>
-            </div>
+            <div class="p-top"><div><h3>AP Digital Solutions</h3><p class="muted">Agência / websites &amp; AI</p></div><span class="tag">🔗 Live</span></div>
+            <div class="p-actions"><a class="btn primary" href="https://apdigitalsolutions.digital/" target="_blank" rel="noopener">Ver site</a></div>
           </div>
         </article>
 
@@ -633,16 +666,8 @@
             <div class="ph">Imagem: assets/portfolio/catia.jpg</div>
           </div>
           <div class="p-body">
-            <div class="p-top">
-              <div>
-                <h3>Cátia Coutinho Holística</h3>
-                <p class="muted">Website / terapias</p>
-              </div>
-              <span class="tag">🔗 Live</span>
-            </div>
-            <div class="p-actions">
-              <a class="btn primary" href="https://catiacoutinhoholistica.com/" target="_blank" rel="noopener">Ver site</a>
-            </div>
+            <div class="p-top"><div><h3>Cátia Coutinho Holística</h3><p class="muted">Website / terapias</p></div><span class="tag">🔗 Live</span></div>
+            <div class="p-actions"><a class="btn primary" href="https://catiacoutinhoholistica.com/" target="_blank" rel="noopener">Ver site</a></div>
           </div>
         </article>
       </div>
@@ -658,26 +683,10 @@
       </div>
 
       <div class="cards">
-        <div class="card">
-          <div class="badge">1) Diagnóstico</div>
-          <h3>Entendemos o objetivo</h3>
-          <p>Serviços, público, zona e o que queres alcançar.</p>
-        </div>
-        <div class="card">
-          <div class="badge">2) Estrutura</div>
-          <h3>Montamos o essencial</h3>
-          <p>Secções certas e mensagens claras para converter.</p>
-        </div>
-        <div class="card">
-          <div class="badge">3) Design</div>
-          <h3>Visual premium</h3>
-          <p>Limpo, moderno, rápido e perfeito no telemóvel.</p>
-        </div>
-        <div class="card">
-          <div class="badge">4) Online</div>
-          <h3>Publicação</h3>
-          <p>Site online e pronto para divulgar nas redes.</p>
-        </div>
+        <div class="card"><div class="badge">1) Diagnóstico</div><h3>Entendemos o objetivo</h3><p>Serviços, público e o que queres (site, email ou ambos).</p></div>
+        <div class="card"><div class="badge">2) Estrutura</div><h3>Montamos o essencial</h3><p>Secções certas + configuração de email (DNS e segurança).</p></div>
+        <div class="card"><div class="badge">3) Design</div><h3>Visual premium</h3><p>Limpo, moderno, rápido e perfeito no telemóvel.</p></div>
+        <div class="card"><div class="badge">4) Online</div><h3>Publicação</h3><p>Site no ar e email a funcionar nos dispositivos que usas.</p></div>
       </div>
     </section>
 
@@ -696,8 +705,18 @@
       </details>
 
       <details>
+        <summary>Conseguem configurar email profissional com o meu domínio?</summary>
+        <p>Sim. Configuramos o email com o seu domínio (MX/SPF/DKIM) e ajudamos a usar no Zoho Mail e, se quiser, no Outlook/Gmail.</p>
+      </details>
+
+      <details>
+        <summary>O email fica logo a funcionar no Outlook/Gmail?</summary>
+        <p>Às vezes a propagação de DNS e a sincronização podem demorar um pouco. Configuramos tudo corretamente e guiamos o melhor método para os seus dispositivos.</p>
+      </details>
+
+      <details>
         <summary>O que preciso enviar para começarem?</summary>
-        <p>Nome do negócio, serviços, zona, contactos e (se tiver) fotos/logotipo. Se não tiver, ajudamos.</p>
+        <p>Nome do negócio, serviços, zona, contactos e (se tiver) fotos/logotipo. Para email: o domínio e onde ele é gerido.</p>
       </details>
 
       <details>
@@ -711,10 +730,11 @@
       <div class="foot">
         <div>
           <b style="color:var(--text)">AP Solução Online</b><br/>
-          <span>Websites • AI • Automação</span>
+          <span>Websites • Email Profissional • AI • Automação</span>
         </div>
         <div style="display:flex;gap:14px;flex-wrap:wrap;">
           <a href="#servicos">Serviços</a>
+          <a href="#email">Email</a>
           <a href="#portfolio">Portfólio</a>
           <a href="#processo">Processo</a>
           <a href="#contacto">Contacto</a>
@@ -742,10 +762,7 @@
   </a>
 
   <script>
-    // Config
-    const WHATSAPP_NUMBER_E164 = "447700704591"; // 077.. -> 44 + sem o 0
-    const BRAND_NAME = "AP Solução Online";
-
+    const WHATSAPP_NUMBER_E164 = "447700704591";
     const enc = encodeURIComponent;
     const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER_E164}?text=${enc(msg)}`;
 
@@ -754,7 +771,11 @@
     const waMsg =
 `Olá! Quero colocar o meu negócio online.
 
+Preciso de:
+- Site / Email profissional / Ambos
+
 Negócio:
+Domínio (se for email):
 Objetivo:
 Tenho (logo/fotos/textos):
 Prazo ideal:
@@ -762,13 +783,11 @@ Prazo ideal:
 
     const waUrl = waLink(waMsg);
 
-    // Bind WhatsApp buttons
-    ["waFloat","waInline","ctaWAHero","ctaWATop"].forEach(id=>{
+    ["waFloat","waInline","ctaWAHero","ctaWATop","ctaWAEmail"].forEach(id=>{
       const el = document.getElementById(id);
       if(el) el.href = waUrl;
     });
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener("click",(ev)=>{
         const href = a.getAttribute("href");
@@ -781,4 +800,4 @@ Prazo ideal:
     });
   </script>
 </body>
-</html>
+  </html>
