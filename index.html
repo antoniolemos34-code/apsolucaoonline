@@ -430,7 +430,7 @@
             <!-- Prova social sem inventar números -->
             <div class="proof" aria-label="Prova social">
               <div class="pill"><b>Portfólio real</b>Sites publicados e ativos (vê abaixo).</div>
-              <div class="pill"><b>Contacto direto</b>Botões WhatsApp + email com mensagem pronta.</div>
+              <div class="pill"><b>Contacto direto</b>Botões WhatsApp + formulário direto.</div>
               <div class="pill"><b>Qualidade premium</b>Visual limpo, profissional e moderno.</div>
             </div>
           </div>
@@ -444,7 +444,15 @@
               <h3>Peça uma análise gratuita</h3>
               <p>Diga-nos o seu negócio e o objetivo — devolvemos uma sugestão clara.</p>
 
-              <form class="form" id="leadForm">
+              <!-- ✅ FORMSPREE CONNECTADO -->
+              <form class="form" id="leadForm" action="https://formspree.io/f/mbdldbrq" method="POST">
+                <!-- Assunto do email -->
+                <input type="hidden" name="_subject" value="AP Solução Online — Pedido de análise gratuita">
+                <!-- Anti-spam (honeypot) -->
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                <!-- Se criares um /obrigado.html, muda para essa página -->
+                <input type="hidden" name="_redirect" value="#contacto">
+
                 <div class="field">
                   <label for="nome">Nome</label>
                   <input id="nome" name="nome" autocomplete="name" placeholder="Ex: João Silva" required>
@@ -468,8 +476,8 @@
                 <button class="btn primary" type="submit">Enviar pedido</button>
 
                 <div class="tiny">
-                  Ao enviar, abre o seu email com a mensagem pronta.
-                  Preferes WhatsApp? <a id="waInline" href="#" style="text-decoration:underline;">Clique aqui</a>.
+                  Vamos responder o mais rápido possível. Preferes WhatsApp?
+                  <a id="waInline" href="#" style="text-decoration:underline;">Clique aqui</a>.
                 </div>
               </form>
 
@@ -736,7 +744,6 @@
   <script>
     // Config
     const WHATSAPP_NUMBER_E164 = "447700704591"; // 077.. -> 44 + sem o 0
-    const EMAIL_TO = "apdigitalsolutions.je@outlook.com";
     const BRAND_NAME = "AP Solução Online";
 
     const enc = encodeURIComponent;
@@ -761,33 +768,6 @@ Prazo ideal:
       if(el) el.href = waUrl;
     });
 
-    // Email form -> opens mail client (no backend)
-    document.getElementById("leadForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const nome = document.getElementById("nome").value.trim();
-      const negocio = document.getElementById("negocio").value.trim();
-      const contacto = document.getElementById("contactoInput").value.trim();
-      const objetivo = document.getElementById("objetivo").value.trim();
-
-      const subject = `${BRAND_NAME} — Pedido de análise gratuita (${nome})`;
-      const body =
-`Olá ${BRAND_NAME},
-
-Quero uma análise gratuita para colocar o meu negócio online.
-
-Nome: ${nome}
-Negócio/Área: ${negocio}
-Contacto: ${contacto}
-
-O que pretendo:
-${objetivo || "(não especificado)"}
-
-Obrigado!`;
-
-      window.location.href = `mailto:${EMAIL_TO}?subject=${enc(subject)}&body=${enc(body)}`;
-    });
-
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener("click",(ev)=>{
@@ -801,4 +781,4 @@ Obrigado!`;
     });
   </script>
 </body>
-                    </html>
+</html>
