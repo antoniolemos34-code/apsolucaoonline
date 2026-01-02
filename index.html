@@ -5,221 +5,800 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0B0F19" />
 
-  <title>AP Solução Online — Websites Profissionais</title>
-  <meta name="description" content="Websites profissionais e presença online premium para negócios. Design moderno, mobile-first e contacto direto via WhatsApp." />
-  <meta name="robots" content="index,follow" />
+  <title>AP Solução Online — Sites Profissionais que Geram Clientes</title>
+  <meta name="description" content="Criamos sites profissionais (mobile-first) e presença online premium para negócios em português. SEO básico e contacto direto por WhatsApp. Peça uma análise gratuita." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <!-- FAVICON -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="AP Solução Online — Sites Profissionais" />
+  <meta property="og:description" content="Presença online premium + WhatsApp + SEO básico. Para negócios em português." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_PT" />
+
+  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <style>
     :root{
       --bg:#070A12;
+      --panel:rgba(255,255,255,.05);
+      --panel2:rgba(255,255,255,.03);
       --text:#EAF0FF;
-      --muted:#A9B4D0;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.58);
       --line:rgba(255,255,255,.12);
       --brand1:#7C5CFF;
       --brand2:#22D3EE;
+      --ok:#34D399;
       --shadow:0 18px 60px rgba(0,0,0,.45);
       --radius:22px;
       --max:1120px;
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
-      background:
-        radial-gradient(900px 450px at 20% 10%, rgba(124,92,255,.25), transparent 55%),
-        radial-gradient(900px 450px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
-        var(--bg);
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
       color:var(--text);
+      background:
+        radial-gradient(900px 450px at 18% 10%, rgba(124,92,255,.22), transparent 55%),
+        radial-gradient(900px 450px at 82% 18%, rgba(34,211,238,.18), transparent 55%),
+        radial-gradient(900px 450px at 50% 95%, rgba(52,211,153,.10), transparent 55%),
+        var(--bg);
       line-height:1.45;
     }
-
-    a{text-decoration:none;color:inherit}
+    a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:24px}
 
     /* NAV */
     .nav{
-      position:sticky;
-      top:0;
-      z-index:100;
-      backdrop-filter:blur(14px);
-      background:rgba(7,10,18,.65);
+      position:sticky;top:0;z-index:100;
+      backdrop-filter:blur(12px);
+      background:rgba(7,10,18,.66);
       border-bottom:1px solid var(--line);
     }
-
     .nav .wrap{
       display:flex;
       align-items:center;
       justify-content:space-between;
+      gap:12px;
     }
 
-    /* LOGO GRANDE */
     .brand-logo{
-      width:96px;
-      height:96px;
+      width:94px;height:94px;
       border-radius:24px;
       overflow:hidden;
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.22);
       box-shadow:
-        0 22px 55px rgba(124,92,255,.35),
+        0 22px 55px rgba(124,92,255,.28),
         inset 0 0 0 1px rgba(255,255,255,.06);
+      display:grid;place-items:center;
     }
-
     .brand-logo img{
-      width:100%;
-      height:100%;
+      width:100%;height:100%;
       object-fit:contain;
+      display:block;
+      transform:scale(1.02);
     }
 
-    /* NAV ACTIONS */
-    .nav-actions{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-
+    .nav-actions{display:flex;gap:10px;align-items:center}
     .icon-btn{
-      width:46px;
-      height:46px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.2);
+      width:46px;height:46px;border-radius:999px;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.18);
       transition:.2s ease;
     }
-
-    .icon-btn:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.16);
-    }
-
-    .icon-btn svg{
-      width:20px;
-      height:20px;
-      fill:#fff;
-      opacity:.95;
-    }
+    .icon-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.13)}
+    .icon-btn svg{width:20px;height:20px;opacity:.95}
 
     .btn{
-      padding:12px 20px;
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:12px 18px;
       border-radius:999px;
-      font-weight:600;
-      font-size:14px;
-      background:linear-gradient(135deg,var(--brand1),var(--brand2));
-      color:#081018;
-      border:none;
-      cursor:pointer;
-    }
-
-    /* HERO */
-    .hero{
-      padding:60px 0 40px;
-    }
-
-    h1{
-      font-size:clamp(32px,5vw,52px);
-      line-height:1.1;
-      margin-bottom:16px;
-    }
-
-    .lead{
-      font-size:17px;
-      color:var(--muted);
-      max-width:640px;
-    }
-
-    .actions{
-      margin-top:26px;
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .btn.secondary{
-      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
       color:var(--text);
-      border:1px solid rgba(255,255,255,.2);
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.26)}
+    .btn.primary{
+      background:linear-gradient(135deg,var(--brand1),var(--brand2));
+      border-color:transparent;
+      color:#071018;
+    }
+    .btn.primary:hover{filter:brightness(1.03)}
+    .btn.ghost{background:transparent}
+
+    /* HERO (legibilidade) */
+    .hero{
+      position:relative;
+      padding:54px 0 10px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-22px -18px -22px -18px;
+      background:
+        radial-gradient(900px 520px at 25% 15%, rgba(0,0,0,.48), rgba(0,0,0,.70));
+      border-radius:28px;
+      pointer-events:none;
+    }
+    .hero > *{position:relative;z-index:1}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .panel{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-left{padding:26px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)}
+    .dot.ok{background:var(--ok)}
+    h1{
+      margin:14px 0 10px;
+      font-size:clamp(32px,4.8vw,54px);
+      line-height:1.06;
+      letter-spacing:-.6px;
+      text-shadow:0 10px 40px rgba(0,0,0,.55);
+    }
+    .lead{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.65;
+      max-width:62ch;
+    }
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .bullets{
+      display:flex;flex-wrap:wrap;gap:14px;
+      margin-top:18px;
+      color:var(--muted2);
+      font-size:12px;
+    }
+    .bullets span{display:inline-flex;align-items:center;gap:8px}
+    .check{
+      width:18px;height:18px;border-radius:999px;
+      display:grid;place-items:center;
+      background:rgba(52,211,153,.15);
+      border:1px solid rgba(52,211,153,.24);
+      color:#bff7e4;
+      font-weight:900;
+      font-size:12px;
     }
 
-    /* MOBILE */
-    @media (max-width:640px){
-      .brand-logo{
-        width:76px;
-        height:76px;
-        border-radius:20px;
-      }
-      .hero{
-        padding:42px 0 30px;
-      }
-      h1{
-        font-size:32px;
-      }
+    .hero-right{padding:18px}
+    .formbox{
+      background:rgba(11,15,25,.55);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      height:100%;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .formbox h3{margin:10px 0 6px;font-size:15px}
+    .formbox p{margin:0 0 12px;color:var(--muted);font-size:13px}
+
+    .form{display:grid;gap:10px;margin-top:8px}
+    label{font-size:12px;color:var(--muted)}
+    .field{display:grid;gap:6px}
+    input,textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:92px;resize:vertical}
+    input:focus,textarea:focus{
+      border-color:rgba(34,211,238,.45);
+      box-shadow:0 0 0 3px rgba(34,211,238,.12);
+    }
+    .tiny{font-size:11px;color:var(--muted);margin-top:10px}
+
+    section{padding:18px 0}
+    .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:10px 0 12px}
+    .section-title h2{margin:0;font-size:20px;letter-spacing:-.2px}
+    .section-title p{margin:0;color:var(--muted);font-size:13px;max-width:70ch}
+
+    .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{
+      grid-column:span 4;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    .card h3{margin:10px 0 6px;font-size:14px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+    .ic{
+      width:38px;height:38px;border-radius:14px;
+      display:grid;place-items:center;
+      background:rgba(124,92,255,.14);
+      border:1px solid rgba(124,92,255,.22);
+    }
+
+    /* Social proof */
+    .proof{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .proof .pill{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .proof b{color:var(--text);display:block;margin-bottom:3px}
+
+    /* Portfolio */
+    .portfolio .card{grid-column:span 6;padding:0;overflow:hidden}
+    .shot{
+      width:100%;
+      aspect-ratio:16/9;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(140px 100px at 20% 35%, rgba(34,211,238,.18), transparent 60%),
+        radial-gradient(160px 120px at 75% 40%, rgba(124,92,255,.20), transparent 60%),
+        rgba(255,255,255,.03);
+      position:relative;
+    }
+    .shot img{width:100%;height:100%;object-fit:cover;display:block;opacity:.98}
+    .shot .ph{
+      position:absolute;inset:0;
+      display:none;align-items:center;justify-content:center;
+      color:rgba(234,240,255,.6);
+      font-size:12px;
+    }
+    .p-body{padding:16px}
+    .p-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .p-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    /* Steps */
+    .steps .card{grid-column:span 3}
+
+    /* FAQ */
+    .faq details{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:18px;
+      padding:12px 14px;
+    }
+    .faq details + details{margin-top:10px}
+    summary{cursor:pointer;font-weight:800;font-size:13px}
+    summary::-webkit-details-marker{display:none}
+    .faq p{margin:8px 0 0;color:var(--muted);font-size:13px}
+
+    /* Footer */
+    footer{
+      margin-top:24px;
+      padding:22px 0 34px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .foot{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+    .foot a{color:var(--muted)}
+    .foot a:hover{color:var(--text)}
+
+    /* Floating WhatsApp */
+    .wa{
+      position:fixed;right:18px;bottom:18px;z-index:120;
+      display:flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(12px);
+      box-shadow:var(--shadow);
+    }
+    .wa b{font-size:13px}
+    .wa small{display:block;font-size:11px;color:var(--muted);margin-top:1px}
+    .wa .wicon{
+      width:40px;height:40px;border-radius:999px;
+      background:rgba(52,211,153,.18);
+      border:1px solid rgba(52,211,153,.28);
+      display:grid;place-items:center;
+    }
+
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .card{grid-column:span 6}
+      .steps .card{grid-column:span 6}
+      .portfolio .card{grid-column:span 12}
+      .proof{grid-template-columns:1fr}
+    }
+    @media (max-width: 560px){
+      .wrap{padding:18px}
+      .hero{padding:42px 0 6px}
+      .hero-left{padding:20px}
+      .brand-logo{width:74px;height:74px;border-radius:20px}
+      .icon-btn{width:44px;height:44px}
+      .btn{padding:12px 14px}
+      .wa{right:14px;left:14px;justify-content:center}
+      .card{grid-column:span 12}
+      .steps .card{grid-column:span 12}
     }
   </style>
 </head>
 
 <body>
-
   <!-- NAV -->
   <header class="nav">
     <div class="wrap">
+      <!-- Logo only -->
       <a href="#top" aria-label="AP Solução Online">
         <div class="brand-logo">
           <img src="logo-premium.png" alt="AP Solução Online logo">
         </div>
       </a>
 
+      <!-- Social + WhatsApp -->
       <div class="nav-actions">
-        <!-- Instagram -->
-        <a class="icon-btn" href="https://www.instagram.com/apdigitalsolutions.digital?igsh=MXhucHVqNTNiMTBuOA==" target="_blank" aria-label="Instagram">
-          <svg viewBox="0 0 24 24">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        <a class="icon-btn" href="https://www.instagram.com/apdigitalsolutions.digital?igsh=MXhucHVqNTNiMTBuOA==" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 2h8a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V8a6 6 0 0 1 6-6Z" stroke="rgba(234,240,255,.95)" stroke-width="1.6"/>
+            <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="rgba(234,240,255,.95)" stroke-width="1.6"/>
+            <path d="M17.5 6.5h.01" stroke="rgba(234,240,255,.95)" stroke-width="2.2" stroke-linecap="round"/>
           </svg>
         </a>
 
-        <!-- Facebook -->
-        <a class="icon-btn" href="https://www.facebook.com/share/1GjxysAQ36/" target="_blank" aria-label="Facebook">
-          <svg viewBox="0 0 24 24">
-            <path d="M13 3h4v4h-4v3h4l-1 4h-3v7h-4v-7H7v-4h2V7a4 4 0 0 1 4-4z"/>
+        <a class="icon-btn" href="https://www.facebook.com/share/1GjxysAQ36/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M14 8.5V7.3c0-.9.6-1.3 1.4-1.3H17V3h-2.2C12.7 3 11 4.4 11 7.1V8.5H9v3h2V21h3v-9.5h2.4L17 8.5H14Z" fill="rgba(234,240,255,.95)"/>
           </svg>
         </a>
 
-        <!-- WhatsApp -->
-        <a class="btn" id="waTop" href="#">WhatsApp</a>
+        <a class="btn primary" id="ctaWATop" href="#">WhatsApp</a>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
   <main id="top" class="wrap">
+    <!-- HERO -->
     <section class="hero">
-      <h1>Um site moderno que aumenta confiança<br>e gera pedidos no WhatsApp.</h1>
-      <p class="lead">
-        Criamos presença online premium para negócios em português.
-        Design profissional, mobile-first e pensado para converter visitantes em clientes.
-      </p>
+      <div class="grid">
+        <div class="panel">
+          <div class="hero-left">
+            <span class="kicker"><span class="dot ok"></span>Presença online premium para negócios em português</span>
 
-      <div class="actions">
-        <a class="btn" href="#contacto">Quero ficar online</a>
-        <a class="btn secondary" href="#portfolio">Ver portfólio</a>
+            <h1>Um site moderno que aumenta confiança e gera pedidos no WhatsApp.</h1>
+
+            <p class="lead">
+              Fazemos sites rápidos (mobile-first), com estrutura clara, SEO básico e botões pensados para converter visitantes em clientes.
+              Tu explicas o teu negócio — nós tratamos do resto.
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="#contacto">Quero ficar online</a>
+              <a class="btn" href="#portfolio">Ver portfólio</a>
+              <a class="btn" id="ctaWAHero" href="#">Falar no WhatsApp</a>
+            </div>
+
+            <div class="bullets" role="list">
+              <span role="listitem"><span class="check">✓</span>Design premium</span>
+              <span role="listitem"><span class="check">✓</span>Perfeito no telemóvel</span>
+              <span role="listitem"><span class="check">✓</span>Foco em conversão</span>
+              <span role="listitem"><span class="check">✓</span>Entrega limpa e rápida</span>
+            </div>
+
+            <!-- Prova social sem inventar números -->
+            <div class="proof" aria-label="Prova social">
+              <div class="pill"><b>Portfólio real</b>Sites publicados e ativos (vê abaixo).</div>
+              <div class="pill"><b>Contacto direto</b>Botões WhatsApp + email com mensagem pronta.</div>
+              <div class="pill"><b>Qualidade premium</b>Visual limpo, profissional e moderno.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact box -->
+        <div class="panel">
+          <div class="hero-right" id="contacto">
+            <div class="formbox">
+              <span class="badge">📩 Resposta rápida (sem compromisso)</span>
+              <h3>Peça uma análise gratuita</h3>
+              <p>Diga-nos o seu negócio e o objetivo — devolvemos uma sugestão clara.</p>
+
+              <form class="form" id="leadForm">
+                <div class="field">
+                  <label for="nome">Nome</label>
+                  <input id="nome" name="nome" autocomplete="name" placeholder="Ex: João Silva" required>
+                </div>
+
+                <div class="field">
+                  <label for="negocio">Negócio / Área</label>
+                  <input id="negocio" name="negocio" placeholder="Ex: Limpezas, Carpintaria, Estética…" required>
+                </div>
+
+                <div class="field">
+                  <label for="contactoInput">Email ou WhatsApp</label>
+                  <input id="contactoInput" name="contacto" autocomplete="email" placeholder="Ex: email@dominio.com" required>
+                </div>
+
+                <div class="field">
+                  <label for="objetivo">O que precisa?</label>
+                  <textarea id="objetivo" name="objetivo" placeholder="Ex: Site com serviços, galeria, botão WhatsApp e formulário."></textarea>
+                </div>
+
+                <button class="btn primary" type="submit">Enviar pedido</button>
+
+                <div class="tiny">
+                  Ao enviar, abre o seu email com a mensagem pronta.
+                  Preferes WhatsApp? <a id="waInline" href="#" style="text-decoration:underline;">Clique aqui</a>.
+                </div>
+              </form>
+
+              <div class="tiny" style="margin-top:12px;">✅ Sem complicações. ✅ Etapas claras. ✅ Resultado profissional.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos">
+      <div class="section-title">
+        <div>
+          <h2>Serviços focados em resultados</h2>
+          <p>O essencial bem feito para gerar confiança e levar o cliente a contactar.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="ic">🌐</div>
+          <h3>Sites profissionais</h3>
+          <p>Landing page ou site completo com estrutura moderna e clara.</p>
+        </div>
+
+        <div class="card">
+          <div class="ic">📱</div>
+          <h3>Mobile-first</h3>
+          <p>Perfeito no telemóvel — rápido, limpo e fácil de navegar.</p>
+        </div>
+
+        <div class="card">
+          <div class="ic">📈</div>
+          <h3>SEO básico</h3>
+          <p>Base certa para indexar no Google e aparecer com credibilidade.</p>
+        </div>
+
+        <div class="card">
+          <div class="ic">💬</div>
+          <h3>WhatsApp direto</h3>
+          <p>Botões que abrem o WhatsApp com mensagem pronta (sem mostrar número).</p>
+        </div>
+
+        <div class="card">
+          <div class="ic">🧩</div>
+          <h3>Texto & estrutura</h3>
+          <p>Organização e copy para converter visitas em pedidos.</p>
+        </div>
+
+        <div class="card">
+          <div class="ic">⚙️</div>
+          <h3>AI & automação</h3>
+          <p>Opções para automatizar respostas e leads (quando fizer sentido).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="portfolio">
+      <div class="section-title">
+        <div>
+          <h2>Portfólio</h2>
+          <p>Projetos e sites publicados. Clique para ver ao vivo.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="shot">
+            <img src="assets/portfolio/pethaven.jpg" alt="Pet Haven - screenshot"
+                 onerror="this.remove(); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph">Imagem: assets/portfolio/pethaven.jpg</div>
+          </div>
+          <div class="p-body">
+            <div class="p-top">
+              <div>
+                <h3>Pet Haven</h3>
+                <p class="muted">Website / presença online</p>
+              </div>
+              <span class="tag">🔗 Live</span>
+            </div>
+            <div class="p-actions">
+              <a class="btn primary" href="https://pethavenjersey.com/" target="_blank" rel="noopener">Ver site</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="shot">
+            <img src="assets/portfolio/ajudatotal.jpg" alt="AjudaTotal - screenshot"
+                 onerror="this.remove(); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph">Imagem: assets/portfolio/ajudatotal.jpg</div>
+          </div>
+          <div class="p-body">
+            <div class="p-top">
+              <div>
+                <h3>AjudaTotal</h3>
+                <p class="muted">Website / comunidade</p>
+              </div>
+              <span class="tag">🔗 Live</span>
+            </div>
+            <div class="p-actions">
+              <a class="btn primary" href="https://ajudatotal.com/" target="_blank" rel="noopener">Ver site</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="shot">
+            <img src="assets/portfolio/harbourandhome.jpg" alt="Harbour & Home - screenshot"
+                 onerror="this.remove(); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph">Imagem: assets/portfolio/harbourandhome.jpg</div>
+          </div>
+          <div class="p-body">
+            <div class="p-top">
+              <div>
+                <h3>Harbour &amp; Home</h3>
+                <p class="muted">Website / serviços</p>
+              </div>
+              <span class="tag">🔗 Live</span>
+            </div>
+            <div class="p-actions">
+              <a class="btn primary" href="https://harbourandhome.co/" target="_blank" rel="noopener">Ver site</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="shot">
+            <img src="assets/portfolio/apdigital.jpg" alt="AP Digital Solutions - screenshot"
+                 onerror="this.remove(); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph">Imagem: assets/portfolio/apdigital.jpg</div>
+          </div>
+          <div class="p-body">
+            <div class="p-top">
+              <div>
+                <h3>AP Digital Solutions</h3>
+                <p class="muted">Agência / websites &amp; AI</p>
+              </div>
+              <span class="tag">🔗 Live</span>
+            </div>
+            <div class="p-actions">
+              <a class="btn primary" href="https://apdigitalsolutions.digital/" target="_blank" rel="noopener">Ver site</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="shot">
+            <img src="assets/portfolio/catia.jpg" alt="Cátia Coutinho Holística - screenshot"
+                 onerror="this.remove(); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph">Imagem: assets/portfolio/catia.jpg</div>
+          </div>
+          <div class="p-body">
+            <div class="p-top">
+              <div>
+                <h3>Cátia Coutinho Holística</h3>
+                <p class="muted">Website / terapias</p>
+              </div>
+              <span class="tag">🔗 Live</span>
+            </div>
+            <div class="p-actions">
+              <a class="btn primary" href="https://catiacoutinhoholistica.com/" target="_blank" rel="noopener">Ver site</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESSO -->
+    <section id="processo" class="steps">
+      <div class="section-title">
+        <div>
+          <h2>Processo simples (sem complicações)</h2>
+          <p>Etapas claras para avançar rápido, com qualidade.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="badge">1) Diagnóstico</div>
+          <h3>Entendemos o objetivo</h3>
+          <p>Serviços, público, zona e o que queres alcançar.</p>
+        </div>
+        <div class="card">
+          <div class="badge">2) Estrutura</div>
+          <h3>Montamos o essencial</h3>
+          <p>Secções certas e mensagens claras para converter.</p>
+        </div>
+        <div class="card">
+          <div class="badge">3) Design</div>
+          <h3>Visual premium</h3>
+          <p>Limpo, moderno, rápido e perfeito no telemóvel.</p>
+        </div>
+        <div class="card">
+          <div class="badge">4) Online</div>
+          <h3>Publicação</h3>
+          <p>Site online e pronto para divulgar nas redes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <div class="section-title">
+        <div>
+          <h2>Perguntas frequentes</h2>
+          <p>Respostas rápidas para avançar.</p>
+        </div>
+      </div>
+
+      <details>
+        <summary>O número aparece no site?</summary>
+        <p>Não. Só existem botões que abrem o WhatsApp diretamente. O número não aparece em texto no site.</p>
+      </details>
+
+      <details>
+        <summary>O que preciso enviar para começarem?</summary>
+        <p>Nome do negócio, serviços, zona, contactos e (se tiver) fotos/logotipo. Se não tiver, ajudamos.</p>
+      </details>
+
+      <details>
+        <summary>O site fica pronto para o Google?</summary>
+        <p>Fazemos a base correta (estrutura e meta) para indexar e aparecer com credibilidade.</p>
+      </details>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="foot">
+        <div>
+          <b style="color:var(--text)">AP Solução Online</b><br/>
+          <span>Websites • AI • Automação</span>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#servicos">Serviços</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#processo">Processo</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+      <div class="tiny" style="margin-top:10px;">
+        © <span id="y"></span> AP Solução Online. Todos os direitos reservados.
+      </div>
+    </footer>
   </main>
 
-  <script>
-    // WhatsApp (número nunca aparece)
-    const WHATSAPP_NUMBER = "447700704591";
-    const msg = encodeURIComponent(
-      "Olá! Quero colocar o meu negócio online.\n\nNegócio:\nObjetivo:\nPrazo:"
-    );
-    const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-    document.getElementById("waTop").href = waLink;
-  </script>
+  <!-- Floating WhatsApp -->
+  <a class="wa" id="waFloat" href="#" aria-label="Falar no WhatsApp">
+    <div class="wicon" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.52 3.48A11.83 11.83 0 0012.06 0C5.48.02.14 5.37.16 11.95c0 2.1.55 4.14 1.6 5.94L0 24l6.27-1.64a11.9 11.9 0 005.73 1.46h.01c6.58 0 11.93-5.35 11.94-11.93a11.85 11.85 0 00-3.43-8.41z" fill="rgba(52,211,153,.95)"/>
+        <path d="M12 21.3h-.01a9.9 9.9 0 01-5.05-1.39l-.36-.21-3.72.97.99-3.63-.24-.37a9.87 9.87 0 01-1.52-5.25C2.1 6.26 6.26 2.1 11.99 2.1c2.63 0 5.1 1.02 6.96 2.88a9.78 9.78 0 012.9 6.95c-.02 5.72-4.18 9.37-9.85 9.37z" fill="rgba(7,16,24,.92)"/>
+        <path d="M17.3 14.12c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.13 3.25 5.16 4.56.72.31 1.28.49 1.72.63.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.27-.2-.57-.35z" fill="rgba(52,211,153,.95)"/>
+      </svg>
+    </div>
+    <div>
+      <b>WhatsApp</b>
+      <small>Clique para falar</small>
+    </div>
+  </a>
 
+  <script>
+    // Config
+    const WHATSAPP_NUMBER_E164 = "447700704591"; // 077.. -> 44 + sem o 0
+    const EMAIL_TO = "apdigitalsolutions.je@outlook.com";
+    const BRAND_NAME = "AP Solução Online";
+
+    const enc = encodeURIComponent;
+    const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER_E164}?text=${enc(msg)}`;
+
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const waMsg =
+`Olá! Quero colocar o meu negócio online.
+
+Negócio:
+Objetivo:
+Tenho (logo/fotos/textos):
+Prazo ideal:
+`;
+
+    const waUrl = waLink(waMsg);
+
+    // Bind WhatsApp buttons
+    ["waFloat","waInline","ctaWAHero","ctaWATop"].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.href = waUrl;
+    });
+
+    // Email form -> opens mail client (no backend)
+    document.getElementById("leadForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const negocio = document.getElementById("negocio").value.trim();
+      const contacto = document.getElementById("contactoInput").value.trim();
+      const objetivo = document.getElementById("objetivo").value.trim();
+
+      const subject = `${BRAND_NAME} — Pedido de análise gratuita (${nome})`;
+      const body =
+`Olá ${BRAND_NAME},
+
+Quero uma análise gratuita para colocar o meu negócio online.
+
+Nome: ${nome}
+Negócio/Área: ${negocio}
+Contacto: ${contacto}
+
+O que pretendo:
+${objetivo || "(não especificado)"}
+
+Obrigado!`;
+
+      window.location.href = `mailto:${EMAIL_TO}?subject=${enc(subject)}&body=${enc(body)}`;
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener("click",(ev)=>{
+        const href = a.getAttribute("href");
+        if(!href || href === "#") return;
+        const el = document.querySelector(href);
+        if(!el) return;
+        ev.preventDefault();
+        el.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+  </script>
 </body>
-</html>
+                    </html>
