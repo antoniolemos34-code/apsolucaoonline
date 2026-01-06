@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="80" y1="420" x2="432" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1F49FF"/>
+      <stop offset="0.55" stop-color="#2BB7FF"/>
+      <stop offset="1" stop-color="#46F0FF"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="b"/>
+      <feOffset in="b" dx="0" dy="10" result="o"/>
+      <feColorMatrix in="o" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 .35 0" result="s"/>
+      <feMerge>
+        <feMergeNode in="s"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Optional dark backdrop (comment out if you want transparent) -->
+  <rect width="512" height="512" rx="112" fill="#070A12"/>
+
+  <g filter="url(#soft)">
+    <rect x="76" y="76" width="360" height="360" rx="92" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.18)" />
+    <text x="256" y="315"
+          text-anchor="middle"
+          font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial"
+          font-size="210"
+          font-weight="800"
+          letter-spacing="-10"
+          fill="url(#g)">AP</text>
+  </g>
+</svg>
