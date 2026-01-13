@@ -6,21 +6,21 @@
   <meta name="theme-color" content="#0B0F19" />
   <meta name="color-scheme" content="dark" />
 
-  <title data-i18n="meta_title">AP Solução Online — Sites Premium & Email de Negócio (Jersey & UK)</title>
-  <meta name="description" content="Sites premium (mobile-first) e configuração de email profissional com domínio (MX/SPF/DKIM) — para o teu negócio parecer credível e gerar contactos com confiança. Etapas claras. Sem compromisso." data-i18n-attr="content:meta_desc" />
+  <title>AP Solução Online — Sites Premium & Email de Negócio (Jersey & UK)</title>
+  <meta name="description" content="Sites premium (mobile-first) e configuração de email profissional com domínio (MX/SPF/DKIM) — presença online credível e contacto fácil. Etapas claras. Sem compromisso." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://apsolucaoonline.com/" />
 
-  <!-- hreflang (opcional, mas bom para SEO) -->
+  <!-- hreflang -->
   <link rel="alternate" hreflang="pt-PT" href="https://apsolucaoonline.com/" />
   <link rel="alternate" hreflang="en-GB" href="https://apsolucaoonline.com/" />
   <link rel="alternate" hreflang="x-default" href="https://apsolucaoonline.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="AP Solução Online — Sites Premium & Email de Negócio" data-i18n-attr="content:og_title" />
-  <meta property="og:description" content="Sites premium + email profissional com domínio (MX/SPF/DKIM). Jersey & UK." data-i18n-attr="content:og_desc" />
+  <meta property="og:title" content="AP Solução Online — Sites Premium & Email de Negócio" />
+  <meta property="og:description" content="Sites premium + email profissional com domínio (MX/SPF/DKIM). Jersey & UK." />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_PT" data-i18n-attr="content:og_locale" />
+  <meta property="og:locale" content="pt_PT" />
   <meta property="og:url" content="https://apsolucaoonline.com/" />
 
   <!-- Favicons -->
@@ -61,6 +61,7 @@
       line-height:1.45;
     }
     a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:24px}
     .skip{
       position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden
     }
@@ -69,7 +70,6 @@
       padding:10px 12px;border-radius:12px;
       background:#0f1630;border:1px solid rgba(255,255,255,.2);
     }
-    .wrap{max-width:var(--max);margin:0 auto;padding:24px}
 
     header.nav{
       position:sticky;top:0;z-index:100;
@@ -88,13 +88,13 @@
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.20);
       box-shadow:0 22px 55px rgba(124,92,255,.22), inset 0 0 0 1px rgba(255,255,255,.06);
-      display:grid;place-items:center;
-      flex:0 0 auto;
+      display:grid;place-items:center;flex:0 0 auto;
     }
     .brand-logo img{width:100%;height:100%;object-fit:contain;display:block}
     .brand-title{display:flex;flex-direction:column;line-height:1.05}
     .brand-title b{font-size:13px;letter-spacing:.2px}
     .brand-title span{font-size:12px;color:var(--muted)}
+
     nav.menu{
       display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end;
     }
@@ -104,7 +104,12 @@
       border:1px solid transparent;
       transition:.2s ease;
     }
-    nav.menu a:hover{color:var(--text);border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+    nav.menu a:hover{
+      color:var(--text);
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04)
+    }
+
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
       padding:10px 14px;border-radius:999px;
@@ -114,7 +119,11 @@
       font-weight:800;font-size:13px;
       cursor:pointer;transition:.2s ease;white-space:nowrap;
     }
-    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.26)}
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.26)
+    }
     .btn.primary{
       background:linear-gradient(135deg,var(--brand1),var(--brand2));
       border-color:transparent;color:#071018;
@@ -193,12 +202,6 @@
       border:1px solid rgba(124,92,255,.22);
     }
 
-    .details{margin-top:14px;padding:16px}
-    .details h2{margin:0 0 10px;font-size:16px}
-    .details .row{color:var(--muted);font-size:13px;display:grid;gap:6px}
-    .details .row b{color:var(--text)}
-    .note{margin-top:10px;color:var(--muted2);font-size:12px}
-
     .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:6px 0 12px}
     .section-title h2{margin:0;font-size:20px;letter-spacing:-.2px}
     .section-title p{margin:0;color:var(--muted);font-size:13px;max-width:72ch}
@@ -212,7 +215,6 @@
     .services .card:nth-child(6) .ic{background:rgba(34,211,238,.14);border-color:rgba(34,211,238,.22)}
 
     .portfolio .card{grid-column:span 6}
-    .p-body{padding:16px}
     .p-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
     .tag{
       display:inline-flex;align-items:center;gap:8px;
@@ -308,7 +310,7 @@
 </head>
 
 <body>
-  <a class="skip" href="#main" data-i18n="skip">Saltar para o conteúdo</a>
+  <a class="skip" href="#main">Saltar para o conteúdo</a>
 
   <header class="nav" id="top">
     <div class="wrap">
@@ -317,27 +319,25 @@
           <img src="logo-premium.png" alt="AP Solução Online logo" />
         </div>
         <div class="brand-title">
-          <b data-i18n="brand_name">AP Solução Online</b>
-          <span data-i18n="brand_tagline">Sites premium • Email de negócio • Jersey & UK</span>
+          <b data-i18n="brand">AP Solução Online</b>
+          <span data-i18n="tagline">Sites premium • Email de negócio • Jersey & UK</span>
         </div>
       </a>
 
       <nav class="menu" aria-label="Menu">
         <a href="#services" data-i18n="nav_services">Serviços</a>
         <a href="#portfolio" data-i18n="nav_portfolio">Portfólio</a>
-        <a href="#testimonials" data-i18n="nav_testimonials">Testemunhos</a>
+        <a href="#testimonials" data-i18n="nav_reviews">Testemunhos</a>
         <a href="#process" data-i18n="nav_process">Processo</a>
         <a href="#privacy" data-i18n="nav_privacy">Privacidade</a>
         <a href="#terms" data-i18n="nav_terms">Termos</a>
         <a href="#contact" data-i18n="nav_contact">Contacto</a>
-        <a class="btn primary" href="#contact" data-i18n="nav_free_review">Revisão gratuita</a>
+        <a class="btn primary" href="#contact" data-i18n="nav_free">Revisão gratuita</a>
       </nav>
 
       <div style="display:flex;gap:10px;align-items:center">
-        <button class="btn ghost" id="langToggle" type="button" aria-label="Mudar idioma">
-          <span id="langLabel">PT</span> / <span id="langLabel2">EN</span>
-        </button>
-        <a class="btn primary" href="#contact" data-i18n="nav_free_review2">Revisão gratuita</a>
+        <button class="btn ghost" id="langToggle" type="button" aria-label="Mudar idioma">PT / EN</button>
+        <a class="btn primary" href="#contact" data-i18n="nav_free2">Revisão gratuita</a>
       </div>
     </div>
   </header>
@@ -348,38 +348,26 @@
       <div class="hero-grid">
         <div class="panel">
           <div class="hero-left">
-            <span class="kicker"><span class="dot ok"></span><span data-i18n="hero_kicker">Serviços digitais • Jersey & UK</span></span>
+            <span class="kicker"><span class="dot ok"></span><span data-i18n="kicker">Serviços digitais • Jersey & UK</span></span>
 
-            <h1 data-i18n="hero_h1">Sites premium &amp; email de negócio — feito para confiança.</h1>
+            <h1 data-i18n="h1">Sites premium &amp; email de negócio — feito para confiança.</h1>
 
-            <p class="lead" data-i18n="hero_lead">
+            <p class="lead" data-i18n="lead">
               Criamos sites premium (mobile-first) e configuramos email profissional com domínio (MX/SPF/DKIM) —
-              para o teu negócio parecer estabelecido e os clientes contactarem com confiança.
-              Etapas claras. Sem compromisso. Resultados podem variar.
+              para o teu negócio parecer credível e os clientes contactarem com confiança.
+              Etapas claras. Sem compromisso.
             </p>
 
             <div class="bullets" role="list">
               <span role="listitem"><span class="check">✓</span><span data-i18n="b1">Mobile-first por padrão</span></span>
               <span role="listitem"><span class="check">✓</span><span data-i18n="b2">Visual premium + estrutura clara</span></span>
-              <span role="listitem"><span class="check">✓</span><span data-i18n="b3">Etapas claras — sem pressão</span></span>
+              <span role="listitem"><span class="check">✓</span><span data-i18n="b3">Contacto fácil (WhatsApp / Email)</span></span>
             </div>
 
             <div class="hero-actions">
-              <a class="btn primary" href="#contact" data-i18n="cta_free_review">Revisão gratuita</a>
+              <a class="btn primary" href="#contact" data-i18n="cta_free">Revisão gratuita</a>
               <a class="btn" href="#portfolio" data-i18n="cta_work">Ver trabalho real</a>
-              <a class="btn" id="ctaWAHero" href="#" data-i18n="cta_whatsapp">WhatsApp</a>
-            </div>
-
-            <div class="panel details" style="margin-top:16px">
-              <h2 data-i18n="details_title">Detalhes do negócio</h2>
-              <div class="row">
-                <div><b data-i18n="details_operated_by_label">Operado por:</b> <span data-i18n="details_operated_by_value">AP Solução Online (freelance).</span></div>
-                <div><b data-i18n="details_base_label">Base:</b> <span data-i18n="details_base_value">Jersey, Channel Islands.</span></div>
-                <div><b data-i18n="details_area_label">Área de serviço:</b> <span data-i18n="details_area_value">Jersey &amp; UK (suporte remoto disponível).</span></div>
-                <div><b data-i18n="details_contact_label">Contacto:</b> <a id="emailInfo" href="mailto:info@apsolucaoonline.com">info@apsolucaoonline.com</a></div>
-                <div><b data-i18n="details_support_label">Suporte:</b> <a id="emailSupport" href="mailto:support@apsolucaoonline.com">support@apsolucaoonline.com</a></div>
-              </div>
-              <div class="note" data-i18n="details_note">Este site fornece informação geral e não constitui aconselhamento legal ou fiscal.</div>
+              <a class="btn" id="ctaWAHero" href="#" data-i18n="cta_wa">WhatsApp</a>
             </div>
           </div>
         </div>
@@ -389,18 +377,18 @@
             <div class="cards">
               <div class="card">
                 <div class="ic">✨</div>
-                <h3 data-i18n="hc1_title">Site premium que transmite credibilidade</h3>
-                <p data-i18n="hc1_desc">UI limpa, hierarquia forte e uma jornada fácil para o cliente (feito para telemóveis reais).</p>
+                <h3 data-i18n="hc1t">Site premium que transmite credibilidade</h3>
+                <p data-i18n="hc1p">UI limpa, estrutura forte e uma jornada simples para o cliente (feita para telemóveis reais).</p>
               </div>
               <div class="card">
                 <div class="ic">✉️</div>
-                <h3 data-i18n="hc2_title">Configuração de email profissional</h3>
-                <p data-i18n="hc2_desc">MX/SPF/DKIM + ajuda a ligar Zoho, Gmail ou Outlook da forma correta.</p>
+                <h3 data-i18n="hc2t">Email profissional com o teu domínio</h3>
+                <p data-i18n="hc2p">Configuração MX/SPF/DKIM + ligação correta a Zoho, Gmail ou Outlook.</p>
               </div>
               <div class="card">
                 <div class="ic">📈</div>
-                <h3 data-i18n="hc3_title">Fundamentos de SEO (boas práticas)</h3>
-                <p data-i18n="hc3_desc">Estrutura limpa, meta e base pronta para indexação. Sem garantias de ranking.</p>
+                <h3 data-i18n="hc3t">Fundamentos de SEO</h3>
+                <p data-i18n="hc3p">Estrutura limpa, meta e base pronta para indexação (sem garantias de ranking).</p>
               </div>
             </div>
           </div>
@@ -412,52 +400,52 @@
     <section id="services" class="services">
       <div class="section-title">
         <div>
-          <h2 data-i18n="services_title">Serviços</h2>
-          <p data-i18n="services_sub">Essenciais profissionais para pequenos negócios que querem uma presença online premium e confiável.</p>
+          <h2 data-i18n="services_t">Serviços</h2>
+          <p data-i18n="services_p">Essenciais profissionais para pequenos negócios que querem uma presença online premium e confiável.</p>
         </div>
       </div>
 
       <div class="cards">
         <div class="card">
           <div class="ic">🌐</div>
-          <h3 data-i18n="s1_title">Web design &amp; desenvolvimento</h3>
-          <p data-i18n="s1_desc">Landing pages ou websites completos com acabamento premium e estrutura clara.</p>
+          <h3 data-i18n="s1t">Web design &amp; desenvolvimento</h3>
+          <p data-i18n="s1p">Landing pages ou websites completos com acabamento premium e estrutura clara.</p>
         </div>
 
         <div class="card">
           <div class="ic">📱</div>
-          <h3 data-i18n="s2_title">Performance mobile-first</h3>
-          <p data-i18n="s2_desc">Carregamento rápido e layouts legíveis, pensados para clientes no telemóvel.</p>
+          <h3 data-i18n="s2t">Performance mobile-first</h3>
+          <p data-i18n="s2p">Carregamento rápido e layouts legíveis, pensados para clientes no telemóvel.</p>
         </div>
 
         <div class="card">
           <div class="ic">✉️</div>
-          <h3 data-i18n="s3_title">Email de negócio (domínio)</h3>
-          <p data-i18n="s3_desc">Configuração de email com domínio (MX/SPF/DKIM) + orientação para Zoho, Gmail e Outlook.</p>
+          <h3 data-i18n="s3t">Email de negócio (domínio)</h3>
+          <p data-i18n="s3p">Configuração de email com domínio (MX/SPF/DKIM) + orientação Zoho/Gmail/Outlook.</p>
         </div>
 
         <div class="card">
           <div class="ic">🔎</div>
-          <h3 data-i18n="s4_title">Fundamentos de SEO</h3>
-          <p data-i18n="s4_desc">Meta + estrutura que suporta indexação. Sem garantias de ranking.</p>
+          <h3 data-i18n="s4t">SEO (boas práticas)</h3>
+          <p data-i18n="s4p">Meta + estrutura que suportam indexação. Sem garantias de ranking.</p>
         </div>
 
         <div class="card">
           <div class="ic">🎯</div>
-          <h3 data-i18n="s5_title">Fluxo orientado a contacto</h3>
-          <p data-i18n="s5_desc">Chamadas para ação claras para transformar visitas em pedidos.</p>
+          <h3 data-i18n="s5t">Fluxo orientado a contacto</h3>
+          <p data-i18n="s5p">Chamadas para ação claras para transformar visitas em pedidos.</p>
         </div>
 
         <div class="card">
           <div class="ic">🛠️</div>
-          <h3 data-i18n="s6_title">Suporte contínuo</h3>
-          <p data-i18n="s6_desc">Melhorias e ajustes pós-lançamento conforme o teu negócio cresce.</p>
+          <h3 data-i18n="s6t">Suporte contínuo</h3>
+          <p data-i18n="s6p">Melhorias e ajustes pós-lançamento conforme o teu negócio cresce.</p>
         </div>
       </div>
 
       <div class="hero-actions" style="margin-top:14px">
-        <a class="btn primary" href="#contact" data-i18n="services_cta1">Pedir revisão gratuita</a>
-        <a class="btn" href="#portfolio" data-i18n="services_cta2">Ver trabalho real</a>
+        <a class="btn primary" href="#contact" data-i18n="cta_free2">Pedir revisão gratuita</a>
+        <a class="btn" id="ctaWAServices" href="#" data-i18n="cta_wa2">WhatsApp</a>
       </div>
     </section>
 
@@ -465,53 +453,53 @@
     <section id="portfolio" class="portfolio">
       <div class="section-title">
         <div>
-          <h2 data-i18n="portfolio_title">Portfólio</h2>
-          <p data-i18n="portfolio_sub">Projetos selecionados — estrutura limpa, visual premium e um caminho claro para contacto.</p>
+          <h2 data-i18n="port_t">Portfólio</h2>
+          <p data-i18n="port_p">Projetos selecionados — estrutura limpa, visual premium e um caminho claro para contacto.</p>
         </div>
       </div>
 
       <div class="cards">
         <article class="card">
-          <div class="p-body">
+          <div>
             <div class="p-top">
               <div>
                 <h3>Ajuda Total</h3>
-                <p class="muted" data-i18n="p1_meta">Website • Estrutura clara • Mobile-first</p>
+                <p class="muted" data-i18n="p1meta">Website • Estrutura clara • Mobile-first</p>
               </div>
-              <span class="tag" data-i18n="tag_live">🔗 Live</span>
+              <span class="tag" data-i18n="live">🔗 Live</span>
             </div>
-            <p class="muted" data-i18n="p1_desc">Layout limpo e confiável para o visitante perceber o serviço rápido e contactar com confiança.</p>
+            <p class="muted" data-i18n="p1desc">Layout limpo e confiável para o visitante perceber o serviço rápido e contactar com confiança.</p>
             <div class="p-actions">
-              <a class="btn primary" href="https://ajudatotal.com/" target="_blank" rel="noopener" data-i18n="visit_site">Visitar website</a>
-              <a class="btn" href="#contact" data-i18n="request_quote">Pedir orçamento</a>
+              <a class="btn primary" href="https://ajudatotal.com/" target="_blank" rel="noopener" data-i18n="visit">Visitar website</a>
+              <a class="btn" href="#contact" data-i18n="quote">Pedir orçamento</a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="p-body">
+          <div>
             <div class="p-top">
               <div>
                 <h3>Cátia Coutinho Holística</h3>
-                <p class="muted" data-i18n="p2_meta">Website • Estética premium • Fluxo simples</p>
+                <p class="muted" data-i18n="p2meta">Website • Estética premium • Fluxo simples</p>
               </div>
-              <span class="tag" data-i18n="tag_live2">🔗 Live</span>
+              <span class="tag" data-i18n="live2">🔗 Live</span>
             </div>
-            <p class="muted" data-i18n="p2_desc">Design calmo e premium com navegação clara e um caminho direto para pedido/consulta.</p>
+            <p class="muted" data-i18n="p2desc">Design calmo e premium com navegação clara e um caminho direto para pedido/consulta.</p>
             <div class="p-actions">
-              <a class="btn primary" href="https://catiacoutinhoholistica.com/" target="_blank" rel="noopener" data-i18n="visit_site2">Visitar website</a>
-              <a class="btn" href="#contact" data-i18n="request_quote2">Pedir orçamento</a>
+              <a class="btn primary" href="https://catiacoutinhoholistica.com/" target="_blank" rel="noopener" data-i18n="visit2">Visitar website</a>
+              <a class="btn" href="#contact" data-i18n="quote2">Pedir orçamento</a>
             </div>
           </div>
         </article>
       </div>
 
       <div class="panel" style="margin-top:14px;padding:16px">
-        <b data-i18n="portfolio_box_title">Queres um site assim?</b>
-        <div class="muted" data-i18n="portfolio_box_desc">Envia um email com o que fazes e o que precisas — respondo com opções claras e próximos passos.</div>
+        <b data-i18n="port_box_t">Queres um site assim?</b>
+        <div class="muted" data-i18n="port_box_p">Carrega no WhatsApp e diz-me o que fazes — respondo com próximos passos claros.</div>
         <div class="hero-actions" style="margin-top:12px">
-          <a class="btn primary" href="#contact" data-i18n="portfolio_box_cta1">Contactar</a>
-          <a class="btn" id="ctaWAPortfolio" href="#" data-i18n="portfolio_box_cta2">WhatsApp</a>
+          <a class="btn primary" href="#contact" data-i18n="port_box_cta1">Contactar</a>
+          <a class="btn" id="ctaWAPortfolio" href="#" data-i18n="port_box_cta2">WhatsApp</a>
         </div>
       </div>
     </section>
@@ -520,8 +508,8 @@
     <section id="testimonials" class="testimonials">
       <div class="section-title">
         <div>
-          <h2 data-i18n="test_title">Testemunhos</h2>
-          <p data-i18n="test_sub">Comunicação clara, entrega limpa e resultados profissionais.</p>
+          <h2 data-i18n="rev_t">Testemunhos</h2>
+          <p data-i18n="rev_p">Comunicação clara, entrega limpa e resultados profissionais.</p>
         </div>
       </div>
 
@@ -534,8 +522,7 @@
               <div class="stars">★★★★★ <span style="color:var(--muted)">5.0/5</span></div>
             </div>
           </div>
-          <blockquote data-i18n="t1_quote">“Muito profissional do início ao fim. Etapas claras, rápido e o site final ficou premium e confiável.”</blockquote>
-          <div class="muted">Entregue por: AP Solução Online • <a href="https://ajudatotal.com/" target="_blank" rel="noopener">ajudatotal.com</a></div>
+          <blockquote data-i18n="q1">“Muito profissional do início ao fim. Etapas claras, rápido e o site final ficou premium e confiável.”</blockquote>
         </div>
 
         <div class="card">
@@ -546,17 +533,16 @@
               <div class="stars">★★★★★ <span style="color:var(--muted)">5.0/5</span></div>
             </div>
           </div>
-          <blockquote data-i18n="t2_quote">“Excelente atenção ao detalhe. Estrutura clara, design premium e o contacto ficou muito simples para clientes.”</blockquote>
-          <div class="muted">Entregue por: AP Solução Online • <a href="https://catiacoutinhoholistica.com/" target="_blank" rel="noopener">catiacoutinhoholistica.com</a></div>
+          <blockquote data-i18n="q2">“Excelente atenção ao detalhe. Estrutura clara, design premium e o contacto ficou muito simples.”</blockquote>
         </div>
       </div>
 
       <div class="panel" style="margin-top:14px;padding:16px">
-        <b data-i18n="test_box_title">Queres uma revisão gratuita?</b>
-        <div class="muted" data-i18n="test_box_desc">Envia um email com o teu negócio, o que precisas e o prazo — respondo com próximos passos claros.</div>
+        <b data-i18n="rev_box_t">Queres uma revisão gratuita?</b>
+        <div class="muted" data-i18n="rev_box_p">Carrega no WhatsApp e envia o teu negócio + o que precisas.</div>
         <div class="hero-actions" style="margin-top:12px">
-          <a class="btn primary" href="#contact" data-i18n="test_box_cta1">Pedir revisão</a>
-          <a class="btn" id="ctaWATestimonials" href="#" data-i18n="test_box_cta2">WhatsApp</a>
+          <a class="btn primary" href="#contact" data-i18n="rev_box_cta1">Pedir revisão</a>
+          <a class="btn" id="ctaWATestimonials" href="#" data-i18n="rev_box_cta2">WhatsApp</a>
         </div>
       </div>
     </section>
@@ -565,34 +551,34 @@
     <section id="process" class="process">
       <div class="section-title">
         <div>
-          <h2 data-i18n="process_title">Processo</h2>
-          <p data-i18n="process_sub">Um workflow simples — para saberes sempre o que acontece a seguir.</p>
+          <h2 data-i18n="proc_t">Processo</h2>
+          <p data-i18n="proc_p">Workflow simples — para saberes sempre o que acontece a seguir.</p>
         </div>
       </div>
 
       <div class="cards">
         <div class="card">
           <span class="badge">1</span>
-          <h3 data-i18n="pr1_title">Revisão rápida</h3>
-          <p data-i18n="pr1_desc">Tu envias o que precisas. Eu respondo com opções, timeline e próximos passos.</p>
+          <h3 data-i18n="pr1t">Revisão rápida</h3>
+          <p data-i18n="pr1p">Dizes o que precisas. Eu respondo com opções, timeline e próximos passos.</p>
         </div>
 
         <div class="card">
           <span class="badge">2</span>
-          <h3 data-i18n="pr2_title">Plano &amp; conteúdo</h3>
-          <p data-i18n="pr2_desc">Definimos a estrutura. Partilhas logo/textos/fotos (ou eu guio).</p>
+          <h3 data-i18n="pr2t">Plano &amp; conteúdo</h3>
+          <p data-i18n="pr2p">Definimos estrutura. Partilhas logo/textos/fotos (ou eu guio).</p>
         </div>
 
         <div class="card">
           <span class="badge">3</span>
-          <h3 data-i18n="pr3_title">Construção &amp; lançamento</h3>
-          <p data-i18n="pr3_desc">Eu construo, tu aprovas, e lançamos — limpo e profissional.</p>
+          <h3 data-i18n="pr3t">Construção &amp; lançamento</h3>
+          <p data-i18n="pr3p">Construo, tu aprovas, e lançamos — limpo e profissional.</p>
         </div>
 
         <div class="card">
           <span class="badge">4</span>
-          <h3 data-i18n="pr4_title">Notas</h3>
-          <p data-i18n="pr4_desc">Prazos dependem de conteúdo e scope. Tudo é confirmado por escrito (email) antes de iniciar.</p>
+          <h3 data-i18n="pr4t">Notas</h3>
+          <p data-i18n="pr4p">Prazos dependem de conteúdo e scope. Tudo confirmado por escrito antes de iniciar.</p>
         </div>
       </div>
     </section>
@@ -601,27 +587,19 @@
     <section id="contact">
       <div class="section-title">
         <div>
-          <h2 data-i18n="contact_title">Contacto</h2>
-          <p data-i18n="contact_sub">Envia o que fazes e o que precisas — respondo com próximos passos claros.</p>
+          <h2 data-i18n="c_t">Contacto</h2>
+          <p data-i18n="c_p">Carrega no WhatsApp (sem mostrar número) ou envia email — respondo com próximos passos.</p>
         </div>
       </div>
 
       <div class="panel" style="padding:18px">
-        <p class="muted" style="margin-top:0">
-          <b data-i18n="contact_email_label">Email:</b> <a href="mailto:info@apsolucaoonline.com">info@apsolucaoonline.com</a><br/>
-          <b data-i18n="contact_support_label">Suporte:</b> <a href="mailto:support@apsolucaoonline.com">support@apsolucaoonline.com</a><br/>
-          <b data-i18n="contact_subject_label">Assunto sugerido:</b> <span data-i18n="contact_subject_value">Revisão gratuita — AP Solução Online</span><br/>
-          <b data-i18n="contact_include_label">Inclui:</b> <span data-i18n="contact_include_value">tipo de negócio • website (se existir) • o que precisas • prazo • Jersey/UK</span>
+        <p class="muted" style="margin-top:0" data-i18n="c_note">
+          Inclui: tipo de negócio • website (se existir) • o que precisas • prazo • Jersey/UK
         </p>
 
         <div class="hero-actions" style="margin-top:12px">
-          <a class="btn primary" id="mailtoInfo" href="#" data-i18n="contact_cta_email">Enviar email</a>
-          <a class="btn" id="mailtoSupport" href="#" data-i18n="contact_cta_support">Suporte</a>
-          <a class="btn" id="ctaWAContact" href="#" data-i18n="cta_whatsapp2">WhatsApp</a>
-        </div>
-
-        <div class="muted" style="margin-top:10px" data-i18n="contact_note">
-          (Opcional) Se preferires, podes enviar apenas uma mensagem com o teu serviço e o que precisas.
+          <a class="btn primary" id="ctaWAContact" href="#" data-i18n="c_wa">WhatsApp</a>
+          <a class="btn" id="ctaEmail" href="mailto:info@apsolucaoonline.com?subject=Revis%C3%A3o%20gratuita%20%E2%80%94%20AP%20Solu%C3%A7%C3%A3o%20Online" data-i18n="c_email">Enviar email</a>
         </div>
       </div>
     </section>
@@ -629,84 +607,55 @@
     <!-- PRIVACY -->
     <section id="privacy" class="legal">
       <div class="panel">
-        <h2 style="margin:0 0 10px;font-size:20px" data-i18n="privacy_title">Privacidade &amp; Cookies</h2>
-        <p data-i18n="privacy_p1">Usamos os teus dados apenas para responder ao teu contacto e prestar o serviço que pediste.</p>
+        <h2 style="margin:0 0 10px;font-size:20px" data-i18n="pv_t">Privacidade &amp; Cookies</h2>
+        <p data-i18n="pv_p1">Usamos os teus dados apenas para responder ao teu contacto e prestar o serviço pedido.</p>
 
-        <h4 data-i18n="privacy_h1">Quem é responsável</h4>
-        <p data-i18n="privacy_p2">Este website é operado pela AP Solução Online, baseada em Jersey, Channel Islands. Contacto: info@apsolucaoonline.com.</p>
+        <h4 data-i18n="pv_h1">O que é recolhido</h4>
+        <p data-i18n="pv_p2">Se contactares por WhatsApp/email, podemos recolher o teu nome e mensagem apenas para responder e dar suporte.</p>
 
-        <h4 data-i18n="privacy_h2">O que é recolhido</h4>
-        <p data-i18n="privacy_p3">Se contactares por email/WhatsApp, podemos recolher o teu nome, tipo de negócio e contacto, e a tua mensagem — apenas para responder e fornecer orçamentos/suporte.</p>
-
-        <h4 data-i18n="privacy_h3">Retenção &amp; pedidos</h4>
-        <p data-i18n="privacy_p4">Guardamos mensagens apenas enquanto necessário para suporte e registo básico. Podes pedir acesso, correção ou eliminação enviando email.</p>
-
-        <h4 data-i18n="privacy_h4">Cookies</h4>
-        <p data-i18n="privacy_p5">Usamos armazenamento essencial para lembrar preferências de cookies. Scripts opcionais de medição só carregam se aceitares (se estiverem ativados).</p>
-
-        <p><b data-i18n="privacy_note_b">Nota:</b> <span data-i18n="privacy_note">Se tiveres dúvidas, contacta primeiro por email.</span></p>
+        <h4 data-i18n="pv_h2">Cookies</h4>
+        <p data-i18n="pv_p3">Usamos armazenamento essencial para lembrar preferências (idioma e cookies). Nada de tracking sem consentimento.</p>
       </div>
     </section>
 
     <!-- TERMS -->
     <section id="terms" class="legal">
       <div class="panel">
-        <h2 style="margin:0 0 10px;font-size:20px" data-i18n="terms_title">Termos de Serviço</h2>
-        <p data-i18n="terms_p0">Termos simples para o cliente saber o que esperar.</p>
+        <h2 style="margin:0 0 10px;font-size:20px" data-i18n="t_t">Termos de Serviço</h2>
+        <p data-i18n="t_p1">Serviços digitais (site/email/SEO básico) acordados por escrito por projeto. Sem garantias de resultados específicos.</p>
 
-        <h4 data-i18n="terms_h1">1) Quem somos</h4>
-        <p data-i18n="terms_p1">Este website e serviços são operados pela AP Solução Online, baseada em Jersey, Channel Islands. Contacto: info@apsolucaoonline.com.</p>
+        <h4 data-i18n="t_h2">Responsabilidade</h4>
+        <p data-i18n="t_p2">O cliente confirma direitos de uso de conteúdos fornecidos. Não somos responsáveis por falhas de plataformas de terceiros.</p>
 
-        <h4 data-i18n="terms_h2">2) O que fornecemos</h4>
-        <p data-i18n="terms_p2">Serviços digitais: web design/desenvolvimento, fundamentos de SEO e orientação/configuração de email de negócio (MX/SPF/DKIM). Entregáveis são acordados por escrito (email) por projeto.</p>
-
-        <h4 data-i18n="terms_h3">3) Orçamentos &amp; pagamentos</h4>
-        <p data-i18n="terms_p3">Orçamentos são enviados por escrito. Termos de pagamento são acordados por projeto. Subscrições de terceiros (domínios/hosting/email) são da responsabilidade do cliente, salvo acordo diferente.</p>
-
-        <h4 data-i18n="terms_h4">4) Resultados / sem garantias</h4>
-        <p data-i18n="terms_p4">Seguimos boas práticas e entregamos o trabalho acordado. Não garantimos resultados específicos (rankings/leads/receita).</p>
-
-        <h4 data-i18n="terms_h5">5) Responsabilidades do cliente</h4>
-        <p data-i18n="terms_p5">O cliente confirma que tem direitos para usar textos/imagens/logos fornecidos e aprova o conteúdo final antes do lançamento.</p>
-
-        <h4 data-i18n="terms_h6">6) Alterações &amp; cancelamentos</h4>
-        <p data-i18n="terms_p6">Revisões razoáveis são incluídas conforme acordado. Trabalho adicional pode exigir orçamento atualizado. Se houver cancelamento após início, pode ser cobrado o trabalho já realizado.</p>
-
-        <h4 data-i18n="terms_h7">7) Limitação de responsabilidade</h4>
-        <p data-i18n="terms_p7">No máximo permitido por lei, não somos responsáveis por perdas indiretas. Não somos responsáveis por falhas causadas por plataformas de terceiros.</p>
-
-        <h4 data-i18n="terms_h8">8) Lei aplicável</h4>
-        <p data-i18n="terms_p8">Estes termos destinam-se a ser regidos pelas leis aplicáveis em Jersey (Channel Islands), salvo acordo diferente.</p>
-
-        <h4 data-i18n="terms_h9">9) Atualizações</h4>
-        <p data-i18n="terms_p9">Podemos atualizar estes termos ocasionalmente. A versão nesta página é a atual.</p>
+        <h4 data-i18n="t_h3">Lei aplicável</h4>
+        <p data-i18n="t_p3">Estes termos destinam-se a ser regidos pelas leis aplicáveis em Jersey (Channel Islands), salvo acordo diferente.</p>
       </div>
     </section>
 
     <footer>
       <div class="foot">
         <div>
-          <b style="color:var(--text)" data-i18n="foot_name">AP Solução Online</b><br/>
-          <span data-i18n="foot_line">Jersey, Channel Islands • info@apsolucaoonline.com</span>
+          <b style="color:var(--text)">AP Solução Online</b><br/>
+          <span class="muted">Jersey, Channel Islands</span>
           <div class="muted" style="margin-top:6px" data-i18n="foot_note">Sem garantias de resultados específicos.</div>
         </div>
 
         <div style="display:flex;gap:14px;flex-wrap:wrap;">
-          <a href="#services" data-i18n="nav_services2">Serviços</a>
-          <a href="#portfolio" data-i18n="nav_portfolio2">Portfólio</a>
-          <a href="#testimonials" data-i18n="nav_testimonials2">Testemunhos</a>
-          <a href="#process" data-i18n="nav_process2">Processo</a>
-          <a href="#privacy" data-i18n="nav_privacy2">Privacidade</a>
-          <a href="#terms" data-i18n="nav_terms2">Termos</a>
-          <a href="#contact" data-i18n="nav_contact2">Contacto</a>
+          <a href="#services" data-i18n="nav_services">Serviços</a>
+          <a href="#portfolio" data-i18n="nav_portfolio">Portfólio</a>
+          <a href="#testimonials" data-i18n="nav_reviews">Testemunhos</a>
+          <a href="#process" data-i18n="nav_process">Processo</a>
+          <a href="#privacy" data-i18n="nav_privacy">Privacidade</a>
+          <a href="#terms" data-i18n="nav_terms">Termos</a>
+          <a href="#contact" data-i18n="nav_contact">Contacto</a>
         </div>
       </div>
 
-      <div class="muted" style="margin-top:10px">© <span id="y"></span> <span data-i18n="foot_rights">AP Solução Online. Todos os direitos reservados.</span></div>
+      <div class="muted" style="margin-top:10px">© <span id="y"></span> AP Solução Online.</div>
     </footer>
   </main>
 
-  <!-- Floating WhatsApp -->
+  <!-- Floating WhatsApp (não mostra número) -->
   <a class="wa" id="waFloat" href="#" aria-label="Falar no WhatsApp">
     <div class="wicon" aria-hidden="true">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -723,8 +672,8 @@
   <!-- Cookie bar -->
   <div class="cookie" id="cookieBar" role="dialog" aria-label="Cookie settings">
     <div class="txt">
-      <span data-i18n="cookie_text">Usamos armazenamento essencial para lembrar preferências. Scripts opcionais de medição só carregam se aceitares (se estiverem ativados).</span>
-      <a href="#privacy" style="text-decoration:underline" data-i18n="cookie_link">Privacidade &amp; Cookies</a>
+      <span data-i18n="cookie_txt">Usamos armazenamento essencial para lembrar preferências (idioma/cookies). Sem tracking sem consentimento.</span>
+      <a href="#privacy" style="text-decoration:underline" data-i18n="cookie_link">Privacidade</a>
     </div>
     <div class="actions">
       <button class="btn ghost" id="cookieReject" type="button" data-i18n="cookie_reject">Rejeitar</button>
@@ -733,392 +682,253 @@
   </div>
 
   <script>
-    // ====== EDITA AQUI ======
-    const SITE_URL = "https://apsolucaoonline.com/";
-    const INFO_EMAIL = "info@apsolucaoonline.com";
-    const SUPPORT_EMAIL = "support@apsolucaoonline.com";
-
-    // WhatsApp (E.164, sem +)
-    const WHATSAPP_NUMBER_E164 = "447700704591"; // <-- troca se precisares
-    // ========================
-
+    // ===== WhatsApp (NÃO MOSTRA NÚMERO NA PÁGINA) =====
+    // Teu número: 07700704591 -> E.164 UK = 447700704591
+    const WHATSAPP_E164 = "447700704591";
     const enc = encodeURIComponent;
-    const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER_E164}?text=${enc(msg)}`;
+    const waLink = (msg) => `https://wa.me/${WHATSAPP_E164}?text=${enc(msg)}`;
 
-    // i18n dictionary
+    // Ano footer
+    document.getElementById("y").textContent = new Date().getFullYear();
+
     const I18N = {
       pt: {
-        meta_title: "AP Solução Online — Sites Premium & Email de Negócio (Jersey & UK)",
-        meta_desc: "Sites premium (mobile-first) e configuração de email profissional com domínio (MX/SPF/DKIM) — para o teu negócio parecer credível e gerar contactos com confiança. Etapas claras. Sem compromisso.",
-        og_title: "AP Solução Online — Sites Premium & Email de Negócio",
-        og_desc: "Sites premium + email profissional com domínio (MX/SPF/DKIM). Jersey & UK.",
-        og_locale: "pt_PT",
-
-        skip: "Saltar para o conteúdo",
-        brand_name: "AP Solução Online",
-        brand_tagline: "Sites premium • Email de negócio • Jersey & UK",
-
+        brand: "AP Solução Online",
+        tagline: "Sites premium • Email de negócio • Jersey & UK",
         nav_services: "Serviços",
         nav_portfolio: "Portfólio",
-        nav_testimonials: "Testemunhos",
+        nav_reviews: "Testemunhos",
         nav_process: "Processo",
         nav_privacy: "Privacidade",
         nav_terms: "Termos",
         nav_contact: "Contacto",
-        nav_free_review: "Revisão gratuita",
-        nav_free_review2: "Revisão gratuita",
+        nav_free: "Revisão gratuita",
+        nav_free2: "Revisão gratuita",
 
-        hero_kicker: "Serviços digitais • Jersey & UK",
-        hero_h1: "Sites premium & email de negócio — feito para confiança.",
-        hero_lead: "Criamos sites premium (mobile-first) e configuramos email profissional com domínio (MX/SPF/DKIM) — para o teu negócio parecer estabelecido e os clientes contactarem com confiança. Etapas claras. Sem compromisso. Resultados podem variar.",
+        kicker: "Serviços digitais • Jersey & UK",
+        h1: "Sites premium & email de negócio — feito para confiança.",
+        lead: "Criamos sites premium (mobile-first) e configuramos email profissional com domínio (MX/SPF/DKIM) — para o teu negócio parecer credível e os clientes contactarem com confiança. Etapas claras. Sem compromisso.",
         b1: "Mobile-first por padrão",
         b2: "Visual premium + estrutura clara",
-        b3: "Etapas claras — sem pressão",
-
-        cta_free_review: "Revisão gratuita",
+        b3: "Contacto fácil (WhatsApp / Email)",
+        cta_free: "Revisão gratuita",
         cta_work: "Ver trabalho real",
-        cta_whatsapp: "WhatsApp",
-        cta_whatsapp2: "WhatsApp",
+        cta_wa: "WhatsApp",
 
-        details_title: "Detalhes do negócio",
-        details_operated_by_label: "Operado por:",
-        details_operated_by_value: "AP Solução Online (freelance).",
-        details_base_label: "Base:",
-        details_base_value: "Jersey, Channel Islands.",
-        details_area_label: "Área de serviço:",
-        details_area_value: "Jersey & UK (suporte remoto disponível).",
-        details_contact_label: "Contacto:",
-        details_support_label: "Suporte:",
-        details_note: "Este site fornece informação geral e não constitui aconselhamento legal ou fiscal.",
+        hc1t: "Site premium que transmite credibilidade",
+        hc1p: "UI limpa, estrutura forte e uma jornada simples para o cliente (feita para telemóveis reais).",
+        hc2t: "Email profissional com o teu domínio",
+        hc2p: "Configuração MX/SPF/DKIM + ligação correta a Zoho, Gmail ou Outlook.",
+        hc3t: "Fundamentos de SEO",
+        hc3p: "Estrutura limpa, meta e base pronta para indexação (sem garantias de ranking).",
 
-        hc1_title: "Site premium que transmite credibilidade",
-        hc1_desc: "UI limpa, hierarquia forte e uma jornada fácil para o cliente (feito para telemóveis reais).",
-        hc2_title: "Configuração de email profissional",
-        hc2_desc: "MX/SPF/DKIM + ajuda a ligar Zoho, Gmail ou Outlook da forma correta.",
-        hc3_title: "Fundamentos de SEO (boas práticas)",
-        hc3_desc: "Estrutura limpa, meta e base pronta para indexação. Sem garantias de ranking.",
+        services_t: "Serviços",
+        services_p: "Essenciais profissionais para pequenos negócios que querem uma presença online premium e confiável.",
+        s1t: "Web design & desenvolvimento",
+        s1p: "Landing pages ou websites completos com acabamento premium e estrutura clara.",
+        s2t: "Performance mobile-first",
+        s2p: "Carregamento rápido e layouts legíveis, pensados para clientes no telemóvel.",
+        s3t: "Email de negócio (domínio)",
+        s3p: "Configuração de email com domínio (MX/SPF/DKIM) + orientação Zoho/Gmail/Outlook.",
+        s4t: "SEO (boas práticas)",
+        s4p: "Meta + estrutura que suportam indexação. Sem garantias de ranking.",
+        s5t: "Fluxo orientado a contacto",
+        s5p: "Chamadas para ação claras para transformar visitas em pedidos.",
+        s6t: "Suporte contínuo",
+        s6p: "Melhorias e ajustes pós-lançamento conforme o teu negócio cresce.",
+        cta_free2: "Pedir revisão gratuita",
+        cta_wa2: "WhatsApp",
 
-        services_title: "Serviços",
-        services_sub: "Essenciais profissionais para pequenos negócios que querem uma presença online premium e confiável.",
-        s1_title: "Web design & desenvolvimento",
-        s1_desc: "Landing pages ou websites completos com acabamento premium e estrutura clara.",
-        s2_title: "Performance mobile-first",
-        s2_desc: "Carregamento rápido e layouts legíveis, pensados para clientes no telemóvel.",
-        s3_title: "Email de negócio (domínio)",
-        s3_desc: "Configuração de email com domínio (MX/SPF/DKIM) + orientação para Zoho, Gmail e Outlook.",
-        s4_title: "Fundamentos de SEO",
-        s4_desc: "Meta + estrutura que suporta indexação. Sem garantias de ranking.",
-        s5_title: "Fluxo orientado a contacto",
-        s5_desc: "Chamadas para ação claras para transformar visitas em pedidos.",
-        s6_title: "Suporte contínuo",
-        s6_desc: "Melhorias e ajustes pós-lançamento conforme o teu negócio cresce.",
-        services_cta1: "Pedir revisão gratuita",
-        services_cta2: "Ver trabalho real",
+        port_t: "Portfólio",
+        port_p: "Projetos selecionados — estrutura limpa, visual premium e um caminho claro para contacto.",
+        p1meta: "Website • Estrutura clara • Mobile-first",
+        p1desc: "Layout limpo e confiável para o visitante perceber o serviço rápido e contactar com confiança.",
+        p2meta: "Website • Estética premium • Fluxo simples",
+        p2desc: "Design calmo e premium com navegação clara e um caminho direto para pedido/consulta.",
+        live: "🔗 Live",
+        live2: "🔗 Live",
+        visit: "Visitar website",
+        visit2: "Visitar website",
+        quote: "Pedir orçamento",
+        quote2: "Pedir orçamento",
+        port_box_t: "Queres um site assim?",
+        port_box_p: "Carrega no WhatsApp e diz-me o que fazes — respondo com próximos passos claros.",
+        port_box_cta1: "Contactar",
+        port_box_cta2: "WhatsApp",
 
-        portfolio_title: "Portfólio",
-        portfolio_sub: "Projetos selecionados — estrutura limpa, visual premium e um caminho claro para contacto.",
-        p1_meta: "Website • Estrutura clara • Mobile-first",
-        p1_desc: "Layout limpo e confiável para o visitante perceber o serviço rápido e contactar com confiança.",
-        p2_meta: "Website • Estética premium • Fluxo simples",
-        p2_desc: "Design calmo e premium com navegação clara e um caminho direto para pedido/consulta.",
-        tag_live: "🔗 Live",
-        tag_live2: "🔗 Live",
-        visit_site: "Visitar website",
-        visit_site2: "Visitar website",
-        request_quote: "Pedir orçamento",
-        request_quote2: "Pedir orçamento",
-        portfolio_box_title: "Queres um site assim?",
-        portfolio_box_desc: "Envia um email com o que fazes e o que precisas — respondo com opções claras e próximos passos.",
-        portfolio_box_cta1: "Contactar",
-        portfolio_box_cta2: "WhatsApp",
+        rev_t: "Testemunhos",
+        rev_p: "Comunicação clara, entrega limpa e resultados profissionais.",
+        q1: "“Muito profissional do início ao fim. Etapas claras, rápido e o site final ficou premium e confiável.”",
+        q2: "“Excelente atenção ao detalhe. Estrutura clara, design premium e o contacto ficou muito simples.”",
+        rev_box_t: "Queres uma revisão gratuita?",
+        rev_box_p: "Carrega no WhatsApp e envia o teu negócio + o que precisas.",
+        rev_box_cta1: "Pedir revisão",
+        rev_box_cta2: "WhatsApp",
 
-        test_title: "Testemunhos",
-        test_sub: "Comunicação clara, entrega limpa e resultados profissionais.",
-        t1_quote: "“Muito profissional do início ao fim. Etapas claras, rápido e o site final ficou premium e confiável.”",
-        t2_quote: "“Excelente atenção ao detalhe. Estrutura clara, design premium e o contacto ficou muito simples para clientes.”",
-        test_box_title: "Queres uma revisão gratuita?",
-        test_box_desc: "Envia um email com o teu negócio, o que precisas e o prazo — respondo com próximos passos claros.",
-        test_box_cta1: "Pedir revisão",
-        test_box_cta2: "WhatsApp",
+        proc_t: "Processo",
+        proc_p: "Workflow simples — para saberes sempre o que acontece a seguir.",
+        pr1t: "Revisão rápida",
+        pr1p: "Dizes o que precisas. Eu respondo com opções, timeline e próximos passos.",
+        pr2t: "Plano & conteúdo",
+        pr2p: "Definimos estrutura. Partilhas logo/textos/fotos (ou eu guio).",
+        pr3t: "Construção & lançamento",
+        pr3p: "Construo, tu aprovas, e lançamos — limpo e profissional.",
+        pr4t: "Notas",
+        pr4p: "Prazos dependem de conteúdo e scope. Tudo confirmado por escrito antes de iniciar.",
 
-        process_title: "Processo",
-        process_sub: "Um workflow simples — para saberes sempre o que acontece a seguir.",
-        pr1_title: "Revisão rápida",
-        pr1_desc: "Tu envias o que precisas. Eu respondo com opções, timeline e próximos passos.",
-        pr2_title: "Plano & conteúdo",
-        pr2_desc: "Definimos a estrutura. Partilhas logo/textos/fotos (ou eu guio).",
-        pr3_title: "Construção & lançamento",
-        pr3_desc: "Eu construo, tu aprovas, e lançamos — limpo e profissional.",
-        pr4_title: "Notas",
-        pr4_desc: "Prazos dependem de conteúdo e scope. Tudo é confirmado por escrito (email) antes de iniciar.",
+        c_t: "Contacto",
+        c_p: "Carrega no WhatsApp (sem mostrar número) ou envia email — respondo com próximos passos.",
+        c_note: "Inclui: tipo de negócio • website (se existir) • o que precisas • prazo • Jersey/UK",
+        c_wa: "WhatsApp",
+        c_email: "Enviar email",
 
-        contact_title: "Contacto",
-        contact_sub: "Envia o que fazes e o que precisas — respondo com próximos passos claros.",
-        contact_email_label: "Email:",
-        contact_support_label: "Suporte:",
-        contact_subject_label: "Assunto sugerido:",
-        contact_subject_value: "Revisão gratuita — AP Solução Online",
-        contact_include_label: "Inclui:",
-        contact_include_value: "tipo de negócio • website (se existir) • o que precisas • prazo • Jersey/UK",
-        contact_cta_email: "Enviar email",
-        contact_cta_support: "Suporte",
-        contact_note: "(Opcional) Se preferires, podes enviar apenas uma mensagem com o teu serviço e o que precisas.",
+        pv_t: "Privacidade & Cookies",
+        pv_p1: "Usamos os teus dados apenas para responder ao teu contacto e prestar o serviço pedido.",
+        pv_h1: "O que é recolhido",
+        pv_p2: "Se contactares por WhatsApp/email, podemos recolher o teu nome e mensagem apenas para responder e dar suporte.",
+        pv_h2: "Cookies",
+        pv_p3: "Usamos armazenamento essencial para lembrar preferências (idioma e cookies). Nada de tracking sem consentimento.",
 
-        privacy_title: "Privacidade & Cookies",
-        privacy_p1: "Usamos os teus dados apenas para responder ao teu contacto e prestar o serviço que pediste.",
-        privacy_h1: "Quem é responsável",
-        privacy_p2: "Este website é operado pela AP Solução Online, baseada em Jersey, Channel Islands. Contacto: info@apsolucaoonline.com.",
-        privacy_h2: "O que é recolhido",
-        privacy_p3: "Se contactares por email/WhatsApp, podemos recolher o teu nome, tipo de negócio e contacto, e a tua mensagem — apenas para responder e fornecer orçamentos/suporte.",
-        privacy_h3: "Retenção & pedidos",
-        privacy_p4: "Guardamos mensagens apenas enquanto necessário para suporte e registo básico. Podes pedir acesso, correção ou eliminação enviando email.",
-        privacy_h4: "Cookies",
-        privacy_p5: "Usamos armazenamento essencial para lembrar preferências de cookies. Scripts opcionais de medição só carregam se aceitares (se estiverem ativados).",
-        privacy_note_b: "Nota:",
-        privacy_note: "Se tiveres dúvidas, contacta primeiro por email.",
+        t_t: "Termos de Serviço",
+        t_p1: "Serviços digitais (site/email/SEO básico) acordados por escrito por projeto. Sem garantias de resultados específicos.",
+        t_h2: "Responsabilidade",
+        t_p2: "O cliente confirma direitos de uso de conteúdos fornecidos. Não somos responsáveis por falhas de plataformas de terceiros.",
+        t_h3: "Lei aplicável",
+        t_p3: "Estes termos destinam-se a ser regidos pelas leis aplicáveis em Jersey (Channel Islands), salvo acordo diferente.",
 
-        terms_title: "Termos de Serviço",
-        terms_p0: "Termos simples para o cliente saber o que esperar.",
-        terms_h1: "1) Quem somos",
-        terms_p1: "Este website e serviços são operados pela AP Solução Online, baseada em Jersey, Channel Islands. Contacto: info@apsolucaoonline.com.",
-        terms_h2: "2) O que fornecemos",
-        terms_p2: "Serviços digitais: web design/desenvolvimento, fundamentos de SEO e orientação/configuração de email de negócio (MX/SPF/DKIM). Entregáveis são acordados por escrito (email) por projeto.",
-        terms_h3: "3) Orçamentos & pagamentos",
-        terms_p3: "Orçamentos são enviados por escrito. Termos de pagamento são acordados por projeto. Subscrições de terceiros (domínios/hosting/email) são da responsabilidade do cliente, salvo acordo diferente.",
-        terms_h4: "4) Resultados / sem garantias",
-        terms_p4: "Seguimos boas práticas e entregamos o trabalho acordado. Não garantimos resultados específicos (rankings/leads/receita).",
-        terms_h5: "5) Responsabilidades do cliente",
-        terms_p5: "O cliente confirma que tem direitos para usar textos/imagens/logos fornecidos e aprova o conteúdo final antes do lançamento.",
-        terms_h6: (t)=>"6) Alterações & cancelamentos",
-        terms_p6: "Revisões razoáveis são incluídas conforme acordado. Trabalho adicional pode exigir orçamento atualizado. Se houver cancelamento após início, pode ser cobrado o trabalho já realizado.",
-        terms_h7: "7) Limitação de responsabilidade",
-        terms_p7: "No máximo permitido por lei, não somos responsáveis por perdas indiretas. Não somos responsáveis por falhas causadas por plataformas de terceiros.",
-        terms_h8: "8) Lei aplicável",
-        terms_p8: "Estes termos destinam-se a ser regidos pelas leis aplicáveis em Jersey (Channel Islands), salvo acordo diferente.",
-        terms_h9: "9) Atualizações",
-        terms_p9: "Podemos atualizar estes termos ocasionalmente. A versão nesta página é a atual.",
-
-        foot_name: "AP Solução Online",
-        foot_line: "Jersey, Channel Islands • info@apsolucaoonline.com",
         foot_note: "Sem garantias de resultados específicos.",
-        foot_rights: "AP Solução Online. Todos os direitos reservados.",
-
         wa_small: "Clique para falar",
-
-        cookie_text: "Usamos armazenamento essencial para lembrar preferências. Scripts opcionais de medição só carregam se aceitares (se estiverem ativados).",
-        cookie_link: "Privacidade & Cookies",
+        cookie_txt: "Usamos armazenamento essencial para lembrar preferências (idioma/cookies). Sem tracking sem consentimento.",
+        cookie_link: "Privacidade",
         cookie_reject: "Rejeitar",
         cookie_accept: "Aceitar",
       },
 
       en: {
-        meta_title: "AP Solução Online — Premium Websites & Business Email (Jersey & UK)",
-        meta_desc: "Premium mobile-first websites and professional domain email setup (MX/SPF/DKIM) — to look credible and generate enquiries with confidence. Clear steps. No pressure.",
-        og_title: "AP Solução Online — Premium Websites & Business Email",
-        og_desc: "Premium websites + professional domain email (MX/SPF/DKIM). Jersey & UK.",
-        og_locale: "en_GB",
-
-        skip: "Skip to content",
-        brand_name: "AP Solução Online",
-        brand_tagline: "Premium websites • Business email • Jersey & UK",
-
+        brand: "AP Solução Online",
+        tagline: "Premium websites • Business email • Jersey & UK",
         nav_services: "Services",
         nav_portfolio: "Portfolio",
-        nav_testimonials: "Reviews",
+        nav_reviews: "Reviews",
         nav_process: "Process",
         nav_privacy: "Privacy",
         nav_terms: "Terms",
         nav_contact: "Contact",
-        nav_free_review: "Free review",
-        nav_free_review2: "Free review",
+        nav_free: "Free review",
+        nav_free2: "Free review",
 
-        hero_kicker: "Digital services • Jersey & UK",
-        hero_h1: "Premium websites & business email — built for trust.",
-        hero_lead: "We build premium mobile-first websites and set up professional domain email (MX/SPF/DKIM) — so your business looks established and customers contact you with confidence. Clear steps. No pressure. Results may vary.",
+        kicker: "Digital services • Jersey & UK",
+        h1: "Premium websites & business email — built for trust.",
+        lead: "We build premium mobile-first websites and set up professional domain email (MX/SPF/DKIM) — so your business looks credible and customers contact you with confidence. Clear steps. No pressure.",
         b1: "Mobile-first by default",
         b2: "Premium look + clear structure",
-        b3: "Clear steps — no pressure",
-
-        cta_free_review: "Free review",
+        b3: "Easy contact (WhatsApp / Email)",
+        cta_free: "Free review",
         cta_work: "See real work",
-        cta_whatsapp: "WhatsApp",
-        cta_whatsapp2: "WhatsApp",
+        cta_wa: "WhatsApp",
 
-        details_title: "Business details",
-        details_operated_by_label: "Operated by:",
-        details_operated_by_value: "AP Solução Online (freelance).",
-        details_base_label: "Based in:",
-        details_base_value: "Jersey, Channel Islands.",
-        details_area_label: "Service area:",
-        details_area_value: "Jersey & UK (remote support available).",
-        details_contact_label: "Contact:",
-        details_support_label: "Support:",
-        details_note: "This site provides general information and is not legal or tax advice.",
+        hc1t: "A premium site that builds credibility",
+        hc1p: "Clean UI, strong structure and an easy journey (built for real phones).",
+        hc2t: "Professional email on your domain",
+        hc2p: "MX/SPF/DKIM setup + proper connection to Zoho, Gmail or Outlook.",
+        hc3t: "SEO foundations",
+        hc3p: "Clean structure, metadata and index-ready basics (no ranking guarantees).",
 
-        hc1_title: "A premium site that builds credibility",
-        hc1_desc: "Clean UI, strong hierarchy and an easy customer journey (built for real phones).",
-        hc2_title: "Professional email setup",
-        hc2_desc: "MX/SPF/DKIM + guidance to connect Zoho, Gmail or Outlook properly.",
-        hc3_title: "SEO foundations (best practice)",
-        hc3_desc: "Clean structure, metadata and index-ready basics. No ranking guarantees.",
+        services_t: "Services",
+        services_p: "Professional essentials for small businesses that want a premium, trustworthy online presence.",
+        s1t: "Web design & development",
+        s1p: "Landing pages or full websites with a premium finish and clear structure.",
+        s2t: "Mobile-first performance",
+        s2p: "Fast load times and readable layouts designed for mobile customers.",
+        s3t: "Business email (domain)",
+        s3p: "Domain email setup (MX/SPF/DKIM) + guidance for Zoho/Gmail/Outlook.",
+        s4t: "SEO (best practice)",
+        s4p: "Metadata + structure that support indexing. No ranking guarantees.",
+        s5t: "Contact-focused flow",
+        s5p: "Clear calls-to-action to turn visits into enquiries.",
+        s6t: "Ongoing support",
+        s6p: "Improvements and updates as your business grows.",
+        cta_free2: "Request a free review",
+        cta_wa2: "WhatsApp",
 
-        services_title: "Services",
-        services_sub: "Professional essentials for small businesses that want a premium, trustworthy online presence.",
-        s1_title: "Web design & development",
-        s1_desc: "Landing pages or full websites with a premium finish and clear structure.",
-        s2_title: "Mobile-first performance",
-        s2_desc: "Fast load times and readable layouts designed for mobile customers.",
-        s3_title: "Business email (domain)",
-        s3_desc: "Domain email setup (MX/SPF/DKIM) + guidance for Zoho, Gmail and Outlook.",
-        s4_title: "SEO foundations",
-        s4_desc: "Metadata + structure that supports indexing. No ranking guarantees.",
-        s5_title: "Contact-focused flow",
-        s5_desc: "Clear calls-to-action to turn visits into enquiries.",
-        s6_title: "Ongoing support",
-        s6_desc: "Improvements and updates as your business grows.",
-        services_cta1: "Request a free review",
-        services_cta2: "See real work",
+        port_t: "Portfolio",
+        port_p: "Selected projects — clean structure, premium look, and a clear path to contact.",
+        p1meta: "Website • Clear structure • Mobile-first",
+        p1desc: "A clean, trustworthy layout so visitors understand the service quickly and get in touch.",
+        p2meta: "Website • Premium aesthetic • Simple flow",
+        p2desc: "Calm premium design with clear navigation and a direct path to enquire/book.",
+        live: "🔗 Live",
+        live2: "🔗 Live",
+        visit: "Visit website",
+        visit2: "Visit website",
+        quote: "Request a quote",
+        quote2: "Request a quote",
+        port_box_t: "Want a site like this?",
+        port_box_p: "Tap WhatsApp and tell me what you do — I’ll reply with clear next steps.",
+        port_box_cta1: "Contact",
+        port_box_cta2: "WhatsApp",
 
-        portfolio_title: "Portfolio",
-        portfolio_sub: "Selected projects — clean structure, premium look, and a clear path to contact.",
-        p1_meta: "Website • Clear structure • Mobile-first",
-        p1_desc: "A clean, trustworthy layout so visitors understand the service quickly and get in touch confidently.",
-        p2_meta: "Website • Premium aesthetic • Simple flow",
-        p2_desc: "Calm premium design with clear navigation and a direct path to book/enquire.",
-        tag_live: "🔗 Live",
-        tag_live2: "🔗 Live",
-        visit_site: "Visit website",
-        visit_site2: "Visit website",
-        request_quote: "Request a quote",
-        request_quote2: "Request a quote",
-        portfolio_box_title: "Want a site like this?",
-        portfolio_box_desc: "Email what you do and what you need — I’ll reply with clear options and next steps.",
-        portfolio_box_cta1: "Contact",
-        portfolio_box_cta2: "WhatsApp",
+        rev_t: "Reviews",
+        rev_p: "Clear communication, clean delivery and professional results.",
+        q1: "“Professional from start to finish. Clear steps, fast delivery, and the final site looks premium and trustworthy.”",
+        q2: "“Great attention to detail. Clear structure, premium design, and contacting clients became easy.”",
+        rev_box_t: "Want a free review?",
+        rev_box_p: "Tap WhatsApp and send your business + what you need.",
+        rev_box_cta1: "Request a review",
+        rev_box_cta2: "WhatsApp",
 
-        test_title: "Reviews",
-        test_sub: "Clear communication, clean delivery and professional results.",
-        t1_quote: "“Professional from start to finish. Clear steps, fast turnaround, and the final site looks premium and trustworthy.”",
-        t2_quote: "“Excellent attention to detail. Clear structure, premium design, and contacting clients became very easy.”",
-        test_box_title: "Want a free review?",
-        test_box_desc: "Email your business, what you need and your timeframe — I’ll reply with clear next steps.",
-        test_box_cta1: "Request a review",
-        test_box_cta2: "WhatsApp",
+        proc_t: "Process",
+        proc_p: "A simple workflow — so you always know what happens next.",
+        pr1t: "Quick review",
+        pr1p: "Tell me what you need. I’ll reply with options, timeline and next steps.",
+        pr2t: "Plan & content",
+        pr2p: "We define structure. You share logo/text/photos (or I guide you).",
+        pr3t: "Build & launch",
+        pr3p: "I build, you approve, and we launch — clean and professional.",
+        pr4t: "Notes",
+        pr4p: "Timelines depend on content and scope. Everything is confirmed before starting.",
 
-        process_title: "Process",
-        process_sub: "A simple workflow — so you always know what happens next.",
-        pr1_title: "Quick review",
-        pr1_desc: "You send what you need. I reply with options, timeline and next steps.",
-        pr2_title: "Plan & content",
-        pr2_desc: "We define the structure. You share logo/text/photos (or I guide you).",
-        pr3_title: "Build & launch",
-        pr3_desc: "I build, you approve, and we launch — clean and professional.",
-        pr4_title: "Notes",
-        pr4_desc: "Timelines depend on content and scope. Everything is confirmed in writing (email) before starting.",
+        c_t: "Contact",
+        c_p: "Tap WhatsApp (number not displayed) or email — I’ll reply with next steps.",
+        c_note: "Include: business type • website (if any) • what you need • timeframe • Jersey/UK",
+        c_wa: "WhatsApp",
+        c_email: "Send email",
 
-        contact_title: "Contact",
-        contact_sub: "Send what you do and what you need — I’ll reply with clear next steps.",
-        contact_email_label: "Email:",
-        contact_support_label: "Support:",
-        contact_subject_label: "Suggested subject:",
-        contact_subject_value: "Free review — AP Solução Online",
-        contact_include_label: "Include:",
-        contact_include_value: "business type • website (if any) • what you need • timeframe • Jersey/UK",
-        contact_cta_email: "Send email",
-        contact_cta_support: "Support",
-        contact_note: "(Optional) If you prefer, just message your service and what you need.",
+        pv_t: "Privacy & Cookies",
+        pv_p1: "We only use your data to reply to your enquiry and provide the requested service.",
+        pv_h1: "What we collect",
+        pv_p2: "If you contact via WhatsApp/email, we may collect your name and message only to reply and support.",
+        pv_h2: "Cookies",
+        pv_p3: "We use essential storage to remember preferences (language/cookies). No tracking without consent.",
 
-        privacy_title: "Privacy & Cookies",
-        privacy_p1: "We use your data only to reply to your enquiry and provide the service you requested.",
-        privacy_h1: "Who is responsible",
-        privacy_p2: "This website is operated by AP Solução Online, based in Jersey, Channel Islands. Contact: info@apsolucaoonline.com.",
-        privacy_h2: "What we collect",
-        privacy_p3: "If you contact us by email/WhatsApp, we may collect your name, business type, contact details and message — only to reply and provide quotes/support.",
-        privacy_h3: "Retention & requests",
-        privacy_p4: "We keep messages only as long as needed for support and basic records. You can request access, correction or deletion by email.",
-        privacy_h4: "Cookies",
-        privacy_p5: "We use essential storage to remember cookie preferences. Optional analytics only load if you accept (if enabled).",
-        privacy_note_b: "Note:",
-        privacy_note: "If you have questions, contact us by email first.",
+        t_t: "Terms of Service",
+        t_p1: "Digital services (website/email/basic SEO) agreed in writing per project. No guarantees of specific results.",
+        t_h2: "Responsibility",
+        t_p2: "Client confirms rights to use supplied content. We are not responsible for third-party platform failures.",
+        t_h3: "Governing law",
+        t_p3: "These terms are intended to be governed by applicable laws in Jersey (Channel Islands), unless agreed otherwise.",
 
-        terms_title: "Terms of Service",
-        terms_p0: "Simple terms so clients know what to expect.",
-        terms_h1: "1) Who we are",
-        terms_p1: "This website and services are operated by AP Solução Online, based in Jersey, Channel Islands. Contact: info@apsolucaoonline.com.",
-        terms_h2: "2) What we provide",
-        terms_p2: "Digital services: web design/development, SEO foundations and business email guidance/setup (MX/SPF/DKIM). Deliverables are agreed in writing (email) per project.",
-        terms_h3: "3) Quotes & payments",
-        terms_p3: "Quotes are provided in writing. Payment terms are agreed per project. Third-party subscriptions (domains/hosting/email) are the client’s responsibility unless agreed otherwise.",
-        terms_h4: "4) Results / no guarantees",
-        terms_p4: "We follow best practices and deliver the agreed work. We do not guarantee specific outcomes (rankings/leads/revenue).",
-        terms_h5: "5) Client responsibilities",
-        terms_p5: "The client confirms they have rights to use supplied text/images/logos and approves final content before launch.",
-        terms_h6: "6) Changes & cancellations",
-        terms_p6: "Reasonable revisions are included as agreed. Additional work may require an updated quote. If cancelled after work begins, completed work may be chargeable.",
-        terms_h7: "7) Liability limitation",
-        terms_p7: "To the maximum extent permitted by law, we are not liable for indirect losses. We are not responsible for third-party platform failures.",
-        terms_h8: "8) Governing law",
-        terms_p8: "These terms are intended to be governed by applicable laws in Jersey (Channel Islands), unless otherwise agreed.",
-        terms_h9: "9) Updates",
-        terms_p9: "We may update these terms occasionally. The version on this page is the current one.",
-
-        foot_name: "AP Solução Online",
-        foot_line: "Jersey, Channel Islands • info@apsolucaoonline.com",
         foot_note: "No guarantees of specific results.",
-        foot_rights: "AP Solução Online. All rights reserved.",
-
         wa_small: "Tap to chat",
-
-        cookie_text: "We use essential storage to remember preferences. Optional analytics only load if you accept (if enabled).",
-        cookie_link: "Privacy & Cookies",
+        cookie_txt: "We use essential storage to remember preferences (language/cookies). No tracking without consent.",
+        cookie_link: "Privacy",
         cookie_reject: "Reject",
         cookie_accept: "Accept",
       }
     };
 
-    function setMeta(lang){
-      const dict = I18N[lang];
-      document.documentElement.lang = (lang === "pt") ? "pt-PT" : "en-GB";
-      document.querySelector('meta[property="og:locale"]').setAttribute("content", dict.og_locale);
-    }
-
-    function applyI18n(lang){
-      const dict = I18N[lang];
+    function applyLang(lang){
       document.documentElement.setAttribute("data-lang", lang);
+      document.documentElement.lang = (lang === "en") ? "en-GB" : "pt-PT";
+      document.querySelector('meta[property="og:locale"]').setAttribute("content", (lang === "en") ? "en_GB" : "pt_PT");
 
-      // Text nodes
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
-        const val = dict[key];
-        if(typeof val === "string") el.textContent = val;
+        el.textContent = I18N[lang][key] || el.textContent;
       });
 
-      // Attributes mapping
-      document.querySelectorAll("[data-i18n-attr]").forEach(el=>{
-        const map = el.getAttribute("data-i18n-attr").split(",");
-        map.forEach(pair=>{
-          const [attr,key] = pair.split(":").map(s=>s.trim());
-          const val = dict[key];
-          if(typeof val === "string") el.setAttribute(attr, val);
-        });
-      });
-
-      setMeta(lang);
-
-      // Update mailto links
-      const mailInfo = `mailto:${INFO_EMAIL}?subject=${enc(dict.contact_subject_value)}`;
-      const mailSupport = `mailto:${SUPPORT_EMAIL}?subject=${enc(lang==="pt" ? "Suporte — AP Solução Online" : "Support — AP Solução Online")}`;
-      const infoA = document.getElementById("emailInfo");
-      const supA = document.getElementById("emailSupport");
-      if(infoA){ infoA.textContent = INFO_EMAIL; infoA.href = `mailto:${INFO_EMAIL}`; }
-      if(supA){ supA.textContent = SUPPORT_EMAIL; supA.href = `mailto:${SUPPORT_EMAIL}`; }
-      const mi = document.getElementById("mailtoInfo");
-      const ms = document.getElementById("mailtoSupport");
-      if(mi) mi.href = mailInfo;
-      if(ms) ms.href = mailSupport;
-
-      // WhatsApp message
-      const waMsgPT =
+      // WhatsApp message per language
+      const msgPT =
 `Olá! Quero uma revisão gratuita.
 
 Negócio:
@@ -1127,7 +937,7 @@ Tenho (logo/fotos/textos):
 Prazo ideal:
 Jersey ou UK:
 `;
-      const waMsgEN =
+      const msgEN =
 `Hi! I'd like a free review.
 
 Business:
@@ -1136,36 +946,41 @@ I have (logo/photos/text):
 Ideal timeframe:
 Jersey or UK:
 `;
-      const waUrl = waLink(lang==="pt" ? waMsgPT : waMsgEN);
-      ["waFloat","ctaWAHero","ctaWAPortfolio","ctaWATestimonials","ctaWAContact"].forEach(id=>{
+      const url = waLink(lang === "en" ? msgEN : msgPT);
+
+      ["waFloat","ctaWAHero","ctaWAServices","ctaWAPortfolio","ctaWATestimonials","ctaWAContact"].forEach(id=>{
         const el = document.getElementById(id);
-        if(el) el.href = waUrl;
+        if(el) el.href = url;
       });
 
-      // Update page title + meta description (if using data-i18n)
-      const titleEl = document.querySelector("title[data-i18n]");
-      if(titleEl) document.title = dict.meta_title;
-      const desc = document.querySelector('meta[name="description"]');
-      if(desc) desc.setAttribute("content", dict.meta_desc);
-      const ogt = document.querySelector('meta[property="og:title"]');
-      if(ogt) ogt.setAttribute("content", dict.og_title);
-      const ogd = document.querySelector('meta[property="og:description"]');
-      if(ogd) ogd.setAttribute("content", dict.og_desc);
+      // Title + description
+      if(lang === "en"){
+        document.title = "AP Solução Online — Premium Websites & Business Email (Jersey & UK)";
+        document.querySelector('meta[name="description"]').setAttribute("content",
+          "Premium mobile-first websites and professional domain email setup (MX/SPF/DKIM) — credible online presence and easy contact. Clear steps. No pressure."
+        );
+        document.querySelector('meta[property="og:title"]').setAttribute("content","AP Solução Online — Premium Websites & Business Email");
+        document.querySelector('meta[property="og:description"]').setAttribute("content","Premium websites + professional domain email (MX/SPF/DKIM). Jersey & UK.");
+      } else {
+        document.title = "AP Solução Online — Sites Premium & Email de Negócio (Jersey & UK)";
+        document.querySelector('meta[name="description"]').setAttribute("content",
+          "Sites premium (mobile-first) e configuração de email profissional com domínio (MX/SPF/DKIM) — presença online credível e contacto fácil. Etapas claras. Sem compromisso."
+        );
+        document.querySelector('meta[property="og:title"]').setAttribute("content","AP Solução Online — Sites Premium & Email de Negócio");
+        document.querySelector('meta[property="og:description"]').setAttribute("content","Sites premium + email profissional com domínio (MX/SPF/DKIM). Jersey & UK.");
+      }
     }
 
-    // Year
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Language persistence
+    // Language toggle (saved)
     const LANG_KEY = "ap_lang_v1";
-    const savedLang = localStorage.getItem(LANG_KEY);
-    applyI18n(savedLang === "en" ? "en" : "pt");
+    const saved = localStorage.getItem(LANG_KEY);
+    applyLang(saved === "en" ? "en" : "pt");
 
     document.getElementById("langToggle").onclick = () => {
       const current = document.documentElement.getAttribute("data-lang") || "pt";
       const next = current === "pt" ? "en" : "pt";
       localStorage.setItem(LANG_KEY, next);
-      applyI18n(next);
+      applyLang(next);
     };
 
     // Cookie bar
@@ -1181,4 +996,4 @@ Jersey or UK:
     document.getElementById("cookieAccept").onclick = () => { localStorage.setItem(COOKIE_KEY, "accept"); bar.style.display="none"; };
   </script>
 </body>
-  </html>
+</html>
