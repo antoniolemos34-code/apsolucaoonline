@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://apsolucaoonline.com/sitemap.xml
